@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  width: 100%;
+  height: 100%;
 }
 
 .App-logo {
@@ -35,4 +37,34 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+/* override browser default */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* use viewport-relative units to cover page fully */
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* include border and padding in element width and height */
+* {
+  box-sizing: border-box;
+}
+
+/* full-sized  container that fills up the page */
+div {
+  /* height: 100%; */
+  /* width: 100%; */
+
+  /* example padding, font-size, background, etc */
+  /* padding: 10px; */
+  /* font-size: 20px; */
+  /* background-color: lightskyblue; */
 }
