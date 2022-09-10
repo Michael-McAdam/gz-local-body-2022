@@ -28,6 +28,7 @@ const initialState = {
   whoRegion: [],
   where: [],
   loaded: false,
+  special: false,
 };
 
 function reducer(state, action) {
@@ -55,6 +56,8 @@ function reducer(state, action) {
       return { ...state, where: action.payload };
     case "finishedLoading":
       return { ...state, loaded: true };
+    case "setSpecial":
+      return { ...state, special: action.payload };
     default:
       throw new Error();
   }
@@ -110,9 +113,9 @@ function App() {
             {state.region && state.district && (
               <>
                 <WhoSection state={state} dispatch={dispatch} />
+                <HowSection state={state} dispatch={dispatch} />
                 <WhereSection state={state} dispatch={dispatch} />
                 <WhySection />
-                <HowSection state={state} dispatch={dispatch} />
                 <WhenSection state={state} dispatch={dispatch} />
                 <LogoContainer>
                   <LogoText>Proudly made by:</LogoText>
@@ -139,17 +142,22 @@ function App() {
 
 export default App;
 
+const View = styled.div`
+  height: 100vh;
+  overflow: hidden;
+`;
+
 const Background = styled.div`
   height: calc(8 * 100vh + 8 * 30vh);
   width: 100%;
   background-color: blue;
-  background: rgb(21, 20, 37);
+  /* background: rgb(21, 20, 37); */
   background: linear-gradient(
     180deg,
-    rgba(21, 20, 37, 1) 0%,
-    rgba(61, 92, 142, 1) 25%,
-    rgba(61, 92, 142, 1) 75%,
-    rgba(21, 20, 37, 1) 100%
+    rgba(85, 106, 65, 1) 0%,
+    rgba(85, 106, 65, 0.8) 25%,
+    rgba(85, 106, 65, 0.8) 75%,
+    rgba(85, 106, 65, 1) 100%
   );
 `;
 

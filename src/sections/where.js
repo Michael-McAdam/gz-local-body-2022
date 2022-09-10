@@ -93,7 +93,10 @@ function Render({ state, dispatch }) {
   //   let info = data.loc["Wellington"];
 
   return (
-    <Section title="WHERE?">
+    <Section
+      title="WHERE?"
+      subtitle="All the locations in your area where you can drop off your voting pack"
+    >
       <MapSection>
         {/* <GoogleMapReact
           bootstrapURLKeys={{ key: "" }}

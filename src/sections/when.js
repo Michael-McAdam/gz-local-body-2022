@@ -9,9 +9,9 @@ import ReactPlayer from "react-player";
 import { Stepper, Step, StepLabel } from "@mui/material";
 
 const labels = {
-  enrolBy: { label: "Enrolment Closes" },
-  starting: { label: "Voting Opens" },
-  ending: { label: "Voting Closes" },
+  enrolBy: { label: "Enrolment Closes", time: "2022-08-12" },
+  starting: { label: "Voting Opens", time: "16 Sep 2022 00:00:00 GMT" },
+  ending: { label: "Voting Closes", time: "8 Oct 2022 00:00:00 GMT" },
 };
 
 const CountdownChooser = (times) => {
@@ -19,7 +19,7 @@ const CountdownChooser = (times) => {
   if (times.ending?.toDate().getTime() < now.getTime()) {
     return <h2> Voting has closed. Next elections will be in 3 years!</h2>;
   } else if (times.starting?.toDate().getTime() < now.getTime()) {
-    return <h2> Voting has opened. Get out there</h2>;
+    return <h2> Voting has opened. Get out there.</h2>;
   } else {
     return (
       <Countdown
@@ -47,14 +47,13 @@ function render({ state, dispatch }) {
 
   let activeStep = 0;
 
-  let steps = Object.keys(labels).map((step, i) => {
-    let time = times[step]?.toDate();
+  let steps = Object.values(labels).map((step, i) => {
+    let time = new Date(step.time);
     let now = new Date();
     console.log(time.getTime());
-    console.log(now.getTime());
     activeStep = time.getTime() > now.getTime() ? activeStep : i + 1;
-    console.log(activeStep);
-    return { label: labels[step].label, time };
+    // console.log(activeStep);
+    return { label: step.label, time };
   });
 
   let countdown = CountdownChooser(times);
@@ -74,7 +73,7 @@ function render({ state, dispatch }) {
                     <span>{label}</span>
                     <span>
                       {time.toLocaleDateString("en-NZ", {
-                        year: "numeric",
+                        // year: "numeric",
                         month: "short",
                         day: "numeric",
                       })}

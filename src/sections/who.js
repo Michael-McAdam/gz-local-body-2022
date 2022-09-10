@@ -12,6 +12,14 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebase";
 import WhoInfo from "../components/WhoInfo";
 
+let categories = [
+  "publicTransport",
+  "housing",
+  "environment",
+  "equity",
+  "teTiriti",
+];
+
 let findCategories = (data) => {
   let res = Object.values(data).reduce((sum, entry) => {
     console.log(entry);
@@ -53,15 +61,20 @@ function Render({ state, dispatch }) {
   }, [state.district]);
 
   //   let categories = findCategories(state.who);
-  let categories = findCategories(state.who);
-  let regionCategories = findCategories(state.whoRegion);
+  // let categories = findCategories(state.who);
+  // let regionCategories = findCategories(state.whoRegion);
 
   let localLoaded = state.who.length > 0;
   let regionLoaded = state.whoRegion.length > 0;
   let loaded = localLoaded || regionLoaded;
   return (
     <>
-      <Section title="WHO?" icon={<InfoIcon onClick={() => setOpen(true)} />}>
+      <Section
+        title="WHO?"
+        icon={<InfoIcon onClick={() => setOpen(true)} />}
+        subtitle="We researched the candidates so that you don't have to"
+        dense={true}
+      >
         <WhoInfo open={open} onClose={() => setOpen(false)} />
         {localLoaded ? (
           <>
@@ -86,11 +99,7 @@ function Render({ state, dispatch }) {
               {state.whoRegion
                 .sort((a, b) => (a.overall + "," > b.overall + "," ? 1 : -1))
                 .map((candidate, i) => (
-                  <Scorecard
-                    data={candidate}
-                    key={i}
-                    categories={regionCategories}
-                  />
+                  <Scorecard data={candidate} key={i} categories={categories} />
                 ))}
             </ScorecardSection>
           </Section>

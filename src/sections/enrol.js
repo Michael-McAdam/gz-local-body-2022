@@ -18,14 +18,19 @@ function render({ onClick }) {
         size="large"
         rel="noopener noreferrer"
         // className="Button"
-        sx={{ fontWeight: "bold", transform: "scale(3)" }}
+        sx={{
+          fontWeight: "900",
+          transform: "scale(3)",
+          // color: "rgba(85,106,65, 1)",
+          color: "white",
+        }}
         // sx={{ fontWeight: "bold", width: 0.3, pt: 5, pb: 5, fontSize: 40 }}
       >
         Enrol
       </Button>
       <ContinueSection>
         <Link to="region" spy={true} smooth={true}>
-          <Fab color="primary" aria-label="add">
+          <Fab color="primary" aria-label="add" sx={{ color: "white" }}>
             <KeyboardArrowDownIcon onClick={() => onClick()} />
           </Fab>
         </Link>

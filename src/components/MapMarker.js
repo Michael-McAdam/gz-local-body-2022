@@ -39,7 +39,7 @@ const Icon = styled(RoomIcon)`
 
 const Text = styled.p`
   /* margin-left: 5px; */
-  font-size: 15px;
+  font-size: 12px;
   color: black;
   background-color: white;
   border-radius: 2px;
@@ -56,7 +56,7 @@ const Text = styled.p`
 const TextContainer = styled.div`
   /* margin-left: 5px; */
   position: absolute;
-  left: 30px;
+  left: 10px;
   white-space: nowrap;
   transform: translate(0, -100%);
   /* display: flex; */

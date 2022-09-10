@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow+Condensed|Open+Sans');
+
+
 .App {
   text-align: center;
   width: 100%;
@@ -51,6 +54,7 @@ body {
 body {
   height: 100vh;
   width: 100vw;
+  font-family: 'Open Sans', 'Droid Sans', Arial, sans-serif;
 }
 
 /* include border and padding in element width and height */
@@ -62,9 +66,18 @@ body {
 div {
   /* height: 100%; */
   /* width: 100%; */
-
+  
   /* example padding, font-size, background, etc */
   /* padding: 10px; */
   /* font-size: 20px; */
   /* background-color: lightskyblue; */
+}
+
+h1,h2 {
+  font-family: 'Barlow Condensed', 'Roboto', 'Helvetica';
+}
+
+h1 {
+
+  font-size: 2.5em;
 }

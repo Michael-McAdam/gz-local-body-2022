@@ -19,16 +19,9 @@ const render = ({ data, categories }) => {
   return (
     <Container className="Card" variant="outlined">
       <CardContent>
-        <ScoreContainer>
-          <PictureContainer>
-            {data.photo?.length > 0 ? (
-              <Picture src={data.photo[0]?.downloadURL} />
-            ) : (
-              <Picture src="./assets/avatar.png" style={{ opacity: "50%" }} />
-            )}
-          </PictureContainer>
-          <Score>{data.overall}</Score>
-        </ScoreContainer>
+        {/* <ScoreContainer> */}
+        <Score>{data.overall}</Score>
+        {/* </ScoreContainer> */}
         <Name>{data.name}</Name>
         <Table>
           <tbody>
@@ -55,27 +48,29 @@ const render = ({ data, categories }) => {
 export default render;
 
 const Container = styled(Card)`
-  width: 275px;
-  min-width: 275px;
+  width: 30%;
+  min-width: 200px;
   min-height: 300;
-  align-items: "start";
   background-color: "rgba(255, 255, 255, 0.5)";
 `;
 
 const Score = styled.p`
   font-weight: bold;
-  font-size: 80px;
+  font-size: 2em;
   margin: 0;
   text-align: center;
   margin-left: 5px;
   width: 60%;
+  background-color: rgba(225, 210, 183, 1);
+  border-radius: 50px;
+  margin: auto;
 `;
 
 const Name = styled.p`
-  font-weight: bold;
+  font-weight: 900;
   font-size: 20px;
   margin: 0;
-  text-align: left;
+  text-align: center;
   margin-bottom: 10px;
 `;
 
@@ -108,7 +103,7 @@ const Table = styled.table`
   border-collapse: collapse;
 `;
 const Row = styled.tr`
-  font-size: 16px;
+  font-size: 0.5em;
 
   & > td {
     border-bottom: 1px solid;

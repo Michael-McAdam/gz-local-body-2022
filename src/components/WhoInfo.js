@@ -7,8 +7,8 @@ import { useEffect } from "react";
 import { Icon, Modal, Button, Chip } from "@mui/material";
 
 const categoryInfo = {
-  overview:
-    "Everyone was sent a questionnaire that asked various questions about the categories listed below. Their responses were rated. For people who are already elected to the council their voting record on issues while in office was taken into account",
+  overview: `Everyone was sent a questionnaire that asked various questions about the categories listed below. Their responses were rated. 
+    For people who are already elected to the council their voting record on issues while in office was taken into account`,
   categories: {
     publicTransport:
       "Public Transport is a key part of mode shift - getting people out of cars and into more efficient forms of transport",

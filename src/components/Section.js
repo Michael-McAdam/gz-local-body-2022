@@ -4,11 +4,14 @@ import { Icon, Modal, Button, Chip } from "@mui/material";
 
 function Section(props) {
   return (
-    <Container>
-      <TitleContainer>
-        <SectionTitle>{props.title}</SectionTitle>
-        <IconContainer>{props.icon}</IconContainer>
-      </TitleContainer>
+    <Container dense={props.dense}>
+      <HeaderContainer>
+        <TitleContainer>
+          <SectionTitle>{props.title}</SectionTitle>
+          <IconContainer>{props.icon}</IconContainer>
+        </TitleContainer>
+        <Subtitle>{props.subtitle}</Subtitle>
+      </HeaderContainer>
       {props.children}
     </Container>
   );
@@ -25,7 +28,7 @@ const Container = styled.div`
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  margin-bottom: 30vh;
+  margin-bottom: ${(props) => !props.dense && "30vh"};
 
   display: ${(props) => (props.hidden ? "hidden" : "default")};
 
@@ -41,15 +44,12 @@ const Container = styled.div`
 `;
 
 const SectionTitle = styled.h1`
+  margin: 0;
   margin-right: 50px;
 `;
 
 const TitleContainer = styled.div`
-  color: white;
-  position: absolute;
   font-weight: 900;
-  top: 30px;
-  left: 30px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -60,10 +60,27 @@ const TitleContainer = styled.div`
   }
 `;
 
+const HeaderContainer = styled.div`
+  color: white;
+  position: absolute;
+  top: 50px;
+  left: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`;
+
 const IconContainer = styled.div`
   cursor: pointer;
 
   &:hover {
     opacity: 50%;
   }
+`;
+
+const Subtitle = styled.p`
+  font-size: 15px;
+  font-style: italic;
+  margin: 0;
+  padding: 0;
 `;
