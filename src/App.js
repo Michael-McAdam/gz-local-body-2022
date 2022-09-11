@@ -1,7 +1,7 @@
 import "./App.css";
 import { CircularProgress } from "@mui/material";
 import styled from "@emotion/styled";
-import { useState, useRef, useEffect, useReducer } from "react";
+import { useRef, useEffect, useReducer } from "react";
 import {
   EnrolSection,
   HowSection,
@@ -16,7 +16,6 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 
 import { db } from "./firebase";
 import Section from "./components/Section";
-import { Parallax } from "react-scroll-parallax";
 
 const q = query(collection(db, "regions"), where("include", "==", true));
 
@@ -140,7 +139,7 @@ function App() {
 export default App;
 
 const Background = styled.div`
-  height: calc(8 * 100vh + 8 * 30vh);
+  height: 100%;
   width: 100%;
   background-color: blue;
   background: rgb(21, 20, 37);
@@ -166,7 +165,6 @@ const AppContainer = styled.div`
   position: relative;
   height: 100%;
   width: 100%;
-  overflow: scroll;
 `; /* rgba(142, 111, 61, 1) 100% */
 /* rgba(186, 186, 186, 1) 100% */
 /* rgba(251, 229, 163, 1) 67%, */
