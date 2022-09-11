@@ -23,11 +23,11 @@ let _map;
 
 const getMapBounds = (map, maps, locations) => {
   const bounds = new maps.LatLngBounds();
-  console.log("Setting bounds");
+  // console.log("Setting bounds");
 
-  locations.forEach(({ location }) => {
-    console.log(location);
-    bounds.extend(new maps.LatLng(location._lat, location._long));
+  locations.forEach((location) => {
+    // console.log(location);
+    bounds.extend(new maps.LatLng(location.lat, location.lng));
   });
   return bounds;
 };
@@ -43,7 +43,7 @@ const bindResizeListener = (map, maps, bounds) => {
 const apiIsLoaded = (map, maps, locations) => {
   if (map) {
     _map = map;
-    console.log(locations);
+    // console.log(locations);
     const bounds = getMapBounds(map, maps, locations);
     map.fitBounds(bounds);
     bindResizeListener(map, maps, bounds);
@@ -87,7 +87,7 @@ function Render({ state, dispatch }) {
     return <></>;
   }
 
-  console.log(state.where);
+  // console.log(state.where);
   info = state.where;
 
   //   let info = data.loc["Wellington"];
@@ -118,13 +118,13 @@ function Render({ state, dispatch }) {
           onGoogleApiLoaded={({ map, maps }) => apiIsLoaded(map, maps, info)}
         >
           {info.map(
-            ({ location: loc, name, link }) => {
-              console.log(loc._lat, loc._long);
+            ({ lat, lng, name, link }) => {
+              // console.log(lat, lng);
               return (
                 <MapMarker
-                  key={loc._lat}
-                  lat={loc._lat}
-                  lng={loc._long}
+                  key={lat}
+                  lat={lat}
+                  lng={lng}
                   text={name}
                   link={link}
                 />

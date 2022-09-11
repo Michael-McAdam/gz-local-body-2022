@@ -16,16 +16,28 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 
 import { db } from "./firebase";
 import Section from "./components/Section";
-import { Parallax } from "react-scroll-parallax";
 
 const q = query(collection(db, "regions"), where("include", "==", true));
 
 const initialState = {
   regions: {},
+  districts: [],
+  wards: [],
   region: "",
   district: "",
-  who: [],
-  whoRegion: [],
+  ward: "",
+  selected: {
+    district: "",
+    region: "",
+    mayor: "",
+    board: "",
+  },
+  who: {
+    district: [],
+    region: [],
+    mayor: [],
+    board: [],
+  },
   where: [],
   loaded: false,
   special: false,
@@ -35,23 +47,37 @@ function reducer(state, action) {
   switch (action.type) {
     case "addRegion":
       return { ...state, regions: { ...state.regions, ...action.payload } };
+    case "addDistricts":
+      return { ...state, districts: action.payload };
+    case "addWards":
+      return { ...state, wards: action.payload };
     case "setRegion":
       return {
-        ...initialState,
-        regions: state.regions,
+        ...state,
+        district: "",
+        ward: "",
+        board: "",
+        who: initialState.who,
         region: action.payload,
       };
     case "setDistrict":
       return {
-        ...initialState,
-        regions: state.regions,
-        region: state.region,
+        ...state,
+        ward: "",
+        board: "",
+        who: initialState.who,
         district: action.payload,
       };
+    case "setWard":
+      return { ...state, board: "", ward: action.payload };
+    case "setBoard":
+      return { ...state, board: action.payload };
     case "setWho":
-      return { ...state, who: action.payload };
-    case "setWhoRegion":
-      return { ...state, whoRegion: action.payload };
+      console.log("Here: ", action);
+      return {
+        ...state,
+        who: { ...state.who, [action.payload.type]: action.payload.data },
+      };
     case "setWhere":
       return { ...state, where: action.payload };
     case "finishedLoading":
@@ -59,13 +85,14 @@ function reducer(state, action) {
     case "setSpecial":
       return { ...state, special: action.payload };
     default:
-      throw new Error();
+      console.log("No handler for reducer");
+      return state;
+    // throw new Error();
   }
 }
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const ref = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -76,18 +103,25 @@ function App() {
           where("include", "==", true)
         );
         let districts = await getDocs(q2);
-        dispatch({
-          type: "addRegion",
-          payload: {
-            [doc.id]: {
-              ...doc.data(),
-              id: doc.id,
-              districts: districts.docs.reduce(
-                (o, d) => ({ ...o, [d.id]: { ...d.data(), id: d.id } }),
-                {}
-              ),
+        districts.docs.forEach(async (doc2) => {
+          let q3 = query(
+            collection(db, "regions", doc.id, "districts", doc2.id, "wards"),
+            where("include", "==", true)
+          );
+          await getDocs(q3);
+          dispatch({
+            type: "addRegion",
+            payload: {
+              [doc.id]: {
+                ...doc.data(),
+                id: doc.id,
+                districts: districts.docs.reduce(
+                  (o, d) => ({ ...o, [d.id]: { ...d.data(), id: d.id } }),
+                  {}
+                ),
+              },
             },
-          },
+          });
         });
       });
     };
@@ -104,31 +138,23 @@ function App() {
       <AppContainer className="App">
         {loaded ? (
           <>
-            <EnrolSection
-              onClick={() =>
-                ref.current?.scrollIntoView({ behavior: "smooth" })
-              }
-            />
-            <RegionSection state={state} dispatch={dispatch} ref={ref} />
-            {state.region && state.district && (
-              <>
-                <WhoSection state={state} dispatch={dispatch} />
-                <HowSection state={state} dispatch={dispatch} />
-                <WhereSection state={state} dispatch={dispatch} />
-                <WhySection />
-                <WhenSection state={state} dispatch={dispatch} />
-                <LogoContainer>
-                  <LogoText>Proudly made by:</LogoText>
-                  <a
-                    href="https://www.generationzero.org/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Logo src="./assets/gen_zero_logo.png" />
-                  </a>
-                </LogoContainer>
-              </>
-            )}
+            <EnrolSection />
+            <RegionSection state={state} dispatch={dispatch} db={db} />
+            <WhoSection state={state} dispatch={dispatch} />
+            <HowSection state={state} dispatch={dispatch} />
+            <WhereSection state={state} dispatch={dispatch} />
+            <WhySection />
+            <WhenSection state={state} dispatch={dispatch} />
+            <LogoContainer>
+              <LogoText>Proudly made by:</LogoText>
+              <a
+                href="https://www.generationzero.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Logo src="./assets/generation-zero-logo.png" />
+              </a>
+            </LogoContainer>
           </>
         ) : (
           <Section>
@@ -148,7 +174,7 @@ const View = styled.div`
 `;
 
 const Background = styled.div`
-  height: calc(8 * 100vh + 8 * 30vh);
+  /* height: calc(8 * 100vh + 8 * 30vh); */
   width: 100%;
   background-color: blue;
   /* background: rgb(21, 20, 37); */

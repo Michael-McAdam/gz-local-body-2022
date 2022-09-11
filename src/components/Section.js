@@ -4,7 +4,7 @@ import { Icon, Modal, Button, Chip } from "@mui/material";
 
 function Section(props) {
   return (
-    <Container dense={props.dense}>
+    <Container dense={props.dense} height={props.height}>
       <HeaderContainer>
         <TitleContainer>
           <SectionTitle>{props.title}</SectionTitle>
@@ -21,7 +21,8 @@ export default Section;
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
+  height: ${(props) => (props.height ? props.height : "100vh")};
   display: flex;
   flex-direction: column;
   align-items: center;
