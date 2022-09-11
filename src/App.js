@@ -62,6 +62,7 @@ function reducer(state, action) {
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const ref = useRef(null);
+  const whoRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -91,6 +92,10 @@ function App() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    whoRef.current?.scrollIntoView({behavior: "smooth"})
+  }, [state.district]);
+
   console.log(state);
 
   let loaded = Object.keys(state.regions).length > 0;
@@ -108,7 +113,7 @@ function App() {
             <RegionSection state={state} dispatch={dispatch} ref={ref} />
             {state.region && state.district && (
               <>
-                <WhoSection state={state} dispatch={dispatch} />
+                <WhoSection state={state} dispatch={dispatch} ref={whoRef} />
                 <WhereSection state={state} dispatch={dispatch} />
                 <WhySection />
                 <HowSection state={state} dispatch={dispatch} />

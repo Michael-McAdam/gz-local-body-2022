@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import Scorecard from "../components/Scorecard";
 import data from "../data";
 import Section from "../components/Section";
-import { useEffect, useState } from "react";
+import {forwardRef, useEffect, useState} from "react";
 import { Icon, Modal, Button, Chip } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 
@@ -22,7 +22,7 @@ let findCategories = (data) => {
   return Object.keys(res).sort();
 };
 
-function Render({ state, dispatch }) {
+const Render = forwardRef(({ state, dispatch }, ref) => {
   let [open, setOpen] = useState(false);
   let [loading, setLoading] = useState(false);
 
@@ -61,7 +61,7 @@ function Render({ state, dispatch }) {
   let loaded = localLoaded || regionLoaded;
   return (
     <>
-      <Section title="WHO?" icon={<InfoIcon onClick={() => setOpen(true)} />}>
+      <Section title="WHO?" icon={<InfoIcon onClick={() => setOpen(true)} />} ref={ref}>
         <WhoInfo open={open} onClose={() => setOpen(false)} />
         {localLoaded ? (
           <>
@@ -98,7 +98,7 @@ function Render({ state, dispatch }) {
       )}
     </>
   );
-}
+})
 
 export default Render;
 

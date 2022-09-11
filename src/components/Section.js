@@ -1,10 +1,11 @@
 import "../App.css";
 import styled from "@emotion/styled";
 import { Icon, Modal, Button, Chip } from "@mui/material";
+import {forwardRef} from "react";
 
-function Section(props) {
+const Section = forwardRef((props, ref) => {
   return (
-    <Container>
+    <Container ref={ref}>
       <TitleContainer>
         <SectionTitle>{props.title}</SectionTitle>
         <IconContainer>{props.icon}</IconContainer>
@@ -12,7 +13,7 @@ function Section(props) {
       {props.children}
     </Container>
   );
-}
+})
 
 export default Section;
 
