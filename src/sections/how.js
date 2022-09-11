@@ -41,7 +41,11 @@ function render({ state, dispatch }) {
               <p>
                 Make sure all your details are up to date, if you're unsure you
                 can check{" "}
-                <a href="https://enrol.vote.nz/app/enrol/#/check-online">
+                <a
+                  href="https://enrol.vote.nz/app/enrol/#/check-online"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   here
                 </a>
               </p>

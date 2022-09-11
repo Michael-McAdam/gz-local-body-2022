@@ -23,6 +23,7 @@ let categories = [
 function Render({ state, dbPath, watchKey, title, type, dispatch }) {
   useEffect(() => {
     const fetchData = async () => {
+      console.log("Requesting: ", dbPath);
       let q = query(collection(db, dbPath));
       let res = await getDocs(q);
       dispatch({
@@ -34,12 +35,24 @@ function Render({ state, dbPath, watchKey, title, type, dispatch }) {
       });
     };
 
-    fetchData();
-  }, [state[watchKey]]);
+    if (state.selected[watchKey]) {
+      fetchData();
+      console.log("Fetching");
+    } else {
+      dispatch({
+        type: "setWho",
+        payload: {
+          type: type,
+          data: [],
+        },
+      });
+    }
+    console.log("Running for: ", title);
+  }, [state.selected[watchKey]]);
 
   let loaded = state.who[type].length > 0;
 
-  if (state[watchKey] === "") {
+  if (state.selected[watchKey] === "") {
     return (
       <>
         <Subtitle>{title}</Subtitle>
@@ -97,6 +110,7 @@ const ScorecardContainer = styled.div`
 
 const Title = styled.p`
   font-size: 15px;
+  min-height: 150px;
 `;
 
 const Subtitle = styled.h2``;

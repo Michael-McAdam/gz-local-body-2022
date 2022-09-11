@@ -13,9 +13,11 @@ import {
 } from "./sections";
 
 import { collection, getDocs, query, where } from "firebase/firestore";
+import { levels } from "./util";
 
 import { db } from "./firebase";
 import Section from "./components/Section";
+import data from "./data";
 
 const q = query(collection(db, "regions"), where("include", "==", true));
 
@@ -26,11 +28,19 @@ const initialState = {
   region: "",
   district: "",
   ward: "",
+  data: {
+    region: [],
+    district: [],
+    ward: [],
+    board: [],
+    subdivision: [],
+  },
   selected: {
-    district: "",
     region: "",
-    mayor: "",
+    district: "",
+    ward: "",
     board: "",
+    subdivision: "",
   },
   who: {
     district: [],
@@ -44,13 +54,19 @@ const initialState = {
 };
 
 function reducer(state, action) {
+  console.log(action);
   switch (action.type) {
-    case "addRegion":
-      return { ...state, regions: { ...state.regions, ...action.payload } };
-    case "addDistricts":
-      return { ...state, districts: action.payload };
-    case "addWards":
-      return { ...state, wards: action.payload };
+    case "addData":
+      return {
+        ...state,
+        data: { ...state.data, [action.payload.type]: action.payload.data },
+      };
+    case "setSelected":
+      return {
+        ...state,
+        selected: action.payload.selected,
+        data: action.payload.data,
+      };
     case "setRegion":
       return {
         ...state,
@@ -96,42 +112,53 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      let regions = await getDocs(q);
-      regions.docs.forEach(async (doc) => {
-        let q2 = query(
-          collection(db, "regions", doc.id, "districts"),
-          where("include", "==", true)
-        );
-        let districts = await getDocs(q2);
-        districts.docs.forEach(async (doc2) => {
-          let q3 = query(
-            collection(db, "regions", doc.id, "districts", doc2.id, "wards"),
-            where("include", "==", true)
-          );
-          await getDocs(q3);
-          dispatch({
-            type: "addRegion",
-            payload: {
-              [doc.id]: {
-                ...doc.data(),
-                id: doc.id,
-                districts: districts.docs.reduce(
-                  (o, d) => ({ ...o, [d.id]: { ...d.data(), id: d.id } }),
-                  {}
-                ),
-              },
-            },
-          });
-        });
+      let res = await getDocs(q);
+      dispatch({
+        type: "addData",
+        payload: {
+          type: "region",
+          data: res.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          })),
+        },
       });
     };
+    // regions.docs.forEach(async (doc) => {
+    //   let q2 = query(
+    //     collection(db, "regions", doc.id, "districts"),
+    //     where("include", "==", true)
+    //   );
+    //   let districts = await getDocs(q2);
+    //   districts.docs.forEach(async (doc2) => {
+    //     let q3 = query(
+    //       collection(db, "regions", doc.id, "districts", doc2.id, "wards"),
+    //       where("include", "==", true)
+    //     );
+    //     await getDocs(q3);
+    //     dispatch({
+    //       type: "addRegion",
+    //       payload: {
+    //         [doc.id]: {
+    //           ...doc.data(),
+    //           id: doc.id,
+    //           districts: districts.docs.reduce(
+    //             (o, d) => ({ ...o, [d.id]: { ...d.data(), id: d.id } }),
+    //             {}
+    //           ),
+    //         },
+    //       },
+    //     });
+    //   });
+    // });
+    // };
 
     fetchData();
   }, []);
 
   console.log(state);
 
-  let loaded = Object.keys(state.regions).length > 0;
+  let loaded = Object.keys(state.data.region).length > 0;
 
   return (
     <Background>

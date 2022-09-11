@@ -12,10 +12,13 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebase";
 import WhoInfo from "../components/WhoInfo";
 import ScorecardSection from "../components/ScorecardSection";
+import { AucklandID } from "../util";
 
 function Render({ state, dispatch }) {
   let [open, setOpen] = useState(false);
   let [loading, setLoading] = useState(false);
+
+  let isAuckland = state.selected.region === AucklandID;
 
   return (
     <div id="who">
@@ -24,79 +27,83 @@ function Render({ state, dispatch }) {
         icon={<InfoIcon onClick={() => setOpen(true)} />}
         subtitle="We researched the candidates so that you don't have to"
         dense={true}
-        height={"150vh"}
+        height={"180vh"}
       >
         <WhoInfo open={open} onClose={() => setOpen(false)} />
-        {/* <WhoMayor state={state} dispatch={dispatch} /> */}
         <ScorecardSection
           state={state}
           dispatch={dispatch}
-          dbPath={`regions/${state.region}/districts/${state.district}/mayor`}
+          dbPath={`regions/${state.selected.region}/districts/${state.selected.district}/mayor`}
           watchKey={"district"}
           type={"mayor"}
           title={"Mayor"}
         />
-        <ScorecardSection
-          state={state}
-          dispatch={dispatch}
-          dbPath={`regions/${state.region}/districts/${state.district}/who`}
-          watchKey={"district"}
-          type={"region"}
-          title={"Regional Councillors"}
-        />
-        <ScorecardSection
-          state={state}
-          dispatch={dispatch}
-          dbPath={`regions/${state.region}/districts/${state.district}/wards/${state.ward}/who`}
-          watchKey={"ward"}
-          type={"district"}
-          title={"Local Councillors"}
-        />
+        {isAuckland ? (
+          <>
+            <ScorecardSection
+              state={state}
+              dispatch={dispatch}
+              dbPath={`regions/${state.selected.region}/districts/${state.selected.district}/wards/${state.selected.ward}/who`}
+              watchKey={"ward"}
+              type={"region"}
+              title={"Councillors"}
+            />
+            <ScorecardSection
+              state={state}
+              dispatch={dispatch}
+              dbPath={`regions/${state.selected.region}/districts/${state.selected.district}/wards/${state.selected.ward}/boards/${state.selected.board}/subdivisions/${state.selected.subdivision}/who`}
+              watchKey={"subdivision"}
+              type={"board"}
+              title={"Local Board"}
+            />
+          </>
+        ) : (
+          <>
+            <ScorecardSection
+              state={state}
+              dispatch={dispatch}
+              dbPath={`regions/${state.selected.region}/districts/${state.selected.district}/who`}
+              watchKey={"district"}
+              type={"region"}
+              title={"Regional Councillors"}
+            />
+            <ScorecardSection
+              state={state}
+              dispatch={dispatch}
+              dbPath={`regions/${state.selected.region}/districts/${state.selected.district}/wards/${state.selected.ward}/who`}
+              watchKey={"ward"}
+              type={"district"}
+              title={"Local Councillors"}
+            />
+          </>
+        )}
+        <ExtrasContainer>
+          <span>
+            Don't just take our word for it! Other groups providing info on
+            candidates:{" "}
+          </span>
+          <a
+            href="https://policy.nz/2022"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Policy.nz
+          </a>
+        </ExtrasContainer>
       </Section>
-      {/* {localLoaded && (
-        <>
-          <Section>
-            <Subtitle>Local</Subtitle>
-            <ScorecardSection>
-              {state.who
-                .sort((a, b) => (a.overall + "," > b.overall + "," ? 1 : -1))
-                .map((candidate, i) => (
-                  <Scorecard data={candidate} key={i} categories={categories} />
-                ))}
-            </ScorecardSection>
-          </Section>
-        </>
-      )} */}
     </div>
   );
 }
 
 export default Render;
 
-// const ScorecardSection = styled.div`
-//   width: 90%;
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: flex-start;
-//   overflow-x: auto;
-
-//   & > .Card {
-//     margin: 0 5px;
-//     background-color: rgba(245, 245, 220, 0);
-//     -ms-overflow-style: none; /* IE and Edge */
-//     scrollbar-width: none; /* Firefox */
-//     border-color: white;
-//     color: white;
-//     border-radius: 5%;
-//   }
-
-//   & > .Card::-webkit-scrollbar {
-//     display: none;
-//   }
-// `;
-
 const Title = styled.p`
   font-size: 15px;
 `;
 
 const Subtitle = styled.h2``;
+
+const ExtrasContainer = styled.div`
+  margin-top: 30px;
+  font-size: 14px;
+`;

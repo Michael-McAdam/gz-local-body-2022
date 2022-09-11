@@ -8,7 +8,6 @@ import Section from "../components/Section";
 import { Link } from "react-scroll";
 
 function render({ onClick }) {
-  console.log(onClick);
   return (
     <Section>
       <Button
@@ -31,7 +30,7 @@ function render({ onClick }) {
       <ContinueSection>
         <Link to="region" spy={true} smooth={true}>
           <Fab color="primary" aria-label="add" sx={{ color: "white" }}>
-            <KeyboardArrowDownIcon onClick={() => onClick()} />
+            <KeyboardArrowDownIcon />
           </Fab>
         </Link>
         <p>Already enrolled? Find out more below</p>

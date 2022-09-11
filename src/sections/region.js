@@ -4,109 +4,77 @@ import styled from "@emotion/styled";
 import data from "../data";
 import { useState, useRef } from "react";
 import Section from "../components/Section";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, doc, getDocs, query, where } from "firebase/firestore";
+import { levels } from "../util";
 
 var Scroll = require("react-scroll");
 var Element = Scroll.Element;
 var scroller = Scroll.scroller;
+
+const order = levels;
+
+let clickHandler = async (state, dispatch, index, db, id) => {
+  const level = levels[index];
+  let selected = state.selected;
+  let data = state.data;
+  for (let k = levels.length; k > index; k--) {
+    selected[levels[k]] = "";
+    data[levels[k]] = [];
+  }
+  selected[level] = id;
+  dispatch({
+    type: "setSelected",
+    payload: { selected, data },
+  });
+
+  let path = "";
+  for (let j = 0; j <= index; j++) {
+    path += `/${order[j]}s/${selected[order[j]]}`;
+  }
+  path += `/${order[index + 1]}s`;
+
+  let q = query(collection(db, path), where("include", "==", true));
+  let res = await getDocs(q);
+  let locs = res.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  dispatch({
+    type: "addData",
+    payload: {
+      type: order[index + 1],
+      data: locs,
+    },
+  });
+  if (locs.length == 1) {
+    await clickHandler(state, dispatch, index + 1, db, locs[0].id);
+  } else if (locs.length == 0) {
+    scroller.scrollTo("who", { smooth: true });
+  }
+};
 
 function render({ state, dispatch, db }) {
   return (
     <div id="region">
       <Section>
         Where are you based?
-        <LocationsSection>
-          {Object.values(state.regions).map((r) => {
-            return (
-              <Chip
-                label={r.name}
-                className="Chip"
-                variant={r.id !== state.region ? "outlined" : ""}
-                onClick={
-                  async () => {
-                    dispatch({ type: "setRegion", payload: r.id });
-                    let q = query(
-                      collection(db, "regions", r.id, "districts"),
-                      where("include", "==", true)
-                    );
-                    let districts = await getDocs(q);
-                    let res = districts.docs.map((doc) => ({
-                      id: doc.id,
-                      ...doc.data(),
-                    }));
-                    console.log(res);
-                    dispatch({ type: "addDistricts", payload: res });
-                  }
-
-                  // let wards = await getDocs(q3);
-                }
-                key={r.name}
-              />
-            );
-          })}
-        </LocationsSection>
-        {state.region && (
-          <LocationsSection>
-            {Object.values(state.districts).map((d) => {
-              return (
-                <Chip
-                  label={d.name}
-                  className="Chip"
-                  variant={d.id !== state.district ? "outlined" : ""}
-                  onClick={async () => {
-                    dispatch({ type: "setDistrict", payload: d.id });
-                    console.log(state.region);
-                    console.log(d.id);
-                    let q = query(
-                      collection(
-                        db,
-                        "regions",
-                        state.region,
-                        "districts",
-                        d.id,
-                        "wards"
-                      ),
-                      where("include", "==", true)
-                    );
-                    let wards = await getDocs(q);
-                    let res = wards.docs.map((doc) => ({
-                      id: doc.id,
-                      ...doc.data(),
-                    }));
-                    console.log(res);
-                    dispatch({ type: "addWards", payload: res });
-                    // scroller.scrollTo("who", {
-                    //   smooth: true,
-                    //   // containerId: 'ContainerElementID',
-                    // });
-                  }}
-                  key={d.name}
-                />
-              );
-            })}
-          </LocationsSection>
-        )}
-        {state.district && (
-          <LocationsSection>
-            {Object.values(state.wards).map((w) => {
-              return (
-                <Chip
-                  label={w.name}
-                  className="Chip"
-                  variant={w.id !== state.ward ? "outlined" : ""}
-                  onClick={async () => {
-                    dispatch({ type: "setWard", payload: w.id });
-                    scroller.scrollTo("who", {
-                      smooth: true,
-                      // containerId: 'ContainerElementID',
-                    });
-                  }}
-                  key={w.name}
-                />
-              );
-            })}
-          </LocationsSection>
-        )}
+        {order.map((level, i) => {
+          if (state.data[level].length < 2) return <></>;
+          return (
+            <LocationsSection>
+              {state.data[level].map((loc) => {
+                return (
+                  <Chip
+                    label={loc.name}
+                    className="Chip"
+                    variant={loc.id !== state.selected[level] ? "outlined" : ""}
+                    onClick={async () =>
+                      await clickHandler(state, dispatch, i, db, loc.id)
+                    }
+                    key={data.name}
+                  />
+                );
+              })}
+            </LocationsSection>
+          );
+        })}
       </Section>
     </div>
   );
