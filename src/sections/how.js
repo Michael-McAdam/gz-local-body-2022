@@ -166,6 +166,11 @@ const Container = styled.div`
   align-items: center;
   margin-top: 100px;
   /* flex-wrap: wrap; */
+
+  & > p {
+    font-size: 30px;
+    font-weight: bold;
+  }
 `;
 
 const InfoContainer = styled.div`

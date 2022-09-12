@@ -92,8 +92,24 @@ function Render({ state, dispatch }) {
   let loaded = state.where.length > 0;
   let selected = state.selected.district;
 
-  info = state.where.filter((a) => a.lat && a.lng);
+  var locRegex = new RegExp("@(.*),(.*),");
+  var nameRegex = new RegExp("/place/(.*)/@");
+  info = state.where.map((x) => {
+    var loc = x.link.match(locRegex);
+    var lat = loc && loc[1];
+    var lng = loc && loc[2];
+    var name_match = x.link.match(nameRegex);
+    var name = name_match && name_match[1];
+    name = name?.split("+").join(" ");
+    name = decodeURIComponent(name);
+    let out = { lat, lng, name, ...x };
+    return out;
+  });
+  console.log(info);
 
+  info = info.filter((a) => a.lat && a.lng);
+
+  console.log(info);
   info = state.special
     ? info
     : info.filter((a) => a.type !== "special" || !a.type);
