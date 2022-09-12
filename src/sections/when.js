@@ -4,7 +4,6 @@ import styled from "@emotion/styled";
 import Section from "../components/Section";
 
 import Countdown from "react-countdown";
-import ReactPlayer from "react-player";
 
 import { Stepper, Step, StepLabel } from "@mui/material";
 
@@ -22,7 +21,6 @@ const CountdownChooser = () => {
   if (labels.ending.time.getTime() < now.getTime()) {
     return <h2> Voting has closed. Next elections will be in 3 years!</h2>;
   } else if (labels.starting.time.getTime() < now.getTime()) {
-    // return <h2> Voting has opened. Get out there.</h2>;
     return (
       <>
         <Title>Voting has opened, closes in:</Title>
@@ -54,24 +52,12 @@ const CountdownChooser = () => {
 };
 
 function render({ state, dispatch }) {
-  // let times = state.regions[state.region].districts[state.district];
-  // console.log(labels);
-  // let starting = times?.starting;
-
-  // console.log(starting);
-
-  // if (!starting) {
-  //   return <></>;
-  // }
-
   let activeStep = 0;
 
   let steps = Object.values(labels).map((step, i) => {
     let time = step.time;
     let now = new Date();
-    // console.log(time.getTime());
     activeStep = time.getTime() > now.getTime() ? activeStep : i + 1;
-    // console.log(activeStep);
     return { label: step.label, time };
   });
 

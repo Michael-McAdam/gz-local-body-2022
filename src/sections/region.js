@@ -2,19 +2,24 @@ import "../App.css";
 import { Chip } from "@mui/material";
 import styled from "@emotion/styled";
 import data from "../data";
-import { useState, useRef } from "react";
 import Section from "../components/Section";
 import { collection, doc, getDocs, query, where } from "firebase/firestore";
 import { levels } from "../util";
 
 var Scroll = require("react-scroll");
-var Element = Scroll.Element;
 var scroller = Scroll.scroller;
 
 const order = levels;
 
+/*
+ Magic function which clears any selected data at a lower level than the selection and then requests the correct data
+ If there is only one result it "automatically" selects it (which required a little bit of bodging)
+*/
+
 let clickHandler = async (state, dispatch, index, db, id) => {
   const level = levels[index];
+
+  // Clear selected state and data below the current level
   let selected = state.selected;
   let data = state.data;
   for (let k = levels.length; k > index; k--) {
@@ -22,17 +27,21 @@ let clickHandler = async (state, dispatch, index, db, id) => {
     data[levels[k]] = [];
   }
   selected[level] = id;
+
+  //Update state
   dispatch({
     type: "setSelected",
     payload: { selected, data },
   });
 
+  // Figure out path based on new state
   let path = "";
   for (let j = 0; j <= index; j++) {
     path += `/${order[j]}s/${selected[order[j]]}`;
   }
   path += `/${order[index + 1]}s`;
 
+  // Request new data
   let q = query(collection(db, path), where("include", "==", true));
   let res = await getDocs(q);
   let locs = res.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
@@ -43,6 +52,8 @@ let clickHandler = async (state, dispatch, index, db, id) => {
       data: locs,
     },
   });
+
+  // If only one option, select it
   if (locs.length == 1) {
     await clickHandler(
       { ...state, data: { ...state.data, [order[index + 1]]: locs } },
@@ -52,6 +63,7 @@ let clickHandler = async (state, dispatch, index, db, id) => {
       locs[0].id
     );
   } else if (locs.length == 0) {
+    // If no options, assume we are at the bottom and scroll to next section
     scroller.scrollTo("who", { smooth: true });
   }
 };
@@ -61,13 +73,12 @@ function render({ state, dispatch, db }) {
   let wardFinder =
     district && state.data.district.find(({ id }) => id === district)?.wardMap;
 
-  console.log(wardFinder);
-
   return (
     <div id="region">
       <Section>
         Where are you based?
         {order.map((level, i) => {
+          // Don't render any options if there are less than 2
           if (state.data[level].length < 2) return <></>;
           return (
             <Container>
@@ -109,12 +120,6 @@ function render({ state, dispatch, db }) {
 export default render;
 
 const Container = styled.div`
-  /* width: 90%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: space-between;
-  flex-wrap: wrap; */
   margin-top: 20px;
   width: 100%;
   text-align: center;
@@ -125,7 +130,6 @@ const Container = styled.div`
     font-weight: bold;
     text-transform: capitalize;
     font-style: italic;
-    /* background-color: red; */
   }
 `;
 

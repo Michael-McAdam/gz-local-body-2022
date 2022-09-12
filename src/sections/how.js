@@ -143,20 +143,6 @@ function render({ state, dispatch }) {
 
 export default render;
 
-const Image = styled.img`
-  width: 50%;
-  min-height: 60%;
-  /* max-width: 100%; */
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  background-color: lightgray;
-`;
-
-const Title = styled.p`
-  font-size: 15px;
-`;
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -165,7 +151,6 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 100px;
-  /* flex-wrap: wrap; */
 
   & > p {
     font-size: 30px;
@@ -174,13 +159,9 @@ const Container = styled.div`
 `;
 
 const InfoContainer = styled.div`
-  /* display: flex;
-  align-items: center;
-  flex-direction: column; */
   height: 70%;
   width: 80%;
   max-width: 500px;
-  /* background-color: red; */
 `;
 
 const SelectContainer = styled.div`
@@ -190,18 +171,11 @@ const SelectContainer = styled.div`
   justify-content: space-around;
   align-content: flex-end;
   flex-wrap: wrap;
-  /* height: 70%; */
-  /* background-color: red; */
   font-size: 16px;
   max-width: 450px;
   width: 80%;
   margin-bottom: 10px;
   row-gap: 10px;
-
-  & > * {
-    color: white;
-    margin-right: 10px;
-  }
 
   & > span {
     font-weight: bold;

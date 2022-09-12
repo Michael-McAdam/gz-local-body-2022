@@ -24,10 +24,8 @@ let _maps;
 
 const getMapBounds = (map, maps, locations) => {
   const bounds = new maps.LatLngBounds();
-  // console.log("Setting bounds");
 
   locations.forEach((location) => {
-    // console.log(location);
     bounds.extend(new maps.LatLng(location.lat, location.lng));
   });
   return bounds;
@@ -45,7 +43,6 @@ const apiIsLoaded = (map, maps, locations) => {
   if (map) {
     _map = map;
     _maps = maps;
-    // console.log(locations);
     const bounds = getMapBounds(map, maps, locations);
     map.fitBounds(bounds);
     bindResizeListener(map, maps, bounds);
@@ -73,43 +70,36 @@ function Render({ state, dispatch }) {
     };
 
     if (state.selected.region && state.selected.district) {
-      console.log("Fetching: ", state.selected);
       fetchData();
     } else {
       dispatch({
         type: "setWhere",
         payload: [],
       });
-      console.log("Not fetching: ", state.selected);
     }
-    // return unsub;
   }, [state.selected.district]);
-
-  // if (state.where.length == 0) {
-  //   return <></>;
-  // }
 
   let loaded = state.where.length > 0;
   let selected = state.selected.district;
 
+  // Cleverness to pull lat, lng and name from Maps URL
   var locRegex = new RegExp("@(.*),(.*),");
   var nameRegex = new RegExp("/place/(.*)/@");
-  info = state.where.map((x) => {
-    var loc = x.link.match(locRegex);
-    var lat = loc && loc[1];
-    var lng = loc && loc[2];
-    var name_match = x.link.match(nameRegex);
-    var name = name_match && name_match[1];
-    name = name?.split("+").join(" ");
-    name = decodeURIComponent(name);
-    let out = { lat, lng, name, ...x };
-    return out;
-  });
-  console.log(info);
 
-  info = info.filter((a) => a.lat && a.lng);
+  info = state.where
+    .map((x) => {
+      var loc = x.link.match(locRegex);
+      var lat = loc && loc[1];
+      var lng = loc && loc[2];
+      var name_match = x.link.match(nameRegex);
+      var name = name_match && name_match[1];
+      name = name?.split("+").join(" ");
+      name = decodeURIComponent(name);
+      let out = { lat, lng, name, ...x };
+      return out;
+    })
+    .filter((a) => a.lat && a.lng);
 
-  console.log(info);
   info = state.special
     ? info
     : info.filter((a) => a.type !== "special" || !a.type);
@@ -132,7 +122,6 @@ function Render({ state, dispatch }) {
                 <GoogleMapReact
                   bootstrapURLKeys={{
                     key: "AIzaSyCf2A6eifV2BP62X3qwtdG4HJx8Dyw96pM",
-                    // libraries: ["places"],
                   }}
                   center={defaultLoc.center}
                   zoom={defaultLoc.zoom}
@@ -142,22 +131,18 @@ function Render({ state, dispatch }) {
                   }
                   key={state.selected.district}
                 >
-                  {info.map(
-                    ({ lat, lng, name, link, type }) => {
-                      // console.log(lat, lng);
-                      return (
-                        <MapMarker
-                          key={lat}
-                          lat={lat}
-                          lng={lng}
-                          text={name}
-                          link={link}
-                          type={state.special ? type : undefined}
-                        />
-                      );
-                    }
-                    // <Marker key={loc.lat} lat={loc.lat} lng={loc.lng} text={loc.name} />
-                  )}
+                  {info.map(({ lat, lng, name, link, type }) => {
+                    return (
+                      <MapMarker
+                        key={lat}
+                        lat={lat}
+                        lng={lng}
+                        text={name}
+                        link={link}
+                        type={state.special ? type : undefined}
+                      />
+                    );
+                  })}
                 </GoogleMapReact>
               </MapSection>
               {state.special && (
@@ -190,8 +175,6 @@ const MapSection = styled.div`
   width: 80%;
   height: 60%;
   margin-top: 40px;
-  /* position: absolute; */
-  /* bottom: 0; */
 `;
 
 const KeyContainer = styled.div`

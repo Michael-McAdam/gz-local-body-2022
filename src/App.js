@@ -63,29 +63,8 @@ function reducer(state, action) {
         selected: action.payload.selected,
         data: action.payload.data,
       };
-    case "setRegion":
-      return {
-        ...state,
-        district: "",
-        ward: "",
-        board: "",
-        who: initialState.who,
-        region: action.payload,
-      };
-    case "setDistrict":
-      return {
-        ...state,
-        ward: "",
-        board: "",
-        who: initialState.who,
-        district: action.payload,
-      };
-    case "setWard":
-      return { ...state, board: "", ward: action.payload };
-    case "setBoard":
-      return { ...state, board: action.payload };
     case "setWho":
-      console.log("Here: ", action);
+      // console.log("Here: ", action);
       return {
         ...state,
         who: { ...state.who, [action.payload.type]: action.payload.data },
@@ -130,35 +109,6 @@ function App() {
         },
       });
     };
-    // regions.docs.forEach(async (doc) => {
-    //   let q2 = query(
-    //     collection(db, "regions", doc.id, "districts"),
-    //     where("include", "==", true)
-    //   );
-    //   let districts = await getDocs(q2);
-    //   districts.docs.forEach(async (doc2) => {
-    //     let q3 = query(
-    //       collection(db, "regions", doc.id, "districts", doc2.id, "wards"),
-    //       where("include", "==", true)
-    //     );
-    //     await getDocs(q3);
-    //     dispatch({
-    //       type: "addRegion",
-    //       payload: {
-    //         [doc.id]: {
-    //           ...doc.data(),
-    //           id: doc.id,
-    //           districts: districts.docs.reduce(
-    //             (o, d) => ({ ...o, [d.id]: { ...d.data(), id: d.id } }),
-    //             {}
-    //           ),
-    //         },
-    //       },
-    //     });
-    //   });
-    // });
-    // };
-
     fetchData();
   }, []);
 
@@ -207,10 +157,8 @@ const View = styled.div`
 `;
 
 const Background = styled.div`
-  /* height: calc(8 * 100vh + 8 * 30vh); */
   width: 100%;
   background-color: blue;
-  /* background: rgb(21, 20, 37); */
   background: linear-gradient(
     180deg,
     rgba(85, 106, 65, 1) 0%,
@@ -221,22 +169,13 @@ const Background = styled.div`
 `;
 
 const AppContainer = styled.div`
-  /* background-color: blue;
-  background: rgb(21, 20, 37);
-  background: linear-gradient(
-    180deg,
-    rgba(21, 20, 37, 1) 0%,
-    rgba(61, 92, 142, 1) 100%
-  ); */
   display: flex;
   flex-direction: column;
   position: relative;
   height: 100%;
   width: 100%;
   overflow: scroll;
-`; /* rgba(142, 111, 61, 1) 100% */
-/* rgba(186, 186, 186, 1) 100% */
-/* rgba(251, 229, 163, 1) 67%, */
+`;
 
 const LogoContainer = styled.div`
   position: absolute;

@@ -1,16 +1,11 @@
 import "../App.css";
 import styled from "@emotion/styled";
 import Scorecard from "./Scorecard";
-import data from "../data";
-import Section from "./Section";
 import { useEffect, useState } from "react";
-import { Icon, Modal, Button, Chip } from "@mui/material";
-import InfoIcon from "@mui/icons-material/Info";
 
 import { collection, getDocs, query, where } from "firebase/firestore";
 
 import { db } from "../firebase";
-import WhoInfo from "./WhoInfo";
 
 let categories = [
   "publicTransport",

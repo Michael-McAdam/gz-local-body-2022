@@ -1,22 +1,18 @@
 import "../App.css";
 import styled from "@emotion/styled";
-import Scorecard from "../components/Scorecard";
-import data from "../data";
-import Section from "../components/Section";
-import { useEffect } from "react";
 import { Icon, Modal, Button, Chip } from "@mui/material";
 
-const categoryInfo = {
-  overview: `Everyone was sent a questionnaire that asked various questions about the categories listed below. Their responses were rated. 
-    For people who are already elected to the council their voting record on issues while in office was taken into account`,
-  categories: {
-    publicTransport:
-      "Public Transport is a key part of mode shift - getting people out of cars and into more efficient forms of transport",
-    cleanEnergy: "Local council can support clean energy through x, y and z",
-    density:
-      "Density means people live closer together, meaning less resources are need to get around",
-  },
-};
+// const categoryInfo = {
+//   overview: `Everyone was sent a questionnaire that asked various questions about the categories listed below. Their responses were rated.
+//     For people who are already elected to the council their voting record on issues while in office was taken into account`,
+//   categories: {
+//     publicTransport:
+//       "Public Transport is a key part of mode shift - getting people out of cars and into more efficient forms of transport",
+//     cleanEnergy: "Local council can support clean energy through x, y and z",
+//     density:
+//       "Density means people live closer together, meaning less resources are need to get around",
+//   },
+// };
 
 function Render({ open, onClose }) {
   return (
@@ -120,21 +116,21 @@ const InfoContainer = styled.div`
   }
 `;
 
-const Table = styled.table`
-  width: 80%;
-  margin: 0 auto;
-  border-collapse: collapse;
-`;
-const Row = styled.tr`
-  font-size: 16px;
+// const Table = styled.table`
+//   width: 80%;
+//   margin: 0 auto;
+//   border-collapse: collapse;
+// `;
+// const Row = styled.tr`
+//   font-size: 16px;
 
-  & > td {
-    border-bottom: 1px solid;
-  }
-`;
-const TitleCell = styled.td`
-  text-align: left;
-`;
-const ScoreCell = styled.td`
-  text-align: left;
-`;
+//   & > td {
+//     border-bottom: 1px solid;
+//   }
+// `;
+// const TitleCell = styled.td`
+//   text-align: left;
+// `;
+// const ScoreCell = styled.td`
+//   text-align: left;
+// `;
