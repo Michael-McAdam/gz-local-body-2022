@@ -9,6 +9,7 @@ import InventoryIcon from "@mui/icons-material/Inventory";
 import MailIcon from "@mui/icons-material/Mail";
 import CreateIcon from "@mui/icons-material/Create";
 import HomeWorkIcon from "@mui/icons-material/HomeWork";
+import { Link } from "react-scroll";
 
 function render({ state, dispatch }) {
   return (
@@ -16,25 +17,64 @@ function render({ state, dispatch }) {
       <Container>
         <SelectContainer>
           <span>Did you enrol before the 16th of August?</span>
-          <Chip
-            label={"Yes"}
-            className="Chip"
-            variant={state.special ? "outlined" : ""}
-            onClick={() => dispatch({ type: "setSpecial", payload: false })}
-            key={"Yes"}
-          />
-          <Chip
-            label={"No"}
-            className="Chip"
-            variant={!state.special ? "outlined" : ""}
-            onClick={() => dispatch({ type: "setSpecial", payload: true })}
-            key={"No"}
-          />
+          <AnswerContainer>
+            <Chip
+              label={"Yes"}
+              className="Chip"
+              variant={!state.enrolled ? "outlined" : ""}
+              onClick={() => dispatch({ type: "setEnrolled", payload: true })}
+              key={"Yes"}
+            />
+            <Chip
+              label={"No"}
+              className="Chip"
+              variant={state.enrolled ? "outlined" : ""}
+              onClick={() => dispatch({ type: "setEnrolled", payload: false })}
+              key={"No"}
+            />
+          </AnswerContainer>
         </SelectContainer>
-        {state.special && <p> You've got to special vote</p>}
+        {state.enrolled && (
+          <SelectContainer>
+            <>
+              <span>Are your details up to date?</span>
+              <AnswerContainer>
+                <Chip
+                  label={"Yes"}
+                  className="Chip"
+                  variant={!state.current ? "outlined" : ""}
+                  onClick={() =>
+                    dispatch({ type: "setCurrent", payload: true })
+                  }
+                  key={"Yes"}
+                />
+                <Chip
+                  label={"No"}
+                  className="Chip"
+                  variant={state.current ? "outlined" : ""}
+                  onClick={() =>
+                    dispatch({ type: "setCurrent", payload: false })
+                  }
+                  key={"No"}
+                />
+              </AnswerContainer>
+            </>
+          </SelectContainer>
+        )}
+        <ExtraInfoContainer>
+          Unsure? Find out{" "}
+          <a
+            href="https://enrol.vote.nz/app/enrol/#/check-online"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            here
+          </a>
+        </ExtraInfoContainer>
+        <p>{state.special && "You've got to special vote"}</p>
         <InfoContainer>
           <List sx={{ fontSize: "14px" }}>
-            <ListItem>
+            {/* <ListItem>
               <ListItemIcon>
                 <PortraitIcon />
               </ListItemIcon>
@@ -49,15 +89,18 @@ function render({ state, dispatch }) {
                   here
                 </a>
               </p>
-            </ListItem>
+            </ListItem> */}
             {state.special ? (
               <ListItem>
                 <ListItemIcon>
                   <HomeWorkIcon />
                 </ListItemIcon>
                 <p>
-                  You have to pick up your voting pack. See the "Where" section
-                  below for locations
+                  You have to pick up your voting pack. See the{" "}
+                  <Link to="Where" smooth={true}>
+                    <a href="#">Where</a>
+                  </Link>{" "}
+                  section below for locations.
                 </p>
               </ListItem>
             ) : (
@@ -88,7 +131,7 @@ function render({ state, dispatch }) {
               </ListItemIcon>
               <p>
                 Drop your voting pack off at a drop off center before the
-                <b> {state.special ? "7th" : "8th"} of October</b>
+                <b> 8th of October</b>
               </p>
             </ListItem>
           </List>
@@ -136,14 +179,19 @@ const InfoContainer = styled.div`
 `;
 
 const SelectContainer = styled.div`
-  /* display: flex;
+  display: flex;
   align-items: center;
   flex-direction: row;
-  justify-content: space-around; */
+  justify-content: space-around;
+  align-content: flex-end;
+  flex-wrap: wrap;
   /* height: 70%; */
   /* background-color: red; */
   font-size: 16px;
-  /* width: 50%; */
+  max-width: 450px;
+  width: 80%;
+  margin-bottom: 10px;
+  row-gap: 10px;
 
   & > * {
     color: white;
@@ -152,5 +200,20 @@ const SelectContainer = styled.div`
 
   & > span {
     font-weight: bold;
+  }
+`;
+
+const ExtraInfoContainer = styled.div`
+  font-size: 12px;
+`;
+
+const AnswerContainer = styled.div`
+  font-size: 12px;
+  display: flex;
+  flex-wrap: nowrap;
+
+  & > .Chip {
+    margin-right: 10px;
+    color: white;
   }
 `;

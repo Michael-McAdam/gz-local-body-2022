@@ -44,13 +44,25 @@ let clickHandler = async (state, dispatch, index, db, id) => {
     },
   });
   if (locs.length == 1) {
-    await clickHandler(state, dispatch, index + 1, db, locs[0].id);
+    await clickHandler(
+      { ...state, data: { ...state.data, [order[index + 1]]: locs } },
+      dispatch,
+      index + 1,
+      db,
+      locs[0].id
+    );
   } else if (locs.length == 0) {
     scroller.scrollTo("who", { smooth: true });
   }
 };
 
 function render({ state, dispatch, db }) {
+  let district = state.selected.district;
+  let wardFinder =
+    district && state.data.district.find(({ id }) => id === district)?.wardMap;
+
+  console.log(wardFinder);
+
   return (
     <div id="region">
       <Section>
@@ -58,23 +70,37 @@ function render({ state, dispatch, db }) {
         {order.map((level, i) => {
           if (state.data[level].length < 2) return <></>;
           return (
-            <LocationsSection>
-              {state.data[level].map((loc) => {
-                return (
-                  <Chip
-                    label={loc.name}
-                    className="Chip"
-                    variant={loc.id !== state.selected[level] ? "outlined" : ""}
-                    onClick={async () =>
-                      await clickHandler(state, dispatch, i, db, loc.id)
-                    }
-                    key={data.name}
-                  />
-                );
-              })}
-            </LocationsSection>
+            <Container>
+              <p>{level}</p>
+              <LocationsSection>
+                {state.data[level].map((loc) => {
+                  return (
+                    <Chip
+                      label={loc.name}
+                      className="Chip"
+                      variant={
+                        loc.id !== state.selected[level] ? "outlined" : ""
+                      }
+                      onClick={async () =>
+                        await clickHandler(state, dispatch, i, db, loc.id)
+                      }
+                      key={data.name}
+                    />
+                  );
+                })}
+              </LocationsSection>
+            </Container>
           );
         })}
+        {wardFinder && (
+          <p>
+            Need{" "}
+            <a href={wardFinder} target="_blank" rel="noopener noreferrer">
+              {" "}
+              help?
+            </a>
+          </p>
+        )}
       </Section>
     </div>
   );
@@ -82,13 +108,37 @@ function render({ state, dispatch, db }) {
 
 export default render;
 
+const Container = styled.div`
+  /* width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: space-between;
+  flex-wrap: wrap; */
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+
+  & > p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-style: italic;
+    /* background-color: red; */
+  }
+`;
+
 const LocationsSection = styled.div`
   width: 90%;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-content: space-between;
   flex-wrap: wrap;
-  margin-top: 40px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
 
   & > .Chip {
     color: white;

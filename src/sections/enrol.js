@@ -13,8 +13,8 @@ function render({ onClick }) {
       <Button
         variant="contained"
         href="https://enrol.vote.nz/app/enrol/#/enrol-online"
-        target="_blank"
         size="large"
+        target="_blank"
         rel="noopener noreferrer"
         // className="Button"
         sx={{
@@ -27,6 +27,9 @@ function render({ onClick }) {
       >
         Enrol
       </Button>
+      <Subtitle>
+        *If you enrol now, you'll have to special vote. See more details below
+      </Subtitle>
       <ContinueSection>
         <Link to="region" spy={true} smooth={true}>
           <Fab color="primary" aria-label="add" sx={{ color: "white" }}>
@@ -42,11 +45,16 @@ function render({ onClick }) {
 export default render;
 
 const ContinueSection = styled.div`
-  font-size: small;
+  font-size: medium;
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
 
   & > p {
     opacity: 0.8;
   }
+`;
+
+const Subtitle = styled.p`
+  font-size: 12px;
+  margin-top: 60px;
 `;

@@ -22,12 +22,6 @@ import data from "./data";
 const q = query(collection(db, "regions"), where("include", "==", true));
 
 const initialState = {
-  regions: {},
-  districts: [],
-  wards: [],
-  region: "",
-  district: "",
-  ward: "",
   data: {
     region: [],
     district: [],
@@ -51,6 +45,8 @@ const initialState = {
   where: [],
   loaded: false,
   special: false,
+  enrolled: true,
+  current: true,
 };
 
 function reducer(state, action) {
@@ -98,8 +94,18 @@ function reducer(state, action) {
       return { ...state, where: action.payload };
     case "finishedLoading":
       return { ...state, loaded: true };
-    case "setSpecial":
-      return { ...state, special: action.payload };
+    case "setEnrolled":
+      return {
+        ...state,
+        enrolled: action.payload,
+        special: !(action.payload && state.current),
+      };
+    case "setCurrent":
+      return {
+        ...state,
+        current: action.payload,
+        special: !(action.payload && state.enrolled),
+      };
     default:
       console.log("No handler for reducer");
       return state;

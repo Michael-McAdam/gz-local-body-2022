@@ -92,9 +92,11 @@ function Render({ state, dispatch }) {
   let loaded = state.where.length > 0;
   let selected = state.selected.district;
 
+  info = state.where.filter((a) => a.lat && a.lng);
+
   info = state.special
-    ? state.where
-    : state.where.filter((a) => a.type !== "special" || !a.type);
+    ? info
+    : info.filter((a) => a.type !== "special" || !a.type);
 
   useEffect(() => {
     apiIsLoaded(_map, _maps, info);
@@ -102,69 +104,67 @@ function Render({ state, dispatch }) {
   }, [state.special]);
 
   return (
-    <Section
-      title="WHERE?"
-      subtitle="All the locations in your area where you can drop off your voting pack"
-    >
-      {selected ? (
-        loaded ? (
-          <>
-            <MapSection>
-              <GoogleMapReact
-                bootstrapURLKeys={{
-                  key: "AIzaSyCf2A6eifV2BP62X3qwtdG4HJx8Dyw96pM",
-                  // libraries: ["places"],
-                }}
-                center={defaultLoc.center}
-                zoom={defaultLoc.zoom}
-                yesIWantToUseGoogleMapApiInternals
-                onGoogleApiLoaded={({ map, maps }) =>
-                  apiIsLoaded(map, maps, info)
-                }
-                key={state.selected.district}
-              >
-                {info.map(
-                  ({ lat, lng, name, link, type }) => {
-                    // console.log(lat, lng);
-                    return (
-                      <MapMarker
-                        key={lat}
-                        lat={lat}
-                        lng={lng}
-                        text={name}
-                        link={link}
-                        type={state.special ? type : undefined}
-                      />
-                    );
+    <div id="Where">
+      <Section
+        title="WHERE?"
+        subtitle="All the locations in your area where you can drop off your voting pack"
+      >
+        {selected ? (
+          loaded ? (
+            <>
+              <MapSection>
+                <GoogleMapReact
+                  bootstrapURLKeys={{
+                    key: "AIzaSyCf2A6eifV2BP62X3qwtdG4HJx8Dyw96pM",
+                    // libraries: ["places"],
+                  }}
+                  center={defaultLoc.center}
+                  zoom={defaultLoc.zoom}
+                  yesIWantToUseGoogleMapApiInternals
+                  onGoogleApiLoaded={({ map, maps }) =>
+                    apiIsLoaded(map, maps, info)
                   }
-                  // <Marker key={loc.lat} lat={loc.lat} lng={loc.lng} text={loc.name} />
-                )}
-              </GoogleMapReact>
-            </MapSection>
-            {state.special && (
-              <KeyContainer>
-                <MarkerContainer>
-                  <RoomIcon style={{ color: "red" }} />
-                  <span>Drop Off Location</span>
-                </MarkerContainer>
-                <MarkerContainer>
-                  <RoomIcon style={{ color: "yellow" }} />
-                  <span>Special Vote Pickup</span>
-                </MarkerContainer>
-                <MarkerContainer>
-                  <RoomIcon style={{ color: "orange" }} />
-                  <span>Both</span>
-                </MarkerContainer>
-              </KeyContainer>
-            )}
-          </>
+                  key={state.selected.district}
+                >
+                  {info.map(
+                    ({ lat, lng, name, link, type }) => {
+                      // console.log(lat, lng);
+                      return (
+                        <MapMarker
+                          key={lat}
+                          lat={lat}
+                          lng={lng}
+                          text={name}
+                          link={link}
+                          type={state.special ? type : undefined}
+                        />
+                      );
+                    }
+                    // <Marker key={loc.lat} lat={loc.lat} lng={loc.lng} text={loc.name} />
+                  )}
+                </GoogleMapReact>
+              </MapSection>
+              {state.special && (
+                <KeyContainer>
+                  <MarkerContainer>
+                    <RoomIcon style={{ color: "red" }} />
+                    <span>Drop Off Location</span>
+                  </MarkerContainer>
+                  <MarkerContainer>
+                    <RoomIcon style={{ color: "yellow" }} />
+                    <span>Special Vote Pickup</span>
+                  </MarkerContainer>
+                </KeyContainer>
+              )}
+            </>
+          ) : (
+            <>We haven't filled out the map data for your area</>
+          )
         ) : (
-          <>We haven't filled out the map data for your area</>
-        )
-      ) : (
-        <>Please select a location to view map</>
-      )}
-    </Section>
+          <>Please select a location to view map</>
+        )}
+      </Section>
+    </div>
   );
 }
 

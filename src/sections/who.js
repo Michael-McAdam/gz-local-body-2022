@@ -78,10 +78,7 @@ function Render({ state, dispatch }) {
           </>
         )}
         <ExtrasContainer>
-          <span>
-            Don't just take our word for it! Other groups providing info on
-            candidates:{" "}
-          </span>
+          <span>Other groups scored candidates too! Check them out: </span>
           <a
             href="https://policy.nz/2022"
             target="_blank"

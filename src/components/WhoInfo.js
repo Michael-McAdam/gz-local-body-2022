@@ -116,7 +116,7 @@ const InfoContainer = styled.div`
   }
 
   & > p:last-child {
-    font-size: 10px;
+    font-size: 14px;
   }
 `;
 
