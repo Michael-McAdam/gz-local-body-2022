@@ -6,6 +6,7 @@ import data from "../data";
 import Section from "../components/Section";
 import { collection, doc, getDocs, query, where } from "firebase/firestore";
 import { levels } from "../util";
+import {db} from "../firebase";
 
 var Scroll = require("react-scroll");
 var scroller = Scroll.scroller;
