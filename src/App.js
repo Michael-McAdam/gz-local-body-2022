@@ -18,6 +18,7 @@ import { levels } from "./util";
 import { db } from "./firebase";
 import Section from "./components/Section";
 import data from "./data";
+import {ShareButton} from "./components/ShareButton";
 
 const q = query(collection(db, "regions"), where("include", "==", true));
 
@@ -144,6 +145,8 @@ function App() {
             <CircularProgress />
           </Section>
         )}
+
+        <ShareButton url={document.location.href} dropdownDirection="up" style={{position: fixed, bottom: 5, left: 5}} />
       </AppContainer>
     </Background>
   );
