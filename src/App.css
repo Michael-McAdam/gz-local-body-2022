@@ -53,7 +53,6 @@ body {
 /* use viewport-relative units to cover page fully */
 body {
   height: 100vh;
-  width: 100vw;
   font-family: 'Open Sans', 'Droid Sans', Arial, sans-serif;
 }
 
@@ -66,7 +65,7 @@ body {
 div {
   /* height: 100%; */
   /* width: 100%; */
-  
+
   /* example padding, font-size, background, etc */
   /* padding: 10px; */
   /* font-size: 20px; */
