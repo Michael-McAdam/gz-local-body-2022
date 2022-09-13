@@ -1,14 +1,14 @@
 import "../App.css";
 import styled from "@emotion/styled";
 import Section from "../components/Section";
-import {forwardRef, useEffect, useState} from "react";
+import {useState} from "react";
 import InfoIcon from "@mui/icons-material/Info";
 
 import WhoInfo from "../components/WhoInfo";
 import ScorecardSection from "../components/ScorecardSection";
 import { AucklandID } from "../util";
 
-const Render = forwardRef(({ state, dispatch }, ref) => {
+const Render = ({ state, dispatch }) => {
   let [open, setOpen] = useState(false);
 
   let isAuckland = state.selected.region === AucklandID;
@@ -83,7 +83,7 @@ const Render = forwardRef(({ state, dispatch }, ref) => {
       </Section>
     </div>
   );
-})
+}
 
 export default Render;
 

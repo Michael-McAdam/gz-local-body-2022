@@ -1,7 +1,6 @@
 import "../App.css";
 import { Chip } from "@mui/material";
 import styled from "@emotion/styled";
-import {forwardRef} from "react";
 import data from "../data";
 import Section from "../components/Section";
 import { collection, doc, getDocs, query, where } from "firebase/firestore";
@@ -70,13 +69,13 @@ let clickHandler = async (state, dispatch, index, db, id) => {
   }
 };
 
-const render = forwardRef(({ state, dispatch }, ref) => {
+const render = ({ state, dispatch }) => {
   let district = state.selected.district;
   let wardFinder =
     district && state.data.district.find(({ id }) => id === district)?.wardMap;
 
   return (
-      <div ref={ref} id="region">
+      <div id="region">
         <Section>
           Where are you based?
           {order.map((level, i) => {
@@ -115,7 +114,7 @@ const render = forwardRef(({ state, dispatch }, ref) => {
         </Section>
       </div>
   );
-})
+}
 
 export default render;
 
