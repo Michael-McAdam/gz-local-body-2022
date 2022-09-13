@@ -7,6 +7,10 @@ import {
 } from "@mui/material";
 import styled from "@emotion/styled";
 import data from "../data";
+import RentIcon from "@mui/icons-material/HolidayVillage";
+import RainbowIcon from "@mui/icons-material/Looks";
+import AgeIcon from "@mui/icons-material/Skateboarding";
+import DisabledIcon from "@mui/icons-material/AccessibleForward";
 
 // const categories = [
 //   "Bike Friendly",
@@ -15,20 +19,28 @@ import data from "../data";
 //   "Clean Energy",
 // ];
 
+// Whether or not they are Māori
+// Whether or not they are in the rainbow community
+// Whether or not they are 35 or under
+// Whether or not they are a renter
+// Whether or not they are disabled
+// How many properties they own
+// How many languages they speak
+
+const iconStyle = {
+  borderRadius: "50%",
+  padding: "4px",
+  borderWidth: "1px",
+  borderStyle: "solid",
+};
+
 const render = ({ data, categories }) => {
   return (
-    <Container className="Card" variant="outlined">
-      <CardContent>
-        <ScoreContainer>
-          <PictureContainer>
-            {data.photo?.length > 0 ? (
-              <Picture src={data.photo[0]?.downloadURL} />
-            ) : (
-              <Picture src="./assets/avatar.png" style={{ opacity: "50%" }} />
-            )}
-          </PictureContainer>
-          <Score>{data.overall}</Score>
-        </ScoreContainer>
+    <Container className="Card" variant="outlined" title={data.comment}>
+      <Content>
+        {/* <ScoreContainer> */}
+        <Score>{data.overall}</Score>
+        {/* </ScoreContainer> */}
         <Name>{data.name}</Name>
         <Table>
           <tbody>
@@ -44,7 +56,53 @@ const render = ({ data, categories }) => {
             })}
           </tbody>
         </Table>
-      </CardContent>
+        <IconContainer>
+          {data.renter && (
+            <div title="Renter">
+              <RentIcon
+                sx={{
+                  // borderColor: "rgba(55, 47, 11, 0.6)",
+                  // color: "rgba(55, 47, 11, 0.6)",
+                  ...iconStyle,
+                }}
+              />
+            </div>
+          )}
+          {data.rainbow && (
+            <div title="Rainbow Community">
+              <RainbowIcon
+                sx={{
+                  // borderColor: "rgb(236, 164, 187)",
+                  // color: "rgb(236, 164, 187)",
+                  ...iconStyle,
+                }}
+              />
+            </div>
+          )}
+          {data.young && (
+            <div title="Under 35">
+              <AgeIcon
+                sx={{
+                  // borderColor: "rgba(232, 86, 53, 0.8)",
+                  // color: "rgba(232, 86, 53, 0.8)",
+                  ...iconStyle,
+                }}
+              />
+            </div>
+          )}
+          {data.disabled && (
+            <div title="Disabled Community">
+              <DisabledIcon
+                sx={{
+                  // borderColor: "rgb(168, 209, 220)",
+                  // color: "rgb(168, 209, 220)",
+                  ...iconStyle,
+                }}
+              />
+            </div>
+          )}
+        </IconContainer>
+      </Content>
       {/* <CardActions>
         <Button size="small">Learn More</Button>
       </CardActions> */}
@@ -54,28 +112,41 @@ const render = ({ data, categories }) => {
 
 export default render;
 
-const Container = styled(Card)`
-  width: 275px;
-  min-width: 275px;
+const Container = styled.div`
+  /* width: 30%; */
+  /* min-width: 200px; */
   min-height: 300;
-  align-items: "start";
   background-color: "rgba(255, 255, 255, 0.5)";
+  /* display: inline-block; */
+  width: fit-content;
+  border: 1px solid white;
+`;
+
+const Content = styled.div`
+  width: fit-content;
+  display: inline-block;
+  padding: 10px 20px;
+  /* padding: 0px 20px; */
 `;
 
 const Score = styled.p`
   font-weight: bold;
-  font-size: 80px;
+  font-size: 2em;
   margin: 0;
   text-align: center;
   margin-left: 5px;
   width: 60%;
+  background-color: rgba(225, 210, 183, 1);
+  border-radius: 50px;
+  margin: auto;
 `;
 
 const Name = styled.p`
-  font-weight: bold;
+  font-weight: 900;
   font-size: 20px;
+  white-space: nowrap;
   margin: 0;
-  text-align: left;
+  text-align: center;
   margin-bottom: 10px;
 `;
 
@@ -102,13 +173,23 @@ const ScoreContainer = styled.div`
   margin-bottom: 15px;
 `;
 
+const IconContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  column-gap: 5px;
+  width: 100%;
+  margin-top: 15px;
+`;
+
 const Table = styled.table`
-  width: 80%;
+  width: 150px;
   margin: 0 auto;
   border-collapse: collapse;
 `;
 const Row = styled.tr`
-  font-size: 16px;
+  font-size: 0.5em;
 
   & > td {
     border-bottom: 1px solid;

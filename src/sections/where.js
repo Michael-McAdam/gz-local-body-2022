@@ -20,14 +20,13 @@ const defaultLoc = {
 
 let info = [];
 let _map;
+let _maps;
 
 const getMapBounds = (map, maps, locations) => {
   const bounds = new maps.LatLngBounds();
-  console.log("Setting bounds");
 
-  locations.forEach(({ location }) => {
-    console.log(location);
-    bounds.extend(new maps.LatLng(location._lat, location._long));
+  locations.forEach((location) => {
+    bounds.extend(new maps.LatLng(location.lat, location.lng));
   });
   return bounds;
 };
@@ -43,7 +42,7 @@ const bindResizeListener = (map, maps, bounds) => {
 const apiIsLoaded = (map, maps, locations) => {
   if (map) {
     _map = map;
-    console.log(locations);
+    _maps = maps;
     const bounds = getMapBounds(map, maps, locations);
     map.fitBounds(bounds);
     bindResizeListener(map, maps, bounds);
@@ -57,9 +56,9 @@ function Render({ state, dispatch }) {
         collection(
           db,
           "regions",
-          state.region,
+          state.selected.region,
           "districts",
-          state.district,
+          state.selected.district,
           "where"
         )
       );
@@ -70,68 +69,103 @@ function Render({ state, dispatch }) {
       });
     };
 
-    fetchData();
-    // return unsub;
-  }, [state.district]);
+    if (state.selected.region && state.selected.district) {
+      fetchData();
+    } else {
+      dispatch({
+        type: "setWhere",
+        payload: [],
+      });
+    }
+  }, [state.selected.district]);
 
-  //   useEffect(() => {
-  //     const bounds = new maps.LatLngBounds();
+  let loaded = state.where.length > 0;
+  let selected = state.selected.district;
 
-  //     console.log(locations);
-  //     locations.forEach((location) => {
-  //       bounds.extend(new maps.LatLng(location._lat, location._long));
-  //     });
-  //   });
+  // Cleverness to pull lat, lng and name from Maps URL
+  var locRegex = new RegExp("@(.*),(.*),");
+  var nameRegex = new RegExp("/place/(.*)/@");
 
-  if (state.where.length == 0) {
-    return <></>;
-  }
+  info = state.where
+    .map((x) => {
+      var loc = x.link.match(locRegex);
+      var lat = loc && loc[1];
+      var lng = loc && loc[2];
+      var name_match = x.link.match(nameRegex);
+      var name = name_match && name_match[1];
+      name = name?.split("+").join(" ");
+      name = decodeURIComponent(name);
+      let out = { lat, lng, name, ...x };
+      return out;
+    })
+    .filter((a) => a.lat && a.lng);
 
-  console.log(state.where);
-  info = state.where;
+  info = state.special
+    ? info
+    : info.filter((a) => a.type !== "special" || !a.type);
 
-  //   let info = data.loc["Wellington"];
+  useEffect(() => {
+    apiIsLoaded(_map, _maps, info);
+    console.log("Running...: ", info);
+  }, [state.special]);
 
   return (
-    <Section title="WHERE?">
-      <MapSection>
-        {/* <GoogleMapReact
-          bootstrapURLKeys={{ key: "" }}
-          center={state.regions[state.region]?.center}
-          zoom={state.regions[state.region]?.zoom}
-        >
-          {state.where.map((loc) => (
-            <Marker key={loc.lat} lat={loc.lat} lng={loc.lng} text={loc.name} />
-          ))}
-        </GoogleMapReact> */}
-        <GoogleMapReact
-          bootstrapURLKeys={{
-            key: "AIzaSyCf2A6eifV2BP62X3qwtdG4HJx8Dyw96pM",
-            // libraries: ["places"],
-          }}
-          center={defaultLoc.center}
-          zoom={defaultLoc.zoom}
-          yesIWantToUseGoogleMapApiInternals
-          onGoogleApiLoaded={({ map, maps }) => apiIsLoaded(map, maps, info)}
-        >
-          {info.map(
-            ({ location: loc, name, link }) => {
-              console.log(loc._lat, loc._long);
-              return (
-                <MapMarker
-                  key={loc._lat}
-                  lat={loc._lat}
-                  lng={loc._long}
-                  text={name}
-                  link={link}
-                />
-              );
-            }
-            // <Marker key={loc.lat} lat={loc.lat} lng={loc.lng} text={loc.name} />
-          )}
-        </GoogleMapReact>
-      </MapSection>
-    </Section>
+    <div id="Where">
+      <Section
+        title="WHERE?"
+        subtitle="All the locations in your area where you can drop off your voting pack"
+      >
+        {selected ? (
+          loaded ? (
+            <>
+              <MapSection>
+                <GoogleMapReact
+                  bootstrapURLKeys={{
+                    key: "AIzaSyCf2A6eifV2BP62X3qwtdG4HJx8Dyw96pM",
+                  }}
+                  center={defaultLoc.center}
+                  zoom={defaultLoc.zoom}
+                  yesIWantToUseGoogleMapApiInternals
+                  onGoogleApiLoaded={({ map, maps }) =>
+                    apiIsLoaded(map, maps, info)
+                  }
+                  key={state.selected.district}
+                >
+                  {info.map(({ lat, lng, name, link, type }) => {
+                    return (
+                      <MapMarker
+                        key={lat}
+                        lat={lat}
+                        lng={lng}
+                        text={name}
+                        link={link}
+                        type={state.special ? type : undefined}
+                      />
+                    );
+                  })}
+                </GoogleMapReact>
+              </MapSection>
+              {state.special && (
+                <KeyContainer>
+                  <MarkerContainer>
+                    <RoomIcon style={{ color: "red" }} />
+                    <span>Drop Off Location</span>
+                  </MarkerContainer>
+                  <MarkerContainer>
+                    <RoomIcon style={{ color: "yellow" }} />
+                    <span>Special Vote Pickup</span>
+                  </MarkerContainer>
+                </KeyContainer>
+              )}
+            </>
+          ) : (
+            <>We haven't filled out the map data for your area</>
+          )
+        ) : (
+          <>Please select a location to view map</>
+        )}
+      </Section>
+    </div>
   );
 }
 
@@ -140,10 +174,25 @@ export default Render;
 const MapSection = styled.div`
   width: 80%;
   height: 60%;
-  /* position: absolute; */
-  /* bottom: 0; */
+  margin-top: 40px;
+`;
+
+const KeyContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80%;
+  margin-top: 10px;
+  justify-content: center;
 `;
 
 const MarkerContainer = styled.div`
-  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 10px;
+
+  & > span {
+    font-size: 14px;
+  }
 `;

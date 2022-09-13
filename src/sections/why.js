@@ -17,12 +17,13 @@ function render() {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           /> */}
-      <VideoPlayer
+      {/* <VideoPlayer
         style={{ maxWidth: "100%" }}
         // width="100%"
         // height="100%"
         url="https://www.youtube.com/watch?v=Fo22DoBuhMc"
-      />
+      /> */}
+      Content TBC
       {/* </VideoContainer> */}
     </Section>
   );

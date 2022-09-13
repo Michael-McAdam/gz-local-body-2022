@@ -4,64 +4,67 @@ import styled from "@emotion/styled";
 import Section from "../components/Section";
 
 import Countdown from "react-countdown";
-import ReactPlayer from "react-player";
 
 import { Stepper, Step, StepLabel } from "@mui/material";
 
 const labels = {
-  enrolBy: { label: "Enrolment Closes" },
-  starting: { label: "Voting Opens" },
-  ending: { label: "Voting Closes" },
+  enrolBy: { label: "Enrolment Closes", time: new Date("2022-08-12") },
+  starting: {
+    label: "Voting Opens",
+    time: new Date("2022-09-16"),
+  },
+  ending: { label: "Voting Closes", time: new Date("2022-10-08") },
 };
 
-const CountdownChooser = (times) => {
+const CountdownChooser = () => {
   let now = new Date();
-  if (times.ending?.toDate().getTime() < now.getTime()) {
+  if (labels.ending.time.getTime() < now.getTime()) {
     return <h2> Voting has closed. Next elections will be in 3 years!</h2>;
-  } else if (times.starting?.toDate().getTime() < now.getTime()) {
-    return <h2> Voting has opened. Get out there</h2>;
+  } else if (labels.starting.time.getTime() < now.getTime()) {
+    return (
+      <>
+        <Title>Voting has opened, closes in:</Title>
+        <Countdown
+          date={labels.ending.time}
+          renderer={({ days, hours, minutes, seconds }) => (
+            <TimeDisplay>
+              {days}d {hours}h {minutes}m {seconds}s
+            </TimeDisplay>
+          )}
+        />
+      </>
+    );
   } else {
     return (
-      <Countdown
-        date={times.starting?.toDate()}
-        renderer={({ days, hours, minutes, seconds }) => (
-          <TimeDisplay>
-            {days}d {hours}h {minutes}m {seconds}s
-          </TimeDisplay>
-        )}
-      />
+      <>
+        <Title>Voting opens in:</Title>
+        <Countdown
+          date={labels.starting.time}
+          renderer={({ days, hours, minutes, seconds }) => (
+            <TimeDisplay>
+              {days}d {hours}h {minutes}m {seconds}s
+            </TimeDisplay>
+          )}
+        />
+      </>
     );
   }
 };
 
 function render({ state, dispatch }) {
-  let times = state.regions[state.region].districts[state.district];
-  console.log(times);
-  let starting = times?.starting;
-
-  console.log(starting);
-
-  if (!starting) {
-    return <></>;
-  }
-
   let activeStep = 0;
 
-  let steps = Object.keys(labels).map((step, i) => {
-    let time = times[step]?.toDate();
+  let steps = Object.values(labels).map((step, i) => {
+    let time = step.time;
     let now = new Date();
-    console.log(time.getTime());
-    console.log(now.getTime());
     activeStep = time.getTime() > now.getTime() ? activeStep : i + 1;
-    console.log(activeStep);
-    return { label: labels[step].label, time };
+    return { label: step.label, time };
   });
 
-  let countdown = CountdownChooser(times);
+  let countdown = CountdownChooser();
 
   return (
     <Section title="WHEN?">
-      <Title>Voting opens in:</Title>
       {countdown}
       <StepContainer>
         <Stepper activeStep={activeStep} alternativeLabel>
@@ -74,7 +77,7 @@ function render({ state, dispatch }) {
                     <span>{label}</span>
                     <span>
                       {time.toLocaleDateString("en-NZ", {
-                        year: "numeric",
+                        // year: "numeric",
                         month: "short",
                         day: "numeric",
                       })}

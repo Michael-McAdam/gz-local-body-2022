@@ -2,7 +2,13 @@ import RoomIcon from "@mui/icons-material/Room";
 import styled from "@emotion/styled";
 import { hover } from "@testing-library/user-event/dist/hover";
 
-const Marker = ({ text, link }) => (
+let colorLUT = {
+  special: "yellow",
+  both: "orange",
+  dropoff: "red",
+};
+
+const Marker = ({ text, link, type }) => (
   <Link
     href={link}
     target="_blank"
@@ -11,7 +17,7 @@ const Marker = ({ text, link }) => (
     // aria-disabled={!link}
   >
     <MarkerContainer>
-      <Icon />
+      <Icon type={type} />
       <TextContainer>
         <Text>{text}</Text>
       </TextContainer>
@@ -27,7 +33,7 @@ const MarkerContainer = styled.div`
 `;
 
 const Icon = styled(RoomIcon)`
-  color: red;
+  color: ${(props) => (props.type ? colorLUT[props.type] : "red")};
   position: absolute;
   transition: all 0.5s ease;
   transform: translate(-50%, -100%);
@@ -39,7 +45,7 @@ const Icon = styled(RoomIcon)`
 
 const Text = styled.p`
   /* margin-left: 5px; */
-  font-size: 15px;
+  font-size: 12px;
   color: black;
   background-color: white;
   border-radius: 2px;
@@ -56,7 +62,7 @@ const Text = styled.p`
 const TextContainer = styled.div`
   /* margin-left: 5px; */
   position: absolute;
-  left: 30px;
+  left: 10px;
   white-space: nowrap;
   transform: translate(0, -100%);
   /* display: flex; */

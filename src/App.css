@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow+Condensed|Open+Sans');
+
+
 .App {
   text-align: center;
   width: 100%;
@@ -50,6 +53,7 @@ body {
 /* use viewport-relative units to cover page fully */
 body {
   height: 100vh;
+  font-family: 'Open Sans', 'Droid Sans', Arial, sans-serif;
 }
 
 /* include border and padding in element width and height */
@@ -66,4 +70,17 @@ div {
   /* padding: 10px; */
   /* font-size: 20px; */
   /* background-color: lightskyblue; */
+}
+
+h1,h2 {
+  font-family: 'Barlow Condensed', 'Roboto', 'Helvetica';
+}
+
+h1 {
+
+  font-size: 2.5em;
+}
+
+p {
+  font-size: 14px;
 }
