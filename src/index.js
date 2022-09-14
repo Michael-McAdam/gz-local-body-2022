@@ -6,6 +6,9 @@ import App from "./App";
 import { ParallaxProvider } from "react-scroll-parallax";
 
 import { createTheme, ThemeProvider } from "@mui/material";
+import {plausible} from "./analytics";
+
+plausible.trackPageview();
 
 export const themeOptions = {
   palette: {

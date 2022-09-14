@@ -1,16 +1,19 @@
-import {analytics} from './firebase'
-import {logEvent} from 'firebase/analytics'
 import {levels} from "./util";
+import Plausible from "plausible-tracker";
+
+// Initialise analytics
+export const plausible = Plausible({
+  domain: 'localelections.nz',
+  trackLocalhost: true
+})
 
 
 /**
  * Records an event to google analytics.
  */
-const recordEvent = (action, {category, label, ...params}) => {
-  logEvent(analytics, action, {
-    event_category: category,
-    event_label: label,
-    ...params
+const recordEvent = (type, {...params}) => {
+  plausible.trackEvent(type, {
+    props: params
   })
 }
 
@@ -36,13 +39,12 @@ const convertSelectionIdsToNames = (regionData, selection) => {
 
 export const recordRegionSelected = (regionData, selection) => {
   const selectionNames = convertSelectionIdsToNames(regionData, selection)
-  const serialisedSelection = levels
+  const fullName = levels
       .map(level => selectionNames[level])
       .filter(name => name !== '')
-      .join('_')
-      .replace(/\s/g, '')
+      .join("->")
 
-  console.log(`Recording region selection:`, serialisedSelection, selectionNames)
+  console.log(`Recording region selection:`, fullName, selectionNames)
 
-  recordEvent("region_selection", {label: serialisedSelection, category: "region_selection", ...selectionNames})
+  recordEvent("region_selection", {fullName: fullName, ...selectionNames})
 }
