@@ -5,6 +5,7 @@ import data from "../data";
 import Section from "../components/Section";
 import { collection, doc, getDocs, query, where } from "firebase/firestore";
 import { levels } from "../util";
+import {recordRegionSelected} from "../analytics";
 import {db} from "../firebase";
 
 var Scroll = require("react-scroll");
@@ -65,6 +66,7 @@ let clickHandler = async (state, dispatch, index, db, id) => {
     );
   } else if (locs.length == 0) {
     // If no options, assume we are at the bottom and scroll to next section
+    recordRegionSelected(state.data, state.selected);
     scroller.scrollTo("who", { smooth: true });
   }
 };
