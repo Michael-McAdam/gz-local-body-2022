@@ -9,6 +9,7 @@ import { getDocs, query, collection } from "firebase/firestore";
 import { db } from "../firebase";
 
 import MapMarker from "../components/MapMarker";
+import {GenericErrorBoundary} from "../components/GenericErrorBoundary";
 
 const defaultLoc = {
   center: {
@@ -49,18 +50,18 @@ const apiIsLoaded = (map, maps, locations) => {
   }
 };
 
-function Render({ state, dispatch }) {
+const Body = ({ state, dispatch}) => {
   useEffect(() => {
     const fetchData = async () => {
       let q = query(
-        collection(
-          db,
-          "regions",
-          state.selected.region,
-          "districts",
-          state.selected.district,
-          "where"
-        )
+          collection(
+              db,
+              "regions",
+              state.selected.region,
+              "districts",
+              state.selected.district,
+              "where"
+          )
       );
       let where = await getDocs(q);
       dispatch({
@@ -87,24 +88,24 @@ function Render({ state, dispatch }) {
   var nameRegex = new RegExp("/place/(.*)/@");
 
   info = state.where
-    .map((x) => {
-      var loc = x.link.match(locRegex);
-      var lat = loc && loc[1];
-      var lng = loc && loc[2];
-      var name_match = x.link.match(nameRegex);
-      var name = name_match && name_match[1];
-      name = name?.split("+").join(" ");
-      name = decodeURIComponent(name);
-      let out = { lat, lng, name, ...x };
-      return out;
-    })
-    .filter((a) => a.lat && a.lng);
+      .map((x) => {
+        var loc = x.link.match(locRegex);
+        var lat = loc && loc[1];
+        var lng = loc && loc[2];
+        var name_match = x.link.match(nameRegex);
+        var name = name_match && name_match[1];
+        name = name?.split("+").join(" ");
+        name = decodeURIComponent(name);
+        let out = { lat, lng, name, ...x };
+        return out;
+      })
+      .filter((a) => a.lat && a.lng);
 
   console.log(info);
 
   info = state.special
-    ? info
-    : info.filter((a) => a.type !== "special" || !a.type);
+      ? info
+      : info.filter((a) => a.type !== "special" || !a.type);
 
   useEffect(() => {
     apiIsLoaded(_map, _maps, info);
@@ -112,63 +113,75 @@ function Render({ state, dispatch }) {
   }, [state.special]);
 
   return (
-    <div id="Where">
-      <Section
-        title="WHERE?"
-        subtitle="All the locations in your area where you can drop off your voting pack"
-      >
+      <>
         {selected ? (
-          loaded ? (
-            <>
-              <MapSection>
-                <GoogleMapReact
-                  bootstrapURLKeys={{
-                    key: "AIzaSyCf2A6eifV2BP62X3qwtdG4HJx8Dyw96pM",
-                  }}
-                  center={defaultLoc.center}
-                  zoom={defaultLoc.zoom}
-                  yesIWantToUseGoogleMapApiInternals
-                  onGoogleApiLoaded={({ map, maps }) =>
-                    apiIsLoaded(map, maps, info)
-                  }
-                  key={state.selected.district}
-                >
-                  {info.map(({ lat, lng, name, link, type }) => {
-                    return (
-                      <MapMarker
-                        key={lat}
-                        lat={lat}
-                        lng={lng}
-                        text={name}
-                        link={link}
-                        type={state.special ? type : undefined}
-                      />
-                    );
-                  })}
-                </GoogleMapReact>
-              </MapSection>
-              {state.special && (
-                <KeyContainer>
-                  <MarkerContainer>
-                    <RoomIcon style={{ color: "red" }} />
-                    <span>Drop Off Location</span>
-                  </MarkerContainer>
-                  <MarkerContainer>
-                    <RoomIcon style={{ color: "yellow" }} />
-                    <span>Special Vote Pickup</span>
-                  </MarkerContainer>
-                </KeyContainer>
-              )}
-            </>
-          ) : (
-            <>We haven't filled out the map data for your area</>
-          )
+            loaded ? (
+                <>
+                  <MapSection>
+                    <GoogleMapReact
+                        bootstrapURLKeys={{
+                          key: "AIzaSyCf2A6eifV2BP62X3qwtdG4HJx8Dyw96pM",
+                        }}
+                        center={defaultLoc.center}
+                        zoom={defaultLoc.zoom}
+                        yesIWantToUseGoogleMapApiInternals
+                        onGoogleApiLoaded={({ map, maps }) =>
+                            apiIsLoaded(map, maps, info)
+                        }
+                        key={state.selected.district}
+                    >
+                      {info.map(({ lat, lng, name, link, type }) => {
+                        return (
+                            <MapMarker
+                                key={lat}
+                                lat={lat}
+                                lng={lng}
+                                text={name}
+                                link={link}
+                                type={state.special ? type : undefined}
+                            />
+                        );
+                      })}
+                    </GoogleMapReact>
+                  </MapSection>
+                  {state.special && (
+                      <KeyContainer>
+                        <MarkerContainer>
+                          <RoomIcon style={{ color: "red" }} />
+                          <span>Drop Off Location</span>
+                        </MarkerContainer>
+                        <MarkerContainer>
+                          <RoomIcon style={{ color: "yellow" }} />
+                          <span>Special Vote Pickup</span>
+                        </MarkerContainer>
+                      </KeyContainer>
+                  )}
+                </>
+            ) : (
+                <>We haven't filled out the map data for your area</>
+            )
         ) : (
-          <>Please select a location to view map</>
+            <>Please select a location to view map</>
         )}
-      </Section>
-    </div>
+      </>
   );
+}
+
+function Render({ state, dispatch }) {
+  return (
+      <div id="Where">
+        <Section
+            title="WHERE?"
+            subtitle="All the locations in your area where you can drop off your voting pack"
+        >
+          <GenericErrorBoundary errorContent={() => (
+              <>Oops! Looks like something went wrong while loading the map. Please try again later.</>
+          )}>
+            <Body/>
+          </GenericErrorBoundary>
+        </Section>
+    </div>
+  )
 }
 
 export default Render;

@@ -1,7 +1,8 @@
 import "../App.css";
 import styled from "@emotion/styled";
+import { Icon, Modal, Button, Chip } from "@mui/material";
 
-function Section(props) {
+const Section = (props) => {
   return (
     <Container dense={props.dense} height={props.height}>
       <HeaderContainer>
