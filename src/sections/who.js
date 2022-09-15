@@ -1,7 +1,7 @@
 import "../App.css";
 import styled from "@emotion/styled";
 import Section from "../components/Section";
-import {useState} from "react";
+import { useState } from "react";
 import InfoIcon from "@mui/icons-material/Info";
 
 import WhoInfo from "../components/WhoInfo";
@@ -20,7 +20,7 @@ const Render = ({ state, dispatch }) => {
         icon={<InfoIcon onClick={() => setOpen(true)} />}
         subtitle="We researched the candidates so that you don't have to"
         dense={true}
-        height={"180vh"}
+        height={"190vh"}
       >
         <WhoInfo open={open} onClose={() => setOpen(false)} />
         <ScorecardSection
@@ -79,15 +79,20 @@ const Render = ({ state, dispatch }) => {
           >
             Policy.nz
           </a>
+          <p>* = didn't fill out our survey.</p>
         </ExtrasContainer>
       </Section>
     </div>
   );
-}
+};
 
 export default Render;
 
 const ExtrasContainer = styled.div`
   margin-top: 30px;
   font-size: 14px;
+
+  & > p {
+    font-style: italic;
+  }
 `;

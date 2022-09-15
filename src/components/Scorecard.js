@@ -102,6 +102,7 @@ const render = ({ data, categories }) => {
             </div>
           )}
         </IconContainer>
+        {data.dna && <ExtraInfo>*</ExtraInfo>}
       </Content>
       {/* <CardActions>
         <Button size="small">Learn More</Button>
@@ -126,6 +127,7 @@ const Content = styled.div`
   width: fit-content;
   display: inline-block;
   padding: 10px 20px;
+  position: relative;
   /* padding: 0px 20px; */
 `;
 
@@ -139,6 +141,7 @@ const Score = styled.p`
   background-color: rgba(225, 210, 183, 1);
   border-radius: 50px;
   margin: auto;
+  color: #372f0b;
 `;
 
 const Name = styled.p`
@@ -200,4 +203,10 @@ const TitleCell = styled.td`
 `;
 const ScoreCell = styled.td`
   text-align: left;
+`;
+
+const ExtraInfo = styled.div`
+  position: absolute;
+  top: 5px;
+  right: 10px;
 `;
