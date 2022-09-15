@@ -24,6 +24,7 @@ function Render({ open, onClose }) {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        overflowY: "auto",
       }}
     >
       <InfoContainer>
@@ -88,7 +89,8 @@ function Render({ open, onClose }) {
 export default Render;
 
 const InfoContainer = styled.div`
-  width: 70%;
+  max-width: 750px;
+  width: 90%;
   /* height: 70%; */
   border-radius: 10px;
   padding: 20px;
@@ -99,14 +101,13 @@ const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  overflow-y: auto;
 
   & > .h1 {
   }
 
   & > p {
     margin-top: 5px;
-    width: 80%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
   }

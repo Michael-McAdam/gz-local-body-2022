@@ -11,6 +11,7 @@ import RentIcon from "@mui/icons-material/HolidayVillage";
 import RainbowIcon from "@mui/icons-material/Looks";
 import AgeIcon from "@mui/icons-material/Skateboarding";
 import DisabledIcon from "@mui/icons-material/AccessibleForward";
+import MaoriIcon from "@mui/icons-material/Foundation";
 
 // const categories = [
 //   "Bike Friendly",
@@ -93,6 +94,17 @@ const render = ({ data, categories }) => {
           {data.disabled && (
             <div title="Disabled Community">
               <DisabledIcon
+                sx={{
+                  // borderColor: "rgb(168, 209, 220)",
+                  // color: "rgb(168, 209, 220)",
+                  ...iconStyle,
+                }}
+              />
+            </div>
+          )}
+          {data.maori && (
+            <div title="Maori">
+              <MaoriIcon
                 sx={{
                   // borderColor: "rgb(168, 209, 220)",
                   // color: "rgb(168, 209, 220)",
