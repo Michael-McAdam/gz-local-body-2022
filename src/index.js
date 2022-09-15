@@ -6,7 +6,7 @@ import App from "./App";
 import { ParallaxProvider } from "react-scroll-parallax";
 
 import { createTheme, ThemeProvider } from "@mui/material";
-import {plausible} from "./analytics";
+import { plausible } from "./analytics";
 
 plausible.trackPageview();
 
@@ -51,11 +51,11 @@ let theme = createTheme(themeOptions);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <ParallaxProvider>
-      <ThemeProvider theme={theme}>
+  // <React.StrictMode>
+  <ParallaxProvider>
+    <ThemeProvider theme={theme}>
       <App />
     </ThemeProvider>
-    </ParallaxProvider>
-  </React.StrictMode>
+  </ParallaxProvider>
+  // </React.StrictMode>
 );

@@ -16,8 +16,11 @@ function render() {
         rel="noopener noreferrer"
         sx={{
           fontWeight: "900",
+          fontFamily: '"Barlow Condensed", "Helvetica", "Arial", sans-serif',
+          // fontSize: "20px",
           transform: "scale(3)",
-          color: "white",
+          // color: "white",
+          color: "#372F0B",
         }}
       >
         Enrol
@@ -27,7 +30,7 @@ function render() {
       </Subtitle>
       <ContinueSection>
         <Link to="region" spy={true} smooth={true}>
-          <Fab color="primary" aria-label="add" sx={{ color: "white" }}>
+          <Fab color="primary" aria-label="add" sx={{ color: "#372F0B" }}>
             <KeyboardArrowDownIcon />
           </Fab>
         </Link>
