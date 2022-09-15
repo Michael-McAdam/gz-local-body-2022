@@ -5,6 +5,8 @@ import data from "../data";
 import Section from "../components/Section";
 import { collection, doc, getDocs, query, where } from "firebase/firestore";
 import { levels } from "../util";
+import {recordRegionSelected} from "../analytics";
+import {db} from "../firebase";
 
 var Scroll = require("react-scroll");
 var scroller = Scroll.scroller;
@@ -64,56 +66,55 @@ let clickHandler = async (state, dispatch, index, db, id) => {
     );
   } else if (locs.length == 0) {
     // If no options, assume we are at the bottom and scroll to next section
+    recordRegionSelected(state.data, state.selected);
     scroller.scrollTo("who", { smooth: true });
   }
 };
 
-function render({ state, dispatch, db }) {
+const render = ({ state, dispatch }) => {
   let district = state.selected.district;
   let wardFinder =
     district && state.data.district.find(({ id }) => id === district)?.wardMap;
 
   return (
-    <div id="region">
-      <Section>
-        Where are you based?
-        {order.map((level, i) => {
+      <div id="region">
+        <Section>
+          Where are you based?
+          {order.map((level, i) => {
           // Don't render any options if there are less than 2
           if (state.data[level].length < 2) return <></>;
           return (
             <Container>
-              <p>{level}</p>
-              <LocationsSection>
-                {state.data[level].map((loc) => {
-                  return (
-                    <Chip
+              <p>{level}</p><LocationsSection>
+            {state.data[level].map((loc) => {
+              return (
+                  <Chip
                       label={loc.name}
                       className="Chip"
-                      variant={
-                        loc.id !== state.selected[level] ? "outlined" : ""
+                      variant={loc.id !== state.selected[level] ? "outlined" : ""
                       }
                       onClick={async () =>
                         await clickHandler(state, dispatch, i, db, loc.id)
                       }
                       key={data.name}
-                    />
-                  );
+                  />
+              );
+            })}
+          </LocationsSection>
+          </Container>
+              );
                 })}
-              </LocationsSection>
-            </Container>
-          );
-        })}
-        {wardFinder && (
-          <p>
-            Need{" "}
-            <a href={wardFinder} target="_blank" rel="noopener noreferrer">
-              {" "}
-              help?
-            </a>
-          </p>
-        )}
-      </Section>
-    </div>
+                  {wardFinder && (
+                      <p>
+                          Need{" "}
+                          <a href={wardFinder} target="_blank" rel="noopener noreferrer">
+                      {" "}
+                  help?
+                </a>
+              </p>
+          )}
+        </Section>
+      </div>
   );
 }
 

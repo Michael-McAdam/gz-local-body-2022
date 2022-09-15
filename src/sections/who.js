@@ -1,14 +1,14 @@
 import "../App.css";
 import styled from "@emotion/styled";
 import Section from "../components/Section";
-import { useEffect, useState } from "react";
+import {useState} from "react";
 import InfoIcon from "@mui/icons-material/Info";
 
 import WhoInfo from "../components/WhoInfo";
 import ScorecardSection from "../components/ScorecardSection";
 import { AucklandID } from "../util";
 
-function Render({ state, dispatch }) {
+const Render = ({ state, dispatch }) => {
   let [open, setOpen] = useState(false);
 
   let isAuckland = state.selected.region === AucklandID;
