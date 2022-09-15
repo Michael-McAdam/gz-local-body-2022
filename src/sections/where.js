@@ -100,6 +100,8 @@ function Render({ state, dispatch }) {
     })
     .filter((a) => a.lat && a.lng);
 
+  console.log(info);
+
   info = state.special
     ? info
     : info.filter((a) => a.type !== "special" || !a.type);

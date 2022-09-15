@@ -46,6 +46,14 @@ function Render({ state, dbPath, watchKey, title, type, dispatch }) {
   }, [state.selected[watchKey]]);
 
   let loaded = state.who[type].length > 0;
+  let test = state.who[type]
+    .sort((a, b) => (a.overall + "," > b.overall + "," ? 1 : -1))
+    .map((x) => ({
+      publicTransport: x.transport ? x.transport : x.transport,
+      ...x,
+    }));
+
+  console.log(test);
 
   if (state.selected[watchKey] === "") {
     return (
@@ -71,6 +79,10 @@ function Render({ state, dbPath, watchKey, title, type, dispatch }) {
       <ScorecardContainer>
         {state.who[type]
           .sort((a, b) => (a.overall + "," > b.overall + "," ? 1 : -1))
+          .map((x) => ({
+            publicTransport: x.transport || x.publicTransport,
+            ...x,
+          }))
           .map((candidate, i) => (
             <Scorecard data={candidate} key={i} categories={categories} />
           ))}
