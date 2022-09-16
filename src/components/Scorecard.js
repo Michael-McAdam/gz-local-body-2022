@@ -3,7 +3,7 @@ import {
   Card,
   CardContent,
   CardActions,
-  Typography,
+  Typography, Tooltip,
 } from "@mui/material";
 import styled from "@emotion/styled";
 import data from "../data";
@@ -59,7 +59,7 @@ const render = ({ data, categories }) => {
         </Table>
         <IconContainer>
           {data.renter && (
-            <div title="Renter">
+            <Tooltip title="Renter">
               <RentIcon
                 sx={{
                   // borderColor: "rgba(55, 47, 11, 0.6)",
@@ -67,10 +67,10 @@ const render = ({ data, categories }) => {
                   ...iconStyle,
                 }}
               />
-            </div>
+            </Tooltip>
           )}
           {data.rainbow && (
-            <div title="Rainbow Community">
+            <Tooltip title="Rainbow Community">
               <RainbowIcon
                 sx={{
                   // borderColor: "rgb(236, 164, 187)",
@@ -78,10 +78,10 @@ const render = ({ data, categories }) => {
                   ...iconStyle,
                 }}
               />
-            </div>
+            </Tooltip>
           )}
           {data.young && (
-            <div title="Under 35">
+            <Tooltip title="Under 35">
               <AgeIcon
                 sx={{
                   // borderColor: "rgba(232, 86, 53, 0.8)",
@@ -89,10 +89,10 @@ const render = ({ data, categories }) => {
                   ...iconStyle,
                 }}
               />
-            </div>
+            </Tooltip>
           )}
           {data.disabled && (
-            <div title="Disabled Community">
+            <Tooltip title="Disabled Community">
               <DisabledIcon
                 sx={{
                   // borderColor: "rgb(168, 209, 220)",
@@ -100,10 +100,10 @@ const render = ({ data, categories }) => {
                   ...iconStyle,
                 }}
               />
-            </div>
+            </Tooltip>
           )}
           {data.maori && (
-            <div title="Maori">
+            <Tooltip title="Maori">
               <MaoriIcon
                 sx={{
                   // borderColor: "rgb(168, 209, 220)",
@@ -111,10 +111,10 @@ const render = ({ data, categories }) => {
                   ...iconStyle,
                 }}
               />
-            </div>
+            </Tooltip>
           )}
         </IconContainer>
-        {data.dna && <ExtraInfo>*</ExtraInfo>}
+        {data.dna && <Tooltip title="Candidate did not fill out our survey"><ExtraInfo>*</ExtraInfo></Tooltip>}
       </Content>
       {/* <CardActions>
         <Button size="small">Learn More</Button>
