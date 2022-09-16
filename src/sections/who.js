@@ -71,13 +71,32 @@ const Render = ({ state, dispatch }) => {
           </>
         )}
         <ExtrasContainer>
-          <span>Other groups scored candidates too! Check them out: </span>
+          {/* <span>Other groups scored candidates too! Check them out: </span> */}
+          <span>
+            Don't just take our word for it! More info on local elections:{" "}
+          </span>
           <a
             href="https://policy.nz/2022"
             target="_blank"
             rel="noopener noreferrer"
           >
             Policy.nz
+          </a>
+          ,{" "}
+          <a
+            href="https://www.voteclimate.org.nz/candidates"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Vote Climate
+          </a>
+          ,{" "}
+          <a
+            href="https://rentersunited.org.nz/lbe22/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Renters United
           </a>
           <p>* = didn't fill out our survey.</p>
         </ExtrasContainer>

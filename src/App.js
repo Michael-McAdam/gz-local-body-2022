@@ -118,6 +118,10 @@ function App() {
   console.log(state);
 
   let loaded = Object.keys(state.data.region).length > 0;
+  let contact = state.data.region.find(
+    (a) => a.id === state.selected.region
+  )?.contact;
+  console.log(contact);
 
   return (
     <Background>
@@ -131,16 +135,19 @@ function App() {
             <WhereSection state={state} dispatch={dispatch} />
             {/* <WhySection /> */}
             <WhenSection state={state} dispatch={dispatch} />
-            <LogoContainer>
-              <LogoText>Proudly made by:</LogoText>
-              <a
-                href="https://www.generationzero.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Logo src="./assets/gen_zero_logo_black.png" />
-              </a>
-            </LogoContainer>
+            <Footer>
+              {contact && <p>Questions? Contact us at {contact}</p>}
+              {/* <LogoContainer>
+                <LogoText>Proudly made by:</LogoText>
+                <a
+                  href="https://www.generationzero.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Logo src="./assets/gen_zero_logo_black.png" />
+                </a>
+              </LogoContainer> */}
+            </Footer>
           </>
         ) : (
           <Section>
@@ -186,10 +193,28 @@ const AppContainer = styled.div`
   width: 100%;
 `;
 
-const LogoContainer = styled.div`
+const Footer = styled.div`
   position: absolute;
   bottom: 5px;
-  right: 5px;
+  /* left: 40px; */
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  & > p {
+    font-size: 0.7em;
+    width: 50%;
+  }
+`;
+
+const LogoContainer = styled.div`
+  /* position: absolute; */
+  /* bottom: 5px; */
+  /* right: 5px; */
+  max-height: 100px;
+
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -200,6 +225,7 @@ const LogoContainer = styled.div`
     width: 50%;
   }
 `;
+
 const Logo = styled.img`
   width: 100%;
   max-height: 200px;

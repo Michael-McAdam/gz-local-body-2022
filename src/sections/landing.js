@@ -8,8 +8,8 @@ import { AutoScaler } from "../components/AutoScaler";
 function render() {
   return (
     <Container>
-      <Section>
-        <Logo src="./assets/VoteLocal.png" />
+      <Section height={"calc(80vh + 10vw)"}>
+        <Logo src="./assets/VoteLocalFlat.png" />
         <GZLogoContainer>
           <span>by </span>
           <GZLink

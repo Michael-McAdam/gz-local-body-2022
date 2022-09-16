@@ -17,7 +17,7 @@ function render({ state, dispatch }) {
     <Section title="HOW?">
       <Container>
         <SelectContainer>
-          <span>Did you enrol before the 16th of August?</span>
+          <span>Did you enrol before the 12th of August?</span>
           <AnswerContainer>
             <Chip
               label={"Yes"}
@@ -116,7 +116,10 @@ function render({ state, dispatch }) {
               </ListItemIcon>
               <p>
                 Drop your voting pack off at a drop off center before the
-                <b> 8th of October</b>
+                <b> 8th of October</b>. See{" "}
+                <Link to="Where" smooth={true}>
+                  <a href="#">Where</a>
+                </Link>
               </p>
             </ListItem>
             {!state.special && (
