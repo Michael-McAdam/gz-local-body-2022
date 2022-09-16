@@ -68,7 +68,7 @@ const HeaderContainer = styled.div`
   color: #221f1f;
   position: absolute;
   top: 50px;
-  left: 30px;
+  left: 5vw;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -83,7 +83,8 @@ const IconContainer = styled.div`
 `;
 
 const Subtitle = styled.p`
-  font-size: 15px;
+  /* font-size: 15px; */
+  font-size: 0.6em;
   font-style: italic;
   margin: 0;
   padding: 0;

@@ -129,7 +129,7 @@ function App() {
             <WhoSection state={state} dispatch={dispatch} />
             <HowSection state={state} dispatch={dispatch} />
             <WhereSection state={state} dispatch={dispatch} />
-            <WhySection />
+            {/* <WhySection /> */}
             <WhenSection state={state} dispatch={dispatch} />
             <LogoContainer>
               <LogoText>Proudly made by:</LogoText>

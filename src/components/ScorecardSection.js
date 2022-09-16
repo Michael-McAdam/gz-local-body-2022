@@ -112,7 +112,9 @@ function Render({ state, dbPath, watchKey, title, type, dispatch }) {
 export default Render;
 
 const ScorecardContainer = styled.div`
-  width: 90%;
+  width: 100%;
+  padding-left: 2.5vw;
+  padding-right: 2.5vw;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
