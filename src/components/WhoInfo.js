@@ -56,7 +56,8 @@ function Render({ open, onClose }) {
         <p>
           You can read the questions yourself{" "}
           <a
-            href="https://forms.gle/7TL8UJVwsutoLRhi8"
+            // href="https://forms.gle/7TL8UJVwsutoLRhi8"
+            href="https://forms.gle/uegWEhxVADiG94TG9"
             target="_blank"
             rel="noopener noreferrer"
           >
