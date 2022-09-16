@@ -6,15 +6,9 @@ import { useEffect, useState } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
 import { db } from "../firebase";
-import {sortBy} from "lodash/collection";
+import { sortBy } from "lodash/collection";
 
-let categories = [
-  "publicTransport",
-  "housing",
-  "environment",
-  "equity",
-  "teTiriti",
-];
+let categories = ["transport", "housing", "environment", "equity", "teTiriti"];
 
 function Render({ state, dbPath, watchKey, title, type, dispatch }) {
   useEffect(() => {
@@ -68,46 +62,43 @@ function Render({ state, dbPath, watchKey, title, type, dispatch }) {
   }
 
   const filteredAndNormalisedSectionCandidates = sortBy(
-      state.who[type]
-        .filter((x) => !x.exclude)
-        .map((x) => ({
-          publicTransport: x.transport || x.publicTransport,
-          ...x,
-        })),
-      [
-          // I got lazy and installed lodash to do this for me. It makes things heaps easier.
-          // Keep in mind this sorts from least->most. So the smaller the value the 'lefter' it is.
-          // The first arrow function is executed on every candidate, the second is only used to break ties.
-        (candidate) => {
-          if (candidate.overall === "?") {
-            return Infinity;
-          }
+    state.who[type]
+      .filter((x) => !x.exclude)
+      .map((x) => ({
+        publicTransport: x.transport || x.publicTransport,
+        ...x,
+      })),
+    [
+      // I got lazy and installed lodash to do this for me. It makes things heaps easier.
+      // Keep in mind this sorts from least->most. So the smaller the value the 'lefter' it is.
+      // The first arrow function is executed on every candidate, the second is only used to break ties.
+      (candidate) => {
+        if (candidate.overall === "?") {
+          return Infinity;
+        }
 
-          // Hacky, but simple. In ASCII 'A' < 'B' < 'C'... so use this to assign increasing scores for worse grades
-          // Multiply by 10 so that we can +/- 1 to sort A+ -> A -> A-
-          const base = candidate.overall.charCodeAt(0) * 10
-          if (candidate.overall.length === 1) {
-            return base
-          }
-          else if (candidate.overall[1] === "+") {
-            return base - 1
-          }
-          else {
-            return base + 1
-          }
-        },
-        (candidate) => !!candidate.dna
-      ]
-  )
+        // Hacky, but simple. In ASCII 'A' < 'B' < 'C'... so use this to assign increasing scores for worse grades
+        // Multiply by 10 so that we can +/- 1 to sort A+ -> A -> A-
+        const base = candidate.overall.charCodeAt(0) * 10;
+        if (candidate.overall.length === 1) {
+          return base;
+        } else if (candidate.overall[1] === "+") {
+          return base - 1;
+        } else {
+          return base + 1;
+        }
+      },
+      (candidate) => !!candidate.dna,
+    ]
+  );
 
   return (
     <>
       <Subtitle>{title}</Subtitle>
       <ScorecardContainer>
-        {filteredAndNormalisedSectionCandidates
-            .map((candidate, i) => (
-              <Scorecard data={candidate} key={i} categories={categories} />
-            ))}
+        {filteredAndNormalisedSectionCandidates.map((candidate, i) => (
+          <Scorecard data={candidate} key={i} categories={categories} />
+        ))}
       </ScorecardContainer>
     </>
   );
