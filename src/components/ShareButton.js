@@ -1,6 +1,6 @@
 import React, {useCallback, useMemo, useRef, useState} from "react";
 import ShareIcon from '@mui/icons-material/Share';
-import {Fab, Tooltip, Menu, MenuItem, Typography, Box, useTheme, Divider} from "@mui/material";
+import {Fab, Tooltip, Menu, MenuItem, Typography, Box, useTheme, Divider, Fade} from "@mui/material";
 import {
   Email,
   LinkedIn,
@@ -71,18 +71,9 @@ export const ShareButton = ({ href: rawUrl, style }) => {
             open={open}
             onClose={() => setOpen(false)}
             anchorEl={() => fabRef.current}
-            anchorReference='anchorEl'
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'left'
-            }}
-            anchorPosition={{
-              left: 0,
-              top: 100
-            }}
             MenuListProps={{
               sx: {
-                backgroundColor: '#ecedeb'//theme.palette.primary.main
+                backgroundColor: theme.palette.primary.main
               }
             }}
 
@@ -143,11 +134,13 @@ export const ShareButton = ({ href: rawUrl, style }) => {
           </Box>
         </Menu>
 
-        <Tooltip title="Share">
-          <Fab ref={fabRef} color='primary' sx={style} onClick={onMenuOpenClick} size='small'>
-            <ShareIcon/>
-          </Fab>
-        </Tooltip>
+        <Fade in={!open}>
+          <Tooltip title="Share">
+            <Fab ref={fabRef} color='primary' sx={style} onClick={onMenuOpenClick} size='small'>
+              <ShareIcon/>
+            </Fab>
+          </Tooltip>
+        </Fade>
 
       </>
   )
