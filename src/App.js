@@ -185,7 +185,6 @@ const LogoContainer = styled.div`
   position: absolute;
   bottom: 5px;
   right: 5px;
-  width: 30%;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -198,6 +197,7 @@ const LogoContainer = styled.div`
 `;
 const Logo = styled.img`
   width: 100%;
+  max-height: 200px;
 `;
 const LogoText = styled.p`
   margin-right: 10px;
