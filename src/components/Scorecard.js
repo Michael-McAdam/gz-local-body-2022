@@ -11,6 +11,7 @@ import RentIcon from "@mui/icons-material/HolidayVillage";
 import RainbowIcon from "@mui/icons-material/Looks";
 import AgeIcon from "@mui/icons-material/Skateboarding";
 import DisabledIcon from "@mui/icons-material/AccessibleForward";
+import MaoriIcon from "@mui/icons-material/Foundation";
 
 // const categories = [
 //   "Bike Friendly",
@@ -101,7 +102,19 @@ const render = ({ data, categories }) => {
               />
             </div>
           )}
+          {data.maori && (
+            <div title="Maori">
+              <MaoriIcon
+                sx={{
+                  // borderColor: "rgb(168, 209, 220)",
+                  // color: "rgb(168, 209, 220)",
+                  ...iconStyle,
+                }}
+              />
+            </div>
+          )}
         </IconContainer>
+        {data.dna && <ExtraInfo>*</ExtraInfo>}
       </Content>
       {/* <CardActions>
         <Button size="small">Learn More</Button>
@@ -126,6 +139,7 @@ const Content = styled.div`
   width: fit-content;
   display: inline-block;
   padding: 10px 20px;
+  position: relative;
   /* padding: 0px 20px; */
 `;
 
@@ -139,6 +153,7 @@ const Score = styled.p`
   background-color: rgba(225, 210, 183, 1);
   border-radius: 50px;
   margin: auto;
+  color: #372f0b;
 `;
 
 const Name = styled.p`
@@ -200,4 +215,10 @@ const TitleCell = styled.td`
 `;
 const ScoreCell = styled.td`
   text-align: left;
+`;
+
+const ExtraInfo = styled.div`
+  position: absolute;
+  top: 5px;
+  right: 10px;
 `;

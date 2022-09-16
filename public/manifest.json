@@ -1,21 +1,27 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Local Elections 2022",
+  "name": "Generation Zero - NZ Local Body Elections 2022",
+  "lang": "en-NZ",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "/assets/favicon_package_v0.16/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "/assets/favicon_package_v0.16/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
     },
     {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "/assets/favicon_package_v0.16/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/favicon_package_v0.16/android-chrome-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
