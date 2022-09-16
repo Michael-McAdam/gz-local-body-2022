@@ -55,19 +55,19 @@ const ContinueSection = styled.div`
 `;
 
 const Subtitle = styled.div`
-  font-size: 20px;
+  font-size: 3vw;
   margin-top: 60px;
   color: #221f1f;
 `;
 
 const Logo = styled.img`
-  width: 70%;
+  width: 90%;
   max-width: 600px;
   /* max-height: 200px; */
 `;
 
 const GZLogo = styled.img`
-  width: 20%;
+  width: 30%;
   max-width: 200px;
   /* max-height: 200px; */
 `;
