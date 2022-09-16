@@ -6,3 +6,4 @@ export { default as WhenSection } from "./when";
 export { default as WhereSection } from "./where";
 export { default as WhoSection } from "./who";
 export { default as WhySection } from "./why";
+export { default as LandingSection } from "./landing";
