@@ -1,9 +1,9 @@
 import "../App.css";
 import { Button, Fab } from "@mui/material";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import styled from "@emotion/styled";
 import Section from "../components/Section";
 import { Link } from "react-scroll";
+import {AutoScaler} from "../components/AutoScaler";
 
 function render() {
   return (
@@ -14,9 +14,20 @@ function render() {
           <span>by </span>
           <GZLogo src="./assets/gen_zero_logo_black.png" />
         </GZLogoContainer>
-        <Subtitle>
-          Where do your local candidates stand on climate justice?
-        </Subtitle>
+
+        <AutoScaler initialWidth={850}>
+          {(ref, scale) => (
+              <div ref={ref} style={{
+                width: 850,
+                transform: `scale(${scale})`
+              }}>
+                <Subtitle>
+                  Where do your local candidates stand on climate justice?
+                </Subtitle>
+              </div>
+          )}
+        </AutoScaler>
+
         <Link to="region" spy={true} smooth={true}>
           <ContinueButton
             variant="contained"
@@ -55,7 +66,7 @@ const ContinueSection = styled.div`
 `;
 
 const Subtitle = styled.div`
-  font-size: 3vw;
+  font-size: 30px;
   margin-top: 60px;
   color: #221f1f;
 `;
