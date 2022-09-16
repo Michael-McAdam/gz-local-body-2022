@@ -24,21 +24,9 @@ function render() {
           </GZLink>
         </GZLogoContainer>
 
-        <AutoScaler initialWidth={850}>
-          {(ref, scale) => (
-            <div
-              ref={ref}
-              style={{
-                width: 850,
-                transform: `scale(${scale})`,
-              }}
-            >
-              <Subtitle>
-                Where do your local candidates stand on climate justice?
-              </Subtitle>
-            </div>
-          )}
-        </AutoScaler>
+        <Subtitle>
+          Where do your local candidates stand on climate justice?
+        </Subtitle>
 
         <Link to="region" spy={true} smooth={true}>
           <ContinueButton
@@ -78,7 +66,7 @@ const ContinueSection = styled.div`
 `;
 
 const Subtitle = styled.div`
-  font-size: 25px;
+  font-size: 0.8em;
   margin-top: 60px;
   color: #221f1f;
 `;

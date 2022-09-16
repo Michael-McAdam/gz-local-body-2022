@@ -175,6 +175,7 @@ const Score = styled.p`
 const Name = styled.p`
   font-weight: 900;
   font-size: 20px;
+  /* font-size: 0.7em; */
   white-space: nowrap;
   margin: 0;
   text-align: center;
