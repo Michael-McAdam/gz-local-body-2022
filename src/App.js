@@ -10,6 +10,7 @@ import {
   WhereSection,
   WhoSection,
   WhySection,
+  LandingSection,
 } from "./sections";
 
 import { collection, getDocs, query, where } from "firebase/firestore";
@@ -18,7 +19,7 @@ import { levels } from "./util";
 import { db } from "./firebase";
 import Section from "./components/Section";
 import data from "./data";
-import {ShareButton} from "./components/ShareButton";
+import { ShareButton } from "./components/ShareButton";
 
 const q = query(collection(db, "regions"), where("include", "==", true));
 
@@ -123,7 +124,7 @@ function App() {
       <AppContainer className="App">
         {loaded ? (
           <>
-            <EnrolSection />
+            <LandingSection />
             <RegionSection state={state} dispatch={dispatch} db={db} />
             <WhoSection state={state} dispatch={dispatch} />
             <HowSection state={state} dispatch={dispatch} />
@@ -147,7 +148,10 @@ function App() {
           </Section>
         )}
 
-        <ShareButton href={document.location.href} style={{position: 'fixed', bottom: 10, left: 10}} />
+        <ShareButton
+          href={document.location.href}
+          style={{ position: "fixed", bottom: 10, left: 10 }}
+        />
       </AppContainer>
     </Background>
   );
