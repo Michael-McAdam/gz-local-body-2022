@@ -54,6 +54,16 @@ function Render({ open, onClose }) {
           questionnaire at any point before submitting.
         </p>
         <p>
+          You can read the questions yourself{" "}
+          <a
+            href="https://forms.gle/7TL8UJVwsutoLRhi8"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            here
+          </a>
+        </p>
+        <p>
           We have been supported in the creation of our scorecard. We want to
           thank many groups and individuals for helping with the writing of our
           survey questions:{" "}

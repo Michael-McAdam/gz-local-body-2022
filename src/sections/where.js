@@ -74,9 +74,9 @@ const Body = ({ state, dispatch }) => {
 
   console.log(info);
 
-  info = state.special
-    ? info
-    : info.filter((a) => a.type !== "special" || !a.type);
+  // info = state.special
+  //   ? info
+  //   : info.filter((a) => a.type !== "special" || !a.type);
 
   useEffect(() => {
     apiIsLoaded(_map, _maps, info);

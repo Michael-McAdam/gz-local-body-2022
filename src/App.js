@@ -138,7 +138,7 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Logo src="./assets/generation-zero-logo.png" />
+                <Logo src="./assets/gen_zero_logo_black.png" />
               </a>
             </LogoContainer>
           </>
@@ -150,12 +150,7 @@ function App() {
 
         <ShareButton
           href={document.location.href}
-          style={{
-            position: "fixed",
-            bottom: 10,
-            left: 10,
-            color: "secondary",
-          }}
+          style={{ position: "fixed", bottom: 10, left: 10 }}
         />
       </AppContainer>
     </Background>
@@ -213,5 +208,5 @@ const LogoText = styled.p`
   margin-right: 10px;
   white-space: nowrap;
   font-size: 10px;
-  color: white;
+  /* color: white; */
 `;

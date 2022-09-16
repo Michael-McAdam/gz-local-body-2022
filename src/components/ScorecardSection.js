@@ -65,7 +65,7 @@ function Render({ state, dbPath, watchKey, title, type, dispatch }) {
     state.who[type]
       .filter((x) => !x.exclude)
       .map((x) => ({
-        publicTransport: x.transport || x.publicTransport,
+        transport: x.publicTransport || x.transport,
         ...x,
       })),
     [
@@ -97,7 +97,12 @@ function Render({ state, dbPath, watchKey, title, type, dispatch }) {
       <Subtitle>{title}</Subtitle>
       <ScorecardContainer>
         {filteredAndNormalisedSectionCandidates.map((candidate, i) => (
-          <Scorecard data={candidate} key={i} categories={categories} />
+          <Scorecard
+            data={candidate}
+            key={i}
+            categories={categories}
+            type={type}
+          />
         ))}
       </ScorecardContainer>
     </>

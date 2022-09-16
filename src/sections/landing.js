@@ -3,7 +3,7 @@ import { Button, Fab } from "@mui/material";
 import styled from "@emotion/styled";
 import Section from "../components/Section";
 import { Link } from "react-scroll";
-import {AutoScaler} from "../components/AutoScaler";
+import { AutoScaler } from "../components/AutoScaler";
 
 function render() {
   return (
@@ -12,19 +12,31 @@ function render() {
         <Logo src="./assets/VoteLocal.png" />
         <GZLogoContainer>
           <span>by </span>
-          <GZLogo src="./assets/gen_zero_logo_black.png" />
+          <GZLink
+            href="https://www.generationzero.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <GZLogo
+              src="./assets/gen_zero_logo_black.png"
+              href="https://www.generationzero.org/"
+            />
+          </GZLink>
         </GZLogoContainer>
 
         <AutoScaler initialWidth={850}>
           {(ref, scale) => (
-              <div ref={ref} style={{
+            <div
+              ref={ref}
+              style={{
                 width: 850,
-                transform: `scale(${scale})`
-              }}>
-                <Subtitle>
-                  Where do your local candidates stand on climate justice?
-                </Subtitle>
-              </div>
+                transform: `scale(${scale})`,
+              }}
+            >
+              <Subtitle>
+                Where do your local candidates stand on climate justice?
+              </Subtitle>
+            </div>
           )}
         </AutoScaler>
 
@@ -66,7 +78,7 @@ const ContinueSection = styled.div`
 `;
 
 const Subtitle = styled.div`
-  font-size: 30px;
+  font-size: 25px;
   margin-top: 60px;
   color: #221f1f;
 `;
@@ -78,6 +90,12 @@ const Logo = styled.img`
 `;
 
 const GZLogo = styled.img`
+  width: 100%;
+  /* max-width: 200px; */
+  /* max-height: 200px; */
+`;
+
+const GZLink = styled.a`
   width: 30%;
   max-width: 200px;
   /* max-height: 200px; */
