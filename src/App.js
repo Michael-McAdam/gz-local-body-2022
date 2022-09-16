@@ -18,6 +18,7 @@ import { levels } from "./util";
 import { db } from "./firebase";
 import Section from "./components/Section";
 import data from "./data";
+import {ShareButton} from "./components/ShareButton";
 
 const q = query(collection(db, "regions"), where("include", "==", true));
 
@@ -145,6 +146,8 @@ function App() {
             <CircularProgress />
           </Section>
         )}
+
+        <ShareButton href={document.location.href} style={{position: 'fixed', bottom: 10, left: 10}} />
       </AppContainer>
     </Background>
   );
@@ -182,7 +185,6 @@ const LogoContainer = styled.div`
   position: absolute;
   bottom: 5px;
   right: 5px;
-  width: 30%;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -195,6 +197,7 @@ const LogoContainer = styled.div`
 `;
 const Logo = styled.img`
   width: 100%;
+  max-height: 200px;
 `;
 const LogoText = styled.p`
   margin-right: 10px;
