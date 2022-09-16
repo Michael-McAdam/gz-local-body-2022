@@ -4,7 +4,7 @@ import Plausible from "plausible-tracker";
 // Initialise analytics
 export const plausible = Plausible({
   domain: 'localelections.nz',
-  trackLocalhost: true
+  trackLocalhost: false
 })
 
 

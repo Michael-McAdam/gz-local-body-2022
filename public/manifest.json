@@ -1,6 +1,6 @@
 {
   "short_name": "Local Elections 2022",
-  "name": "Generation Zero - NZ Local Body Elections 2022",
+  "name": "Generation Zero | Local body elections 2022",
   "lang": "en-NZ",
   "icons": [
     {
@@ -26,6 +26,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#ebdcb7",
+  "background_color": "#556a41"
 }
