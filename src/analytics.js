@@ -1,54 +1,54 @@
-import {levels} from "./util";
+import { levels } from "./util";
 import Plausible from "plausible-tracker";
 
 // Initialise analytics
 export const plausible = Plausible({
-  domain: 'localelections.nz',
-  trackLocalhost: true
-})
-
+  domain: "localelections.nz",
+  trackLocalhost: true,
+});
 
 /**
  * Records an event to google analytics.
  */
-const recordEvent = (type, {...params}) => {
+const recordEvent = (type, { ...params }) => {
   plausible.trackEvent(type, {
-    props: params
-  })
-}
-
+    props: params,
+  });
+};
 
 const convertSelectionIdsToNames = (regionData, selection) => {
-  const val = {}
+  const val = {};
 
   for (const level of levels) {
-    const selectedId = selection[level]
-    if (selectedId !== '') {
-      const regionDataLevelIndex = regionData[level].map(region => region.id).indexOf(selectedId)
+    const selectedId = selection[level];
+    if (selectedId !== "") {
+      const regionDataLevelIndex = regionData[level]
+        .map((region) => region.id)
+        .indexOf(selectedId);
 
       if (regionDataLevelIndex !== -1) {
-        val[level] = regionData[level][regionDataLevelIndex].name
-        continue
+        val[level] = regionData[level][regionDataLevelIndex].name;
+        continue;
       }
     }
-    val[level] = ""
+    val[level] = "";
   }
 
-  return val
-}
+  return val;
+};
 
 export const recordRegionSelected = (regionData, selection) => {
-  const selectionNames = convertSelectionIdsToNames(regionData, selection)
+  const selectionNames = convertSelectionIdsToNames(regionData, selection);
   const fullName = levels
-      .map(level => selectionNames[level])
-      .filter(name => name !== '')
-      .join("->")
+    .map((level) => selectionNames[level])
+    .filter((name) => name !== "")
+    .join("->");
 
-  console.log(`Recording region selection:`, fullName, selectionNames)
+  // console.log(`Recording region selection:`, fullName, selectionNames)
 
-  recordEvent("region_selection", {fullName: fullName, ...selectionNames})
-}
+  recordEvent("region_selection", { fullName: fullName, ...selectionNames });
+};
 
 export const recordSiteShare = (medium) => {
-  recordEvent("share", {medium: medium})
-}
+  recordEvent("share", { medium: medium });
+};

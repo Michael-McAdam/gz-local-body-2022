@@ -13,7 +13,7 @@ let categories = ["transport", "housing", "environment", "equity", "teTiriti"];
 function Render({ state, dbPath, watchKey, title, type, dispatch }) {
   useEffect(() => {
     const fetchData = async () => {
-      console.log("Requesting: ", dbPath);
+      // console.log("Requesting: ", dbPath);
       let q = query(collection(db, dbPath));
       let res = await getDocs(q);
       dispatch({
@@ -27,7 +27,7 @@ function Render({ state, dbPath, watchKey, title, type, dispatch }) {
 
     if (state.selected[watchKey]) {
       fetchData();
-      console.log("Fetching");
+      // console.log("Fetching");
     } else {
       dispatch({
         type: "setWho",
@@ -37,7 +37,7 @@ function Render({ state, dbPath, watchKey, title, type, dispatch }) {
         },
       });
     }
-    console.log("Running for: ", title);
+    // console.log("Running for: ", title);
   }, [state.selected[watchKey]]);
 
   let loaded = state.who[type].length > 0;
@@ -99,7 +99,7 @@ function Render({ state, dbPath, watchKey, title, type, dispatch }) {
         {filteredAndNormalisedSectionCandidates.map((candidate, i) => (
           <Scorecard
             data={candidate}
-            key={i}
+            key={candidate.name}
             categories={categories}
             type={type}
           />
