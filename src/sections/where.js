@@ -72,7 +72,7 @@ const Body = ({ state, dispatch }) => {
     })
     .filter((a) => a.lat && a.lng);
 
-  console.log(info);
+  // console.log(info);
 
   // info = state.special
   //   ? info
@@ -80,7 +80,7 @@ const Body = ({ state, dispatch }) => {
 
   useEffect(() => {
     apiIsLoaded(_map, _maps, info);
-    console.log("Running...: ", info);
+    // console.log("Running...: ", info);
   }, [state.special]);
 
   return (

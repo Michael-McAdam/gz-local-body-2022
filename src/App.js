@@ -52,7 +52,7 @@ const initialState = {
 };
 
 function reducer(state, action) {
-  console.log(action);
+  // console.log(action);
   switch (action.type) {
     case "addData":
       return {
@@ -88,7 +88,7 @@ function reducer(state, action) {
         special: !(action.payload && state.enrolled),
       };
     default:
-      console.log("No handler for reducer");
+      // console.log("No handler for reducer");
       return state;
     // throw new Error();
   }
@@ -115,13 +115,13 @@ function App() {
     fetchData();
   }, []);
 
-  console.log(state);
+  // console.log(state);
 
   let loaded = Object.keys(state.data.region).length > 0;
   let contact = state.data.region.find(
     (a) => a.id === state.selected.region
   )?.contact;
-  console.log(contact);
+  // console.log(contact);
 
   return (
     <Background>
