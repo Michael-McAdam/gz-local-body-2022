@@ -65,12 +65,21 @@ function Render({ state, dbPath, watchKey, title, type, dispatch }) {
       </>
     );
   }
+  // .sort((a, b) => (a.overall == "?" ? 1 : -1))
   return (
     <>
       <Subtitle>{title}</Subtitle>
       <ScorecardContainer>
         {state.who[type]
-          .sort((a, b) => (a.overall + "," > b.overall + "," ? 1 : -1))
+          .filter((x) => !x.exclude)
+          .sort((a, b) => {
+            if (a.overall === "?") return 1;
+            return a.overall + "," > b.overall + "," ? 1 : -1;
+          })
+          .map((x) => ({
+            publicTransport: x.transport || x.publicTransport,
+            ...x,
+          }))
           .map((candidate, i) => (
             <Scorecard data={candidate} key={i} categories={categories} />
           ))}

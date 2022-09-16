@@ -1,7 +1,7 @@
 import "./App.css";
 import { CircularProgress } from "@mui/material";
 import styled from "@emotion/styled";
-import { useState, useRef, useEffect, useReducer } from "react";
+import { useRef, useEffect, useReducer } from "react";
 import {
   EnrolSection,
   HowSection,
@@ -95,6 +95,7 @@ function reducer(state, action) {
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const ref = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -160,6 +161,7 @@ const View = styled.div`
 `;
 
 const Background = styled.div`
+  height: 100%;
   width: 100%;
   background-color: blue;
   background: linear-gradient(
@@ -177,7 +179,6 @@ const AppContainer = styled.div`
   position: relative;
   height: 100%;
   width: 100%;
-  overflow: scroll;
 `;
 
 const LogoContainer = styled.div`
