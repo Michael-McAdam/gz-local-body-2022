@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useRef, useState} from "react";
+import React, {useCallback, useRef, useState} from "react";
 import ShareIcon from '@mui/icons-material/Share';
 import {Fab, Tooltip, Menu, MenuItem, Typography, Box, useTheme, Divider, Fade} from "@mui/material";
 import {
@@ -8,6 +8,7 @@ import {
   Twitter,
   WhatsApp
 } from "@mui/icons-material";
+import {recordSiteShare} from "../analytics";
 
 const buildUrlWithParams = (base, params) => {
   let url = base
@@ -19,13 +20,13 @@ const buildUrlWithParams = (base, params) => {
   return url
 }
 
-const SocialMediaShareMenuItem = ({icon, name, href, onClick, divider}) => {
+const SocialMediaShareMenuItem = ({icon, name, href, divider}) => {
   return (
       <MenuItem
           component='a'
           divider={divider}
-          href={href ?? '#'}
-          onClick={onClick}
+          href={href}
+          onClick={() => recordSiteShare(name.toLowerCase())}
           target="_blank"
           rel="noopener noreferrer"
           role="link"
@@ -49,20 +50,27 @@ export const ShareButton = ({ href: rawUrl, style }) => {
   const fabRef = useRef(null)
   const theme = useTheme()
 
-  const url = useMemo(() => {
+  const getUrl = (mediumName) => {
     const parsedUrl = new URL(rawUrl)
     parsedUrl.searchParams.set('utm_campaign', 'LE')
     parsedUrl.searchParams.set('utm_source', 'sharebutton')
-    parsedUrl.searchParams.set('utm_medium', 'site')
+    parsedUrl.searchParams.set('utm_medium', mediumName)
     return parsedUrl.href
-  }, [rawUrl])
+  }
 
   const shareText = `Generation Zero have rated local elections candidates on their climate justice credentials`
 
+  const linkUrl = getUrl('link')
   const onMenuOpenClick = useCallback(async () => {
-    await navigator.clipboard.writeText(url)
+    try {
+      await navigator.clipboard.writeText(linkUrl)
+      recordSiteShare('link')
+    }
+    catch (e) {
+      console.error("Failed to copy share link to clipboard.", e)
+    }
     setOpen(true)
-  }, [url, setOpen])
+  }, [linkUrl, setOpen])
 
   return (
       <>
@@ -93,7 +101,7 @@ export const ShareButton = ({ href: rawUrl, style }) => {
               icon={<Twitter sx={{fill: '#1d9bf0'}}/>}
               name='Twitter'
               href={buildUrlWithParams('https://twitter.com/intent/tweet', {
-                url,
+                url: getUrl('twitter'),
                 text: shareText + '.\n\nCheck out the results: '
               })}
             />
@@ -102,7 +110,7 @@ export const ShareButton = ({ href: rawUrl, style }) => {
                 icon={<Reddit sx={{fill: '#ff4500'}}/>}
                 name='Reddit'
                 href={buildUrlWithParams('https://www.reddit.com/submit', {
-                  url,
+                  url: getUrl('reddit'),
                   title: shareText
                 })}
             />
@@ -112,7 +120,7 @@ export const ShareButton = ({ href: rawUrl, style }) => {
                 name='Email'
                 href={buildUrlWithParams('mailto:', {
                   subject: shareText,
-                  body: 'Check out the results at: ' + url
+                  body: 'Check out the results at: ' + getUrl('email')
                 })}
             />
 
@@ -120,7 +128,7 @@ export const ShareButton = ({ href: rawUrl, style }) => {
                 icon={<LinkedIn sx={{fill: '#0a66c2'}}/>}
                 name='LinkedIn'
                 href={buildUrlWithParams('https://www.linkedin.com/sharing/share-offsite/', {
-                  url
+                  url: getUrl('linkedin')
                 })}
             />
 
@@ -128,7 +136,7 @@ export const ShareButton = ({ href: rawUrl, style }) => {
                 icon={<WhatsApp sx={{fill: '#2db842'}}/>}
                 name='WhatsApp'
                 href={buildUrlWithParams('https://wa.me/', {
-                  text: shareText + ".\n\nCheck out the results: " + url
+                  text: shareText + ".\n\nCheck out the results: " + getUrl('whatsapp')
                 })}
             />
           </Box>
