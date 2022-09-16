@@ -90,14 +90,15 @@ const render = ({ state, dispatch }) => {
                 {state.data[level]
                   .sort((a, b) => (a.name > b.name ? 1 : -1))
                   .map((loc) => {
+                    let sel = loc.id == state.selected[level];
                     return (
                       <Chip
                         key={loc.name}
                         label={loc.name}
+                        // color={"primary"}
                         className="Chip"
-                        variant={
-                          loc.id !== state.selected[level] ? "outlined" : ""
-                        }
+                        color={sel ? "primary" : "secondary"}
+                        sx={{ transform: sel ? "scale(1.2)" : "" }}
                         onClick={async () =>
                           await clickHandler(state, dispatch, i, db, loc.id)
                         }
@@ -150,7 +151,8 @@ const LocationsSection = styled.div`
   margin-right: auto;
 
   & > .Chip {
-    color: white;
+    /* color: white; */
+    /* color: #221f1f; */
     margin: 2px 10px;
   }
 `;

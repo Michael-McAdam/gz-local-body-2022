@@ -118,8 +118,10 @@ const ScorecardContainer = styled.div`
     background-color: rgba(245, 245, 220, 0);
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
-    border-color: white;
-    color: white;
+    /* border-color: white; */
+    /* color: white; */
+    border-color: #221f1f;
+    color: #221f1f;
     border-radius: 5%;
   }
 

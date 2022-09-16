@@ -101,13 +101,15 @@ const TimeDisplay = styled.p`
 `;
 
 const StepContainer = styled.div`
-  color: white;
+  /* color: white; */
+  color: #221f1f;
   width: 70%;
   padding-top: 30px;
 `;
 
 const Label = styled.div`
-  color: white;
+  /* color: white; */
+  color: #221f1f;
   display: flex;
   flex-direction: column;
   align-items: center;

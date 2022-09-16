@@ -15,7 +15,7 @@ const Section = (props) => {
       {props.children}
     </Container>
   );
-}
+};
 
 export default Section;
 
@@ -28,7 +28,8 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  /* color: white; */
+  color: #221f1f;
   margin-bottom: ${(props) => !props.dense && "30vh"};
 
   display: ${(props) => (props.hidden ? "hidden" : "default")};
@@ -56,13 +57,15 @@ const TitleContainer = styled.div`
   align-items: center;
 
   & > .Chip {
-    color: white;
+    /* color: white; */
+    color: #221f1f;
     margin: 15px 10px;
   }
 `;
 
 const HeaderContainer = styled.div`
-  color: white;
+  /* color: white; */
+  color: #221f1f;
   position: absolute;
   top: 50px;
   left: 30px;

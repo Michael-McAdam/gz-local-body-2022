@@ -3,7 +3,8 @@ import {
   Card,
   CardContent,
   CardActions,
-  Typography, Tooltip,
+  Typography,
+  Tooltip,
 } from "@mui/material";
 import styled from "@emotion/styled";
 import data from "../data";
@@ -114,7 +115,11 @@ const render = ({ data, categories }) => {
             </Tooltip>
           )}
         </IconContainer>
-        {data.dna && <Tooltip title="Candidate did not fill out our survey"><ExtraInfo>*</ExtraInfo></Tooltip>}
+        {data.dna && (
+          <Tooltip title="Candidate did not fill out our survey">
+            <ExtraInfo>*</ExtraInfo>
+          </Tooltip>
+        )}
       </Content>
       {/* <CardActions>
         <Button size="small">Learn More</Button>
@@ -129,10 +134,9 @@ const Container = styled.div`
   /* width: 30%; */
   /* min-width: 200px; */
   min-height: 300;
-  background-color: "rgba(255, 255, 255, 0.5)";
+  /* background-color: "rgba(255, 255, 255, 0.5)"; */
   /* display: inline-block; */
   width: fit-content;
-  border: 1px solid white;
 `;
 
 const Content = styled.div`
@@ -140,6 +144,13 @@ const Content = styled.div`
   display: inline-block;
   padding: 10px 20px;
   position: relative;
+  border: 1px solid black;
+  border-radius: 20px;
+  /* background-color: rgba(235, 220, 183, 0.6); */
+  height: 100%;
+  /* background-color: #ebe3d1; */
+  background-color: #ebdcb7;
+
   /* padding: 0px 20px; */
 `;
 
@@ -150,7 +161,8 @@ const Score = styled.p`
   text-align: center;
   margin-left: 5px;
   width: 60%;
-  background-color: rgba(225, 210, 183, 1);
+  /* background-color: rgba(225, 210, 183, 1); */
+  background-color: #e24f33;
   border-radius: 50px;
   margin: auto;
   color: #372f0b;

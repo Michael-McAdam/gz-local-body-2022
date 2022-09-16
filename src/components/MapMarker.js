@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { hover } from "@testing-library/user-event/dist/hover";
 
 let colorLUT = {
-  special: "yellow",
+  special: "#556a41",
   both: "orange",
   dropoff: "red",
 };
