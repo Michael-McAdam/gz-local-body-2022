@@ -7,13 +7,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 
 import { db } from "../firebase";
 
-let categories = [
-  "publicTransport",
-  "housing",
-  "environment",
-  "equity",
-  "teTiriti",
-];
+let categories = ["transport", "housing", "environment", "equity", "teTiriti"];
 
 function Render({ state, dbPath, watchKey, title, type, dispatch }) {
   useEffect(() => {
@@ -77,7 +71,7 @@ function Render({ state, dbPath, watchKey, title, type, dispatch }) {
             return a.overall + "," > b.overall + "," ? 1 : -1;
           })
           .map((x) => ({
-            publicTransport: x.transport || x.publicTransport,
+            transport: x.publicTransport || x.transport,
             ...x,
           }))
           .map((candidate, i) => (
