@@ -147,7 +147,7 @@ function App() {
           </Section>
         )}
 
-        <ShareButton url={document.location.href} dropdownDirection="up" style={{position: fixed, bottom: 5, left: 5}} />
+        <ShareButton href={document.location.href} style={{position: 'fixed', bottom: 10, left: 10}} />
       </AppContainer>
     </Background>
   );
