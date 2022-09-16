@@ -122,7 +122,7 @@ const Body = ({ state, dispatch }) => {
                   <span>Drop Off Location</span>
                 </MarkerContainer>
                 <MarkerContainer>
-                  <RoomIcon style={{ color: "yellow" }} />
+                  <RoomIcon style={{ color: "#556a41" }} />
                   <span>Special Vote Pickup</span>
                 </MarkerContainer>
               </KeyContainer>

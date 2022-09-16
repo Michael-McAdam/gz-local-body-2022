@@ -21,14 +21,14 @@ function render({ state, dispatch }) {
             <Chip
               label={"Yes"}
               className="Chip"
-              variant={!state.enrolled ? "outlined" : ""}
+              color={state.enrolled ? "primary" : "secondary"}
               onClick={() => dispatch({ type: "setEnrolled", payload: true })}
               key={"Yes"}
             />
             <Chip
               label={"No"}
               className="Chip"
-              variant={state.enrolled ? "outlined" : ""}
+              color={!state.enrolled ? "primary" : "secondary"}
               onClick={() => dispatch({ type: "setEnrolled", payload: false })}
               key={"No"}
             />
@@ -42,7 +42,7 @@ function render({ state, dispatch }) {
                 <Chip
                   label={"Yes"}
                   className="Chip"
-                  variant={!state.current ? "outlined" : ""}
+                  color={state.current ? "primary" : "secondary"}
                   onClick={() =>
                     dispatch({ type: "setCurrent", payload: true })
                   }
@@ -51,7 +51,7 @@ function render({ state, dispatch }) {
                 <Chip
                   label={"No"}
                   className="Chip"
-                  variant={state.current ? "outlined" : ""}
+                  color={!state.current ? "primary" : "secondary"}
                   onClick={() =>
                     dispatch({ type: "setCurrent", payload: false })
                   }
@@ -74,22 +74,6 @@ function render({ state, dispatch }) {
         <p>{state.special && "You've got to special vote"}</p>
         <InfoContainer>
           <List sx={{ fontSize: "14px" }}>
-            {/* <ListItem>
-              <ListItemIcon>
-                <PortraitIcon />
-              </ListItemIcon>
-              <p>
-                Make sure all your details are up to date, if you're unsure you
-                can check{" "}
-                <a
-                  href="https://enrol.vote.nz/app/enrol/#/check-online"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  here
-                </a>
-              </p>
-            </ListItem> */}
             {state.special ? (
               <ListItem>
                 <ListItemIcon>
@@ -193,6 +177,7 @@ const AnswerContainer = styled.div`
 
   & > .Chip {
     margin-right: 10px;
-    color: white;
+    /* color: white; */
+    /* color: #221f1f; */
   }
 `;

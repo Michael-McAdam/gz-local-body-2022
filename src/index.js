@@ -14,10 +14,12 @@ export const themeOptions = {
   palette: {
     type: "light",
     primary: {
-      main: "#ebdcb7",
+      // main: "#ebdcb7",
+      main: "#e24f33",
     },
     secondary: {
-      main: "#556a41",
+      main: "#ebdcb7",
+      // main: "#556a41",
     },
     text: {
       primary: "#372f0b",

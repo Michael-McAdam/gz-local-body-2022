@@ -150,7 +150,12 @@ function App() {
 
         <ShareButton
           href={document.location.href}
-          style={{ position: "fixed", bottom: 10, left: 10 }}
+          style={{
+            position: "fixed",
+            bottom: 10,
+            left: 10,
+            color: "secondary",
+          }}
         />
       </AppContainer>
     </Background>
@@ -167,14 +172,15 @@ const View = styled.div`
 const Background = styled.div`
   height: 100%;
   width: 100%;
-  background-color: blue;
-  background: linear-gradient(
+  background-color: #a4d1dd;
+  /* background-color: blue; */
+  /* background: linear-gradient(
     180deg,
     rgba(85, 106, 65, 1) 0%,
     rgba(85, 106, 65, 0.8) 25%,
     rgba(85, 106, 65, 0.8) 75%,
     rgba(85, 106, 65, 1) 100%
-  );
+  ); */
 `;
 
 const AppContainer = styled.div`
