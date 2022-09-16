@@ -119,22 +119,24 @@ function render({ state, dispatch }) {
                 <b> 8th of October</b>
               </p>
             </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <MarkunreadMailboxIcon />
-              </ListItemIcon>
-              <p>
-                Or you can mail in your papers before the<b> 3rd of October.</b>{" "}
-                Find your nearest mailbox{" "}
-                <a
-                  href="https://www.nzpost.co.nz/tools/postshop-kiwibank-locator"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  here
-                </a>
-              </p>
-            </ListItem>
+            {!state.special && (
+              <ListItem>
+                <ListItemIcon>
+                  <MarkunreadMailboxIcon />
+                </ListItemIcon>
+                <p>
+                  Or you can mail in your papers before the
+                  <b> 3rd of October.</b> Find your nearest mailbox{" "}
+                  <a
+                    href="https://www.nzpost.co.nz/tools/postshop-kiwibank-locator"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    here
+                  </a>
+                </p>
+              </ListItem>
+            )}
           </List>
         </InfoContainer>
       </Container>
@@ -156,6 +158,7 @@ const Container = styled.div`
   & > p {
     font-size: 30px;
     font-weight: bold;
+    width: 90%;
   }
 `;
 
