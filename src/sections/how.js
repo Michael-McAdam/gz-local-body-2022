@@ -9,6 +9,7 @@ import InventoryIcon from "@mui/icons-material/Inventory";
 import MailIcon from "@mui/icons-material/Mail";
 import CreateIcon from "@mui/icons-material/Create";
 import HomeWorkIcon from "@mui/icons-material/HomeWork";
+import MarkunreadMailboxIcon from "@mui/icons-material/MarkunreadMailbox";
 import { Link } from "react-scroll";
 
 function render({ state, dispatch }) {
@@ -96,7 +97,7 @@ function render({ state, dispatch }) {
                   You should receive your voting pack in the mail between
                   <b> Friday 16 September </b>
                   and
-                  <b> Wednesday 21 September</b>
+                  <b> Wednesday 21 September.</b>
                 </p>
               </ListItem>
             )}
@@ -116,6 +117,22 @@ function render({ state, dispatch }) {
               <p>
                 Drop your voting pack off at a drop off center before the
                 <b> 8th of October</b>
+              </p>
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>
+                <MarkunreadMailboxIcon />
+              </ListItemIcon>
+              <p>
+                Or you can mail in your papers before the<b> 3rd of October.</b>{" "}
+                Find your nearest mailbox{" "}
+                <a
+                  href="https://www.nzpost.co.nz/tools/postshop-kiwibank-locator"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  here
+                </a>
               </p>
             </ListItem>
           </List>

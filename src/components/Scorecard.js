@@ -36,7 +36,7 @@ const iconStyle = {
   borderStyle: "solid",
 };
 
-const render = ({ data, categories }) => {
+const render = ({ data, categories, type }) => {
   return (
     <Container className="Card" variant="outlined" title={data.comment}>
       <Content>
@@ -44,20 +44,22 @@ const render = ({ data, categories }) => {
         <Score>{data.overall}</Score>
         {/* </ScoreContainer> */}
         <Name>{data.name}</Name>
-        <Table>
-          <tbody>
-            {categories.map((c) => {
-              let title = c.replace(/([A-Z])/g, " $1");
-              title = title.charAt(0).toUpperCase() + title.slice(1);
-              return (
-                <Row key={c}>
-                  <TitleCell>{title}</TitleCell>
-                  <ScoreCell>{data[c] || "-"}</ScoreCell>
-                </Row>
-              );
-            })}
-          </tbody>
-        </Table>
+        {type !== "board" && (
+          <Table>
+            <tbody>
+              {categories.map((c) => {
+                let title = c.replace(/([A-Z])/g, " $1");
+                title = title.charAt(0).toUpperCase() + title.slice(1);
+                return (
+                  <Row key={c}>
+                    <TitleCell>{title}</TitleCell>
+                    <ScoreCell>{data[c] || "-"}</ScoreCell>
+                  </Row>
+                );
+              })}
+            </tbody>
+          </Table>
+        )}
         <IconContainer>
           {data.renter && (
             <Tooltip title="Renter">
@@ -104,7 +106,7 @@ const render = ({ data, categories }) => {
             </Tooltip>
           )}
           {data.maori && (
-            <Tooltip title="Maori">
+            <Tooltip title="Māori">
               <MaoriIcon
                 sx={{
                   // borderColor: "rgb(168, 209, 220)",
@@ -132,7 +134,6 @@ export default render;
 
 const Container = styled.div`
   /* width: 30%; */
-  /* min-width: 200px; */
   min-height: 300;
   /* background-color: "rgba(255, 255, 255, 0.5)"; */
   /* display: inline-block; */
@@ -148,6 +149,8 @@ const Content = styled.div`
   border-radius: 20px;
   /* background-color: rgba(235, 220, 183, 0.6); */
   height: 100%;
+  min-width: 150px;
+
   /* background-color: #ebe3d1; */
   background-color: #ebdcb7;
 
@@ -161,6 +164,7 @@ const Score = styled.p`
   text-align: center;
   margin-left: 5px;
   width: 60%;
+  min-width: 90px;
   /* background-color: rgba(225, 210, 183, 1); */
   background-color: #e24f33;
   border-radius: 50px;
