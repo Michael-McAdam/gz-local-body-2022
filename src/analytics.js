@@ -4,7 +4,7 @@ import Plausible from "plausible-tracker";
 // Initialise analytics
 export const plausible = Plausible({
   domain: 'localelections.nz',
-  trackLocalhost: false
+  trackLocalhost: true
 })
 
 
@@ -47,4 +47,8 @@ export const recordRegionSelected = (regionData, selection) => {
   console.log(`Recording region selection:`, fullName, selectionNames)
 
   recordEvent("region_selection", {fullName: fullName, ...selectionNames})
+}
+
+export const recordSiteShare = (medium) => {
+  recordEvent("share", {medium: medium})
 }
