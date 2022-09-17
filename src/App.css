@@ -56,6 +56,27 @@ body {
   font-family: 'Open Sans', 'Droid Sans', Arial, sans-serif;
 }
 
+.horizontal::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(60, 60, 60, .5);
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
 /* include border and padding in element width and height */
 * {
   box-sizing: border-box;

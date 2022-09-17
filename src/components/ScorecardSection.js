@@ -95,7 +95,7 @@ function Render({ state, dbPath, watchKey, title, type, dispatch }) {
   return (
     <>
       <Subtitle>{title}</Subtitle>
-      <ScorecardContainer>
+      <ScorecardContainer className="horizontal">
         {filteredAndNormalisedSectionCandidates.map((candidate, i) => (
           <Scorecard
             data={candidate}
@@ -119,6 +119,7 @@ const ScorecardContainer = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   overflow-x: auto;
+  /* padding-bottom: 5px; */
 
   & > .Card {
     margin: 0 5px;
