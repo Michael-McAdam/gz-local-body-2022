@@ -70,7 +70,8 @@ const Body = ({ state, dispatch }) => {
       let out = { lat, lng, name, ...x };
       return out;
     })
-    .filter((a) => a.lat && a.lng);
+    .filter((a) => a.lat && a.lng)
+    .sort((a, b) => (a.type === "special" ? 1 : -1));
 
   // console.log(info);
 
