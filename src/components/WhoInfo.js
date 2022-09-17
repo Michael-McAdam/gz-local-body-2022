@@ -25,6 +25,8 @@ function Render({ open, onClose }) {
         alignItems: "center",
         justifyContent: "center",
         overflowY: "auto",
+        paddingTop: "80px",
+        paddingBottom: "80px",
       }}
     >
       <InfoContainer>
