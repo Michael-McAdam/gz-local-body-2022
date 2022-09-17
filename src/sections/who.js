@@ -20,7 +20,8 @@ const Render = ({ state, dispatch }) => {
         icon={<InfoIcon onClick={() => setOpen(true)} />}
         subtitle="We researched the candidates so that you don't have to"
         dense={true}
-        height={"190vh"}
+        // height={"190vh"}
+        height={"1500px"}
       >
         <WhoInfo open={open} onClose={() => setOpen(false)} />
         <ScorecardSection
