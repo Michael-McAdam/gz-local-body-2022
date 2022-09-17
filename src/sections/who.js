@@ -98,6 +98,18 @@ const Render = ({ state, dispatch }) => {
           >
             Renters United
           </a>
+          {isAuckland && (
+            <>
+              ,{" "}
+              <a
+                href="https://organiseaotearoa.nz/auckland2022/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Organise Aotearoa
+              </a>
+            </>
+          )}
           <p>* = didn't fill out our survey.</p>
         </ExtrasContainer>
       </Section>
