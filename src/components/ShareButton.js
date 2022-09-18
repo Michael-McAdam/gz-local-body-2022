@@ -168,7 +168,7 @@ export const ShareButton = ({ href: rawUrl, style }) => {
       </Menu>
 
       <Fade in={!open}>
-        <Tooltip title="Share">
+        <Tooltip enterTouchDelay={0} title="Share">
           <Fab
             ref={fabRef}
             color="secondary"

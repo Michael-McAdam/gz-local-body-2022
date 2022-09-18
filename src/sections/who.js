@@ -2,14 +2,30 @@ import "../App.css";
 import styled from "@emotion/styled";
 import Section from "../components/Section";
 import { useState } from "react";
-import InfoIcon from "@mui/icons-material/Info";
+// import InfoIcon from "@mui/icons-material/Info";
+import InfoIcon from "@mui/icons-material/Help";
 
 import WhoInfo from "../components/WhoInfo";
+import BoardInfo from "../components/BoardInfo";
 import ScorecardSection from "../components/ScorecardSection";
 import { AucklandID } from "../util";
 
+import RentIcon from "@mui/icons-material/HolidayVillage";
+import RainbowIcon from "@mui/icons-material/Looks";
+import AgeIcon from "@mui/icons-material/Skateboarding";
+import DisabledIcon from "@mui/icons-material/AccessibleForward";
+import MaoriIcon from "@mui/icons-material/Foundation";
+
+const iconStyle = {
+  borderRadius: "50%",
+  padding: "4px",
+  borderWidth: "1px",
+  borderStyle: "solid",
+};
+
 const Render = ({ state, dispatch }) => {
   let [open, setOpen] = useState(false);
+  let [boardOpen, setBoardOpen] = useState(false);
 
   let isAuckland = state.selected.region === AucklandID;
 
@@ -17,13 +33,14 @@ const Render = ({ state, dispatch }) => {
     <div id="who">
       <Section
         title="WHO?"
-        icon={<InfoIcon onClick={() => setOpen(true)} />}
+        icon={<InfoIcon onClick={() => setOpen(true)} fontSize="large" />}
         subtitle="We researched the candidates so that you don't have to"
         dense={true}
         // height={"190vh"}
         height={"1500px"}
       >
         <WhoInfo open={open} onClose={() => setOpen(false)} />
+        <BoardInfo open={boardOpen} onClose={() => setBoardOpen(false)} />
         <ScorecardSection
           state={state}
           dispatch={dispatch}
@@ -49,6 +66,13 @@ const Render = ({ state, dispatch }) => {
               watchKey={"subdivision"}
               type={"board"}
               title={"Local Board"}
+              icon={
+                <InfoIcon
+                  onClick={() => setBoardOpen(true)}
+                  fontSize="medium"
+                  sx={{ cursor: "pointer", "&:hover": { opacity: "50%" } }}
+                />
+              }
             />
           </>
         ) : (
@@ -72,6 +96,28 @@ const Render = ({ state, dispatch }) => {
           </>
         )}
         <ExtrasContainer>
+          <IconKey>
+            <IconKeyItem>
+              <RentIcon sx={{ ...iconStyle }} />
+              <span>- Renter </span>
+            </IconKeyItem>
+            <IconKeyItem>
+              <RainbowIcon sx={{ ...iconStyle }} />
+              <span>- Rainbow Community </span>
+            </IconKeyItem>
+            <IconKeyItem>
+              <AgeIcon sx={{ ...iconStyle }} />
+              <span>- Under 35 </span>
+            </IconKeyItem>
+            <IconKeyItem>
+              <DisabledIcon sx={{ ...iconStyle }} />
+              <span>- Disabled Community </span>
+            </IconKeyItem>
+            <IconKeyItem>
+              <MaoriIcon sx={{ ...iconStyle }} />
+              <span>- Māori </span>
+            </IconKeyItem>
+          </IconKey>
           {/* <span>Other groups scored candidates too! Check them out: </span> */}
           <span>
             Don't just take our word for it! More info on local elections:{" "}
@@ -126,5 +172,37 @@ const ExtrasContainer = styled.div`
 
   & > p {
     font-style: italic;
+  }
+`;
+
+const IconKey = styled.div`
+  font-size: 14px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  & > span {
+    font-style: italic;
+    margin-right: 10px;
+    margin-left: 5px;
+  }
+`;
+
+const IconKeyItem = styled.div`
+  margin-bottom: 5px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  & > span {
+    font-style: italic;
+    margin-right: 10px;
+    margin-left: 5px;
   }
 `;

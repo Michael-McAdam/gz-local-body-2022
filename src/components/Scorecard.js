@@ -62,7 +62,7 @@ const render = ({ data, categories, type }) => {
         )}
         <IconContainer>
           {data.renter && (
-            <Tooltip title="Renter">
+            <Tooltip enterTouchDelay={0} title="Renter">
               <RentIcon
                 sx={{
                   // borderColor: "rgba(55, 47, 11, 0.6)",
@@ -73,7 +73,7 @@ const render = ({ data, categories, type }) => {
             </Tooltip>
           )}
           {data.rainbow && (
-            <Tooltip title="Rainbow Community">
+            <Tooltip enterTouchDelay={0} title="Rainbow Community">
               <RainbowIcon
                 sx={{
                   // borderColor: "rgb(236, 164, 187)",
@@ -84,7 +84,7 @@ const render = ({ data, categories, type }) => {
             </Tooltip>
           )}
           {data.young && (
-            <Tooltip title="Under 35">
+            <Tooltip enterTouchDelay={0} title="Under 35">
               <AgeIcon
                 sx={{
                   // borderColor: "rgba(232, 86, 53, 0.8)",
@@ -95,7 +95,7 @@ const render = ({ data, categories, type }) => {
             </Tooltip>
           )}
           {data.disabled && (
-            <Tooltip title="Disabled Community">
+            <Tooltip enterTouchDelay={0} title="Disabled Community">
               <DisabledIcon
                 sx={{
                   // borderColor: "rgb(168, 209, 220)",
@@ -106,7 +106,7 @@ const render = ({ data, categories, type }) => {
             </Tooltip>
           )}
           {data.maori && (
-            <Tooltip title="Māori">
+            <Tooltip enterTouchDelay={0} title="Māori">
               <MaoriIcon
                 sx={{
                   // borderColor: "rgb(168, 209, 220)",
@@ -118,7 +118,10 @@ const render = ({ data, categories, type }) => {
           )}
         </IconContainer>
         {data.dna && (
-          <Tooltip title="Candidate did not fill out our survey">
+          <Tooltip
+            enterTouchDelay={0}
+            title="Candidate did not fill out our survey"
+          >
             <ExtraInfo>*</ExtraInfo>
           </Tooltip>
         )}

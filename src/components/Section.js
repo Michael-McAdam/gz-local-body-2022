@@ -76,6 +76,7 @@ const HeaderContainer = styled.div`
 
 const IconContainer = styled.div`
   cursor: pointer;
+  /* font-size: x-large; */
 
   &:hover {
     opacity: 50%;

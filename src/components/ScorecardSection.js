@@ -10,7 +10,7 @@ import { sortBy } from "lodash/collection";
 
 let categories = ["transport", "housing", "environment", "equity", "teTiriti"];
 
-function Render({ state, dbPath, watchKey, title, type, dispatch }) {
+function Render({ state, dbPath, watchKey, title, type, icon, dispatch }) {
   useEffect(() => {
     const fetchData = async () => {
       // console.log("Requesting: ", dbPath);
@@ -94,7 +94,9 @@ function Render({ state, dbPath, watchKey, title, type, dispatch }) {
 
   return (
     <>
-      <Subtitle>{title}</Subtitle>
+      <Subtitle>
+        {title} {icon}
+      </Subtitle>
       <ScorecardContainer className="horizontal">
         {filteredAndNormalisedSectionCandidates.map((candidate, i) => (
           <Scorecard
