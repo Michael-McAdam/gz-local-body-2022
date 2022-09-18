@@ -56,15 +56,17 @@ function Render({ open, onClose }) {
           questionnaire at any point before submitting.
         </p>
         <p>
-          You can read the questions yourself{" "}
-          <a
-            // href="https://forms.gle/7TL8UJVwsutoLRhi8"
-            href="https://forms.gle/uegWEhxVADiG94TG9"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            here
-          </a>
+          <b>
+            You can read the questions yourself{" "}
+            <a
+              // href="https://forms.gle/uegWEhxVADiG94TG9"
+              href="https://www.generationzero.org/2022_scorecard_questions"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              here
+            </a>
+          </b>
         </p>
         <p>
           We have been supported in the creation of our scorecard. We want to
