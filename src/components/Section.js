@@ -87,6 +87,7 @@ const Subtitle = styled.p`
   /* font-size: 15px; */
   font-size: 0.6em;
   font-style: italic;
+  text-align: left;
   margin: 0;
   padding: 0;
 `;

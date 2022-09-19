@@ -40,8 +40,18 @@ const Render = ({ state, dispatch }) => {
     <div id="who">
       <Section
         title="WHO?"
-        icon={<InfoIcon onClick={() => setOpen(true)} fontSize="large" />}
-        subtitle="We researched the candidates so that you don't have to"
+        // icon={<InfoIcon onClick={() => setOpen(true)} fontSize="large" />}
+        subtitle={
+          <>
+            We researched the candidates so that you don't have to. Our scoring
+            process can be found{" "}
+            {
+              <a href="javascript:;" onClick={() => setOpen(true)}>
+                here
+              </a>
+            }
+          </>
+        }
         dense={true}
         // height={"190vh"}
         height={"1500px"}
