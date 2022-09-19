@@ -29,6 +29,13 @@ const Render = ({ state, dispatch }) => {
 
   let isAuckland = state.selected.region === AucklandID;
 
+  let { pnzRegional, pnzMayor } =
+    state.data.district.find((a) => a.id === state.selected.district) || {};
+  let pnzLocal = state.data.ward.find((a) => a.id === state.selected.ward)?.pnz;
+  let pnzBoard = state.data.subdivision.find(
+    (a) => a.id === state.selected.subdivision
+  )?.pnz;
+
   return (
     <div id="who">
       <Section
@@ -48,6 +55,7 @@ const Render = ({ state, dispatch }) => {
           watchKey={"district"}
           type={"mayor"}
           title={"Mayor"}
+          pnz={pnzMayor}
         />
         {isAuckland ? (
           <>
@@ -58,6 +66,7 @@ const Render = ({ state, dispatch }) => {
               watchKey={"ward"}
               type={"region"}
               title={"Councillors"}
+              pnz={pnzRegional}
             />
             <ScorecardSection
               state={state}
@@ -66,6 +75,7 @@ const Render = ({ state, dispatch }) => {
               watchKey={"subdivision"}
               type={"board"}
               title={"Local Board"}
+              pnz={pnzBoard}
               icon={
                 <InfoIcon
                   onClick={() => setBoardOpen(true)}
@@ -84,6 +94,7 @@ const Render = ({ state, dispatch }) => {
               watchKey={"district"}
               type={"region"}
               title={"Regional Councillors"}
+              pnz={pnzRegional}
             />
             <ScorecardSection
               state={state}
@@ -92,6 +103,7 @@ const Render = ({ state, dispatch }) => {
               watchKey={"ward"}
               type={"district"}
               title={"Local Councillors"}
+              pnz={pnzLocal}
             />
           </>
         )}
