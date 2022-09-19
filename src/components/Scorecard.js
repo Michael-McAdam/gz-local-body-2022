@@ -36,99 +36,101 @@ const iconStyle = {
   borderStyle: "solid",
 };
 
-const render = ({ data, categories, type }) => {
+const render = ({ data, categories, type, url }) => {
   return (
     <Container className="Card" variant="outlined" title={data.comment}>
-      <Content>
-        {/* <ScoreContainer> */}
-        <Score>{data.overall}</Score>
-        {/* </ScoreContainer> */}
-        <Name>{data.name}</Name>
-        {type !== "board" && (
-          <Table>
-            <tbody>
-              {categories.map((c) => {
-                let title = c.replace(/([A-Z])/g, " $1");
-                title = title.charAt(0).toUpperCase() + title.slice(1);
-                return (
-                  <Row key={c}>
-                    <TitleCell>{title}</TitleCell>
-                    <ScoreCell>{data[c] || "-"}</ScoreCell>
-                  </Row>
-                );
-              })}
-            </tbody>
-          </Table>
-        )}
-        <IconContainer>
-          {data.renter && (
-            <Tooltip enterTouchDelay={0} title="Renter">
-              <RentIcon
-                sx={{
-                  // borderColor: "rgba(55, 47, 11, 0.6)",
-                  // color: "rgba(55, 47, 11, 0.6)",
-                  ...iconStyle,
-                }}
-              />
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        <Content>
+          {/* <ScoreContainer> */}
+          <Score>{data.overall}</Score>
+          {/* </ScoreContainer> */}
+          <Name>{data.name}</Name>
+          {type !== "board" && (
+            <Table>
+              <tbody>
+                {categories.map((c) => {
+                  let title = c.replace(/([A-Z])/g, " $1");
+                  title = title.charAt(0).toUpperCase() + title.slice(1);
+                  return (
+                    <Row key={c}>
+                      <TitleCell>{title}</TitleCell>
+                      <ScoreCell>{data[c] || "-"}</ScoreCell>
+                    </Row>
+                  );
+                })}
+              </tbody>
+            </Table>
+          )}
+          <IconContainer>
+            {data.renter && (
+              <Tooltip enterTouchDelay={0} title="Renter">
+                <RentIcon
+                  sx={{
+                    // borderColor: "rgba(55, 47, 11, 0.6)",
+                    // color: "rgba(55, 47, 11, 0.6)",
+                    ...iconStyle,
+                  }}
+                />
+              </Tooltip>
+            )}
+            {data.rainbow && (
+              <Tooltip enterTouchDelay={0} title="Rainbow Community">
+                <RainbowIcon
+                  sx={{
+                    // borderColor: "rgb(236, 164, 187)",
+                    // color: "rgb(236, 164, 187)",
+                    ...iconStyle,
+                  }}
+                />
+              </Tooltip>
+            )}
+            {data.young && (
+              <Tooltip enterTouchDelay={0} title="Under 35">
+                <AgeIcon
+                  sx={{
+                    // borderColor: "rgba(232, 86, 53, 0.8)",
+                    // color: "rgba(232, 86, 53, 0.8)",
+                    ...iconStyle,
+                  }}
+                />
+              </Tooltip>
+            )}
+            {data.disabled && (
+              <Tooltip enterTouchDelay={0} title="Disabled Community">
+                <DisabledIcon
+                  sx={{
+                    // borderColor: "rgb(168, 209, 220)",
+                    // color: "rgb(168, 209, 220)",
+                    ...iconStyle,
+                  }}
+                />
+              </Tooltip>
+            )}
+            {data.maori && (
+              <Tooltip enterTouchDelay={0} title="Māori">
+                <MaoriIcon
+                  sx={{
+                    // borderColor: "rgb(168, 209, 220)",
+                    // color: "rgb(168, 209, 220)",
+                    ...iconStyle,
+                  }}
+                />
+              </Tooltip>
+            )}
+          </IconContainer>
+          {data.dna && (
+            <Tooltip
+              enterTouchDelay={0}
+              title="Candidate did not fill out our survey"
+            >
+              <ExtraInfo>*</ExtraInfo>
             </Tooltip>
           )}
-          {data.rainbow && (
-            <Tooltip enterTouchDelay={0} title="Rainbow Community">
-              <RainbowIcon
-                sx={{
-                  // borderColor: "rgb(236, 164, 187)",
-                  // color: "rgb(236, 164, 187)",
-                  ...iconStyle,
-                }}
-              />
-            </Tooltip>
-          )}
-          {data.young && (
-            <Tooltip enterTouchDelay={0} title="Under 35">
-              <AgeIcon
-                sx={{
-                  // borderColor: "rgba(232, 86, 53, 0.8)",
-                  // color: "rgba(232, 86, 53, 0.8)",
-                  ...iconStyle,
-                }}
-              />
-            </Tooltip>
-          )}
-          {data.disabled && (
-            <Tooltip enterTouchDelay={0} title="Disabled Community">
-              <DisabledIcon
-                sx={{
-                  // borderColor: "rgb(168, 209, 220)",
-                  // color: "rgb(168, 209, 220)",
-                  ...iconStyle,
-                }}
-              />
-            </Tooltip>
-          )}
-          {data.maori && (
-            <Tooltip enterTouchDelay={0} title="Māori">
-              <MaoriIcon
-                sx={{
-                  // borderColor: "rgb(168, 209, 220)",
-                  // color: "rgb(168, 209, 220)",
-                  ...iconStyle,
-                }}
-              />
-            </Tooltip>
-          )}
-        </IconContainer>
-        {data.dna && (
-          <Tooltip
-            enterTouchDelay={0}
-            title="Candidate did not fill out our survey"
-          >
-            <ExtraInfo>*</ExtraInfo>
-          </Tooltip>
-        )}
-      </Content>
-      {/* <CardActions>
+        </Content>
+        {/* <CardActions>
         <Button size="small">Learn More</Button>
       </CardActions> */}
+      </a>
     </Container>
   );
 };
@@ -141,6 +143,11 @@ const Container = styled.div`
   /* background-color: "rgba(255, 255, 255, 0.5)"; */
   /* display: inline-block; */
   width: fit-content;
+
+  & > a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+  }
 `;
 
 const Content = styled.div`

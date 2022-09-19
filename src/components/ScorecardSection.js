@@ -10,7 +10,7 @@ import { sortBy } from "lodash/collection";
 
 let categories = ["transport", "housing", "environment", "equity", "teTiriti"];
 
-function Render({ state, dbPath, watchKey, title, type, icon, dispatch }) {
+function Render({ state, dbPath, watchKey, title, type, icon, pnz, dispatch }) {
   useEffect(() => {
     const fetchData = async () => {
       // console.log("Requesting: ", dbPath);
@@ -41,6 +41,7 @@ function Render({ state, dbPath, watchKey, title, type, icon, dispatch }) {
   }, [state.selected[watchKey]]);
 
   let loaded = state.who[type].length > 0;
+  let baseURL = pnz && `https://policy.nz/2022/${pnz}/candidates/`;
 
   if (state.selected[watchKey] === "") {
     return (
@@ -98,14 +99,21 @@ function Render({ state, dbPath, watchKey, title, type, icon, dispatch }) {
         {title} {icon}
       </Subtitle>
       <ScorecardContainer className="horizontal">
-        {filteredAndNormalisedSectionCandidates.map((candidate, i) => (
-          <Scorecard
-            data={candidate}
-            key={candidate.name}
-            categories={categories}
-            type={type}
-          />
-        ))}
+        {filteredAndNormalisedSectionCandidates.map((candidate, i) => {
+          let urlName =
+            candidate.pnzName ||
+            candidate.name?.toLowerCase().split(" ").join("-");
+          let url = baseURL && baseURL + urlName;
+          return (
+            <Scorecard
+              data={candidate}
+              key={candidate.name}
+              categories={categories}
+              type={type}
+              url={url}
+            />
+          );
+        })}
       </ScorecardContainer>
     </>
   );
