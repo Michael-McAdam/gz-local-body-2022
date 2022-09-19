@@ -66,7 +66,9 @@ const TitleContainer = styled.div`
 const HeaderContainer = styled.div`
   /* color: white; */
   color: #221f1f;
-  position: absolute;
+  /* position: absolute; */
+  align-self: flex-start;
+  margin-left: 5vw;
   top: 50px;
   left: 5vw;
   display: flex;
