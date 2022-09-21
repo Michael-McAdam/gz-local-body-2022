@@ -36,6 +36,11 @@ const Render = ({ state, dispatch }) => {
     (a) => a.id === state.selected.subdivision
   )?.pnz;
 
+  // console.log(pnzRegional);
+  // console.log(pnzMayor);
+  // console.log(pnzLocal);
+  // console.log(pnzBoard);
+
   return (
     <div id="who">
       <Section
@@ -54,7 +59,7 @@ const Render = ({ state, dispatch }) => {
         }
         dense={true}
         // height={"190vh"}
-        height={"1500px"}
+        height={"1600px"}
       >
         <WhoInfo open={open} onClose={() => setOpen(false)} />
         <BoardInfo open={boardOpen} onClose={() => setBoardOpen(false)} />
@@ -76,7 +81,7 @@ const Render = ({ state, dispatch }) => {
               watchKey={"ward"}
               type={"region"}
               title={"Councillors"}
-              pnz={pnzRegional}
+              pnz={pnzLocal}
             />
             <ScorecardSection
               state={state}
@@ -125,7 +130,7 @@ const Render = ({ state, dispatch }) => {
             </IconKeyItem>
             <IconKeyItem>
               <RainbowIcon sx={{ ...iconStyle }} />
-              <span>- Rainbow Community </span>
+              <span>- Rainbow/Takatāpui </span>
             </IconKeyItem>
             <IconKeyItem>
               <AgeIcon sx={{ ...iconStyle }} />
@@ -133,7 +138,7 @@ const Render = ({ state, dispatch }) => {
             </IconKeyItem>
             <IconKeyItem>
               <DisabledIcon sx={{ ...iconStyle }} />
-              <span>- Disabled Community </span>
+              <span>- Disabled </span>
             </IconKeyItem>
             <IconKeyItem>
               <MaoriIcon sx={{ ...iconStyle }} />

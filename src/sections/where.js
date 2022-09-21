@@ -130,10 +130,12 @@ const Body = ({ state, dispatch }) => {
             )}
           </>
         ) : (
-          <>We haven't filled out the map data for your area</>
+          <ErrorContainer>
+            We haven't filled out the map data for your area
+          </ErrorContainer>
         )
       ) : (
-        <>Please select a location to view map</>
+        <ErrorContainer>Please select a location to view map</ErrorContainer>
       )}
     </>
   );
@@ -212,6 +214,17 @@ const MarkerContainer = styled.div`
   flex-direction: row;
   align-items: center;
   margin-right: 10px;
+
+  & > span {
+    font-size: 14px;
+  }
+`;
+
+const ErrorContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10em;
 
   & > span {
     font-size: 14px;

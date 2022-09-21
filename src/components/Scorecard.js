@@ -74,7 +74,7 @@ const render = ({ data, categories, type, url }) => {
               </Tooltip>
             )}
             {data.rainbow && (
-              <Tooltip enterTouchDelay={0} title="Rainbow Community">
+              <Tooltip enterTouchDelay={0} title="Rainbow/Takatāpui Community">
                 <RainbowIcon
                   sx={{
                     // borderColor: "rgb(236, 164, 187)",
@@ -96,7 +96,7 @@ const render = ({ data, categories, type, url }) => {
               </Tooltip>
             )}
             {data.disabled && (
-              <Tooltip enterTouchDelay={0} title="Disabled Community">
+              <Tooltip enterTouchDelay={0} title="Disabled">
                 <DisabledIcon
                   sx={{
                     // borderColor: "rgb(168, 209, 220)",

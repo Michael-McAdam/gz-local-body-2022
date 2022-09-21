@@ -150,6 +150,13 @@ function App() {
               }
               {contact && <p>Questions? Contact us at {contact}</p>}
 
+              <p>
+                <i>
+                  Authorized by Annalies Veldmeijer,
+                  annalies@generationzero.org.nz
+                </i>
+              </p>
+
               {/* <LogoContainer>
                 <LogoText>Proudly made by:</LogoText>
                 <a
