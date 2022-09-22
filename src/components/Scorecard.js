@@ -13,6 +13,8 @@ import RainbowIcon from "@mui/icons-material/Looks";
 import AgeIcon from "@mui/icons-material/Skateboarding";
 import DisabledIcon from "@mui/icons-material/AccessibleForward";
 import MaoriIcon from "@mui/icons-material/Foundation";
+import Box from "@mui/material/Box";
+import { visuallyHidden } from "@mui/utils";
 
 // const categories = [
 //   "Bike Friendly",
@@ -63,59 +65,77 @@ const render = ({ data, categories, type, url }) => {
           )}
           <IconContainer>
             {data.renter && (
-              <Tooltip enterTouchDelay={0} title="Renter">
-                <RentIcon
-                  sx={{
-                    // borderColor: "rgba(55, 47, 11, 0.6)",
-                    // color: "rgba(55, 47, 11, 0.6)",
-                    ...iconStyle,
-                  }}
-                />
-              </Tooltip>
+              <>
+                <Box sx={visuallyHidden}>Renter</Box>
+                <Tooltip enterTouchDelay={0} title="Renter">
+                  <RentIcon
+                    sx={{
+                      // borderColor: "rgba(55, 47, 11, 0.6)",
+                      // color: "rgba(55, 47, 11, 0.6)",
+                      ...iconStyle,
+                    }}
+                  />
+                </Tooltip>
+              </>
             )}
             {data.rainbow && (
-              <Tooltip enterTouchDelay={0} title="Rainbow/Takatāpui Community">
-                <RainbowIcon
-                  sx={{
-                    // borderColor: "rgb(236, 164, 187)",
-                    // color: "rgb(236, 164, 187)",
-                    ...iconStyle,
-                  }}
-                />
-              </Tooltip>
+              <>
+                <Box sx={visuallyHidden}>Rainbow Community</Box>
+                <Tooltip
+                  enterTouchDelay={0}
+                  title="Rainbow/Takatāpui Community"
+                >
+                  <RainbowIcon
+                    sx={{
+                      // borderColor: "rgb(236, 164, 187)",
+                      // color: "rgb(236, 164, 187)",
+                      ...iconStyle,
+                    }}
+                  />
+                </Tooltip>
+              </>
             )}
             {data.young && (
-              <Tooltip enterTouchDelay={0} title="Under 35">
-                <AgeIcon
-                  sx={{
-                    // borderColor: "rgba(232, 86, 53, 0.8)",
-                    // color: "rgba(232, 86, 53, 0.8)",
-                    ...iconStyle,
-                  }}
-                />
-              </Tooltip>
+              <>
+                <Box sx={visuallyHidden}>Under 35</Box>
+                <Tooltip enterTouchDelay={0} title="Under 35">
+                  <AgeIcon
+                    sx={{
+                      // borderColor: "rgba(232, 86, 53, 0.8)",
+                      // color: "rgba(232, 86, 53, 0.8)",
+                      ...iconStyle,
+                    }}
+                  />
+                </Tooltip>
+              </>
             )}
             {data.disabled && (
-              <Tooltip enterTouchDelay={0} title="Disabled">
-                <DisabledIcon
-                  sx={{
-                    // borderColor: "rgb(168, 209, 220)",
-                    // color: "rgb(168, 209, 220)",
-                    ...iconStyle,
-                  }}
-                />
-              </Tooltip>
+              <>
+                <Box sx={visuallyHidden}>Disabled</Box>
+                <Tooltip enterTouchDelay={0} title="Disabled">
+                  <DisabledIcon
+                    sx={{
+                      // borderColor: "rgb(168, 209, 220)",
+                      // color: "rgb(168, 209, 220)",
+                      ...iconStyle,
+                    }}
+                  />
+                </Tooltip>
+              </>
             )}
             {data.maori && (
-              <Tooltip enterTouchDelay={0} title="Māori">
-                <MaoriIcon
-                  sx={{
-                    // borderColor: "rgb(168, 209, 220)",
-                    // color: "rgb(168, 209, 220)",
-                    ...iconStyle,
-                  }}
-                />
-              </Tooltip>
+              <>
+                <Box sx={visuallyHidden}>Māori</Box>
+                <Tooltip enterTouchDelay={0} title="Māori">
+                  <MaoriIcon
+                    sx={{
+                      // borderColor: "rgb(168, 209, 220)",
+                      // color: "rgb(168, 209, 220)",
+                      ...iconStyle,
+                    }}
+                  />
+                </Tooltip>
+              </>
             )}
           </IconContainer>
           {data.dna && (

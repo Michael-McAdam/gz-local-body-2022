@@ -28,17 +28,32 @@ function render() {
           Where do your local candidates stand on climate justice?
         </Subtitle>
 
-        <Link to="region" spy={true} smooth={true}>
-          <ContinueButton
-            variant="contained"
-            size="large"
-            // href="https://enrol.vote.nz/app/enrol/#/enrol-online"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Get Started
-          </ContinueButton>
-        </Link>
+        <ButtonContainer>
+          <Link to="region" spy={true} smooth={true}>
+            <ContinueButton
+              variant="contained"
+              size="large"
+              // href="https://enrol.vote.nz/app/enrol/#/enrol-online"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get Started
+            </ContinueButton>
+          </Link>
+          <Subtitle>
+            {" "}
+            <i>
+              Not Enrolled? It's not too late! Head to{" "}
+              <a
+                href="https://enrol.vote.nz/app/enrol/#/enrol-online"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Vote NZ
+              </a>
+            </i>
+          </Subtitle>
+        </ButtonContainer>
       </Section>
     </Container>
   );
@@ -111,11 +126,18 @@ const ContinueButton = styled(Button)`
   font-family: "Barlow Condensed", "Helvetica", "Arial", sans-serif;
   /* font-family: "Helvetica", "Arial", sans-serif; */
   // fontSize: "20px",
-  transform: scale(2) translateX(-25%);
+  transform: scale(2); //translateY(50%);
   // color: "white",
   color: #221f1f;
   background-color: #e24f33;
 
+  /* position: absolute; */
+  /* bottom: 70px; */
+`;
+
+const ButtonContainer = styled.div`
+  /* margin-top: 150px; */
   position: absolute;
-  bottom: 70px;
+  bottom: 10px;
+  font-size: 0.8em;
 `;

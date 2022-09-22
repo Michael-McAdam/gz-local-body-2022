@@ -103,6 +103,9 @@ function Render({ state, dbPath, watchKey, title, type, icon, pnz, dispatch }) {
           let urlName =
             candidate.pnzName ||
             candidate.name?.toLowerCase().split(" ").join("-");
+          baseURL = candidate.pnzRegion
+            ? `https://policy.nz/2022/${candidate.pnzRegion}/candidates/`
+            : baseURL;
           let url = baseURL && baseURL + urlName;
           return (
             <Scorecard
