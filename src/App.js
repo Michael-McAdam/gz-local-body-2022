@@ -11,6 +11,7 @@ import {
   WhoSection,
   WhySection,
   LandingSection,
+  LandingEndedSection,
 } from "./sections";
 
 import { collection, getDocs, query, where } from "firebase/firestore";
@@ -97,6 +98,14 @@ function reducer(state, action) {
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const ref = useRef(null);
+
+  // return (
+  //   <Background>
+  //     <AppContainer className="App">
+  //       <LandingEndedSection />
+  //     </AppContainer>
+  //   </Background>
+  // );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -257,4 +266,16 @@ const LogoText = styled.p`
   white-space: nowrap;
   font-size: 10px;
   /* color: white; */
+`;
+
+const GZLogo = styled.img`
+  width: 100%;
+  /* max-width: 200px; */
+  /* max-height: 200px; */
+`;
+
+const GZLink = styled.a`
+  width: 30%;
+  max-width: 200px;
+  /* max-height: 200px; */
 `;
