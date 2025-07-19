@@ -29,6 +29,7 @@
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.5",
+    "unistore": "^3.5.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

@@ -1,5 +1,5 @@
 export { default as EnrolSection } from "./enrol";
-export { default as RegionSection } from "./region";
+export { default as render } from "./region";
 export { default as HowSection } from "./how";
 export { default as WhatSection } from "./what";
 export { default as WhenSection } from "./when";
@@ -8,3 +8,4 @@ export { default as WhoSection } from "./who";
 export { default as WhySection } from "./why";
 export { default as LandingSection } from "./landing";
 export { default as LandingEndedSection } from "./landing_ended";
+export { default as RegionSection } from "./region";

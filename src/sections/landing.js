@@ -5,7 +5,7 @@ import Section from "../components/Section";
 import { Link } from "react-scroll";
 import { AutoScaler } from "../components/AutoScaler";
 
-function render() {
+function LandingSection() {
   return (
     <Container>
       <Section height={"calc(80vh + 10vw)"}>
@@ -59,7 +59,7 @@ function render() {
   );
 }
 
-export default render;
+export default LandingSection;
 
 const Container = styled.div`
   background-color: #a4d1dd;
