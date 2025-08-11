@@ -35,7 +35,6 @@ function Render({ open, onClose }) {
           <b>
             You can find the questions{" "}
             <a
-              // href="https://forms.gle/uegWEhxVADiG94TG9"
               href="https://forms.gle/7Xb73vxNuiavXh4L6"
               target="_blank"
               rel="noopener noreferrer"

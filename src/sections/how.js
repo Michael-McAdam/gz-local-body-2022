@@ -11,31 +11,57 @@ import CreateIcon from "@mui/icons-material/Create";
 import HomeWorkIcon from "@mui/icons-material/HomeWork";
 import MarkunreadMailboxIcon from "@mui/icons-material/MarkunreadMailbox";
 import { Link } from "react-scroll";
+import { connect } from "unistore/react";
+import { set } from "lodash";
 
-function render({ state, dispatch }) {
+const actions = {
+  setEnrolled: (state, enrolled) => {
+    return {
+      enrolled,
+      special: !(enrolled && state.current),
+    };
+  },
+
+  setCurrent: (state, current) => {
+    return {
+      current,
+      special: !(state.enrolled && current),
+    };
+  },
+};
+
+const dates = {
+  enrolment_date: "1st of August",
+  mail_start: "9th of September",
+  mail_end: "22nd of September",
+  drop_off_end: "11th of October",
+  mail_end_date: "7th of October",
+};
+
+function render({ setEnrolled, setCurrent, enrolled, current, special }) {
   return (
     <Section title="HOW?">
       <Container>
         <SelectContainer>
-          <span>Did you enrol before the 12th of August?</span>
+          <span>Did you enrol before the {dates.enrolment_date}?</span>
           <AnswerContainer>
             <Chip
               label={"Yes"}
               className="Chip"
-              color={state.enrolled ? "primary" : "secondary"}
-              onClick={() => dispatch({ type: "setEnrolled", payload: true })}
+              color={enrolled ? "primary" : "secondary"}
+              onClick={() => setEnrolled(true)}
               key={"Yes"}
             />
             <Chip
               label={"No"}
               className="Chip"
-              color={!state.enrolled ? "primary" : "secondary"}
-              onClick={() => dispatch({ type: "setEnrolled", payload: false })}
+              color={!enrolled ? "primary" : "secondary"}
+              onClick={() => setEnrolled(false)}
               key={"No"}
             />
           </AnswerContainer>
         </SelectContainer>
-        {state.enrolled && (
+        {enrolled && (
           <SelectContainer>
             <>
               <span>Are your details up to date?</span>
@@ -43,19 +69,15 @@ function render({ state, dispatch }) {
                 <Chip
                   label={"Yes"}
                   className="Chip"
-                  color={state.current ? "primary" : "secondary"}
-                  onClick={() =>
-                    dispatch({ type: "setCurrent", payload: true })
-                  }
+                  color={current ? "primary" : "secondary"}
+                  onClick={() => setCurrent(true)}
                   key={"Yes"}
                 />
                 <Chip
                   label={"No"}
                   className="Chip"
-                  color={!state.current ? "primary" : "secondary"}
-                  onClick={() =>
-                    dispatch({ type: "setCurrent", payload: false })
-                  }
+                  color={!current ? "primary" : "secondary"}
+                  onClick={() => setCurrent(false)}
                   key={"No"}
                 />
               </AnswerContainer>
@@ -72,10 +94,10 @@ function render({ state, dispatch }) {
             here
           </a>
         </ExtraInfoContainer>
-        <p>{state.special && "You've got to special vote"}</p>
+        <p>{special && "You've got to special vote"}</p>
         <InfoContainer>
           <List sx={{ fontSize: "14px" }}>
-            {state.special ? (
+            {special ? (
               <ListItem>
                 <ListItemIcon>
                   <HomeWorkIcon />
@@ -95,9 +117,9 @@ function render({ state, dispatch }) {
                 </ListItemIcon>
                 <p>
                   You should receive your voting pack in the mail between
-                  <b> Friday 16 September </b>
+                  <b> {dates.mail_start} </b>
                   and
-                  <b> Wednesday 21 September.</b>
+                  <b> {dates.mail_end}.</b>
                 </p>
               </ListItem>
             )}
@@ -116,20 +138,20 @@ function render({ state, dispatch }) {
               </ListItemIcon>
               <p>
                 Drop your voting pack off at a drop off center before the
-                <b> 8th of October</b>. See{" "}
+                <b> {dates.drop_off_end}</b>. See{" "}
                 <Link to="Where" smooth={true}>
                   <a href="#">Where</a>
                 </Link>
               </p>
             </ListItem>
-            {!state.special && (
+            {!special && (
               <ListItem>
                 <ListItemIcon>
                   <MarkunreadMailboxIcon />
                 </ListItemIcon>
                 <p>
                   Or you can mail in your papers before the
-                  <b> 3rd of October.</b> Find your nearest mailbox{" "}
+                  <b> {dates.mail_end_date}.</b> Find your nearest mailbox{" "}
                   <a
                     href="https://www.nzpost.co.nz/tools/postshop-kiwibank-locator"
                     target="_blank"
@@ -147,7 +169,7 @@ function render({ state, dispatch }) {
   );
 }
 
-export default render;
+export default connect(["enrolled", "current", "special"], actions)(render);
 
 const Container = styled.div`
   display: flex;

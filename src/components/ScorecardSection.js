@@ -8,88 +8,72 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebase";
 import { sortBy } from "lodash/collection";
 
-let categories = ["transport", "housing", "environment", "equity", "teTiriti"];
+let categories = [
+  "Overall",
+  "Transport",
+  "Housing",
+  "Environment",
+  "Equity",
+  "Te Tiriti",
+];
 
-function Render({ state, dbPath, watchKey, title, type, icon, pnz, dispatch }) {
-  useEffect(() => {
-    const fetchData = async () => {
-      // console.log("Requesting: ", dbPath);
-      let q = query(collection(db, dbPath));
-      let res = await getDocs(q);
-      dispatch({
-        type: "setWho",
-        payload: {
-          type: type,
-          data: res.docs.map((doc) => doc.data()),
-        },
-      });
-    };
+function Render({ title, data, type, icon }) {
+  // let loaded = data.length > 0;
+  // let baseURL = pnz && `https://policy.nz/2022/${pnz}/candidates/`;
 
-    if (state.selected[watchKey]) {
-      fetchData();
-      // console.log("Fetching");
-    } else {
-      dispatch({
-        type: "setWho",
-        payload: {
-          type: type,
-          data: [],
-        },
-      });
-    }
-    // console.log("Running for: ", title);
-  }, [state.selected[watchKey]]);
+  // if (state.selected[watchKey] === "") {
+  //   return (
+  //     <>
+  //       <Subtitle>{title}</Subtitle>
+  //       <Title>
+  //         Please select your location above to see your local candidates
+  //       </Title>
+  //     </>
+  //   );
+  // }
+  // if (!loaded) {
+  //   return (
+  //     <>
+  //       <Subtitle>{title}</Subtitle>
+  //       <Title>These candidates in your location haven't been scored</Title>
+  //     </>
+  //   );
+  // }
 
-  let loaded = state.who[type].length > 0;
-  let baseURL = pnz && `https://policy.nz/2022/${pnz}/candidates/`;
+  //   let urlName =
+  //   candidate.pnzName ||
+  //   candidate.name?.toLowerCase().split(" ").join("-");
+  // baseURL = candidate.pnzRegion
+  //   ? `https://policy.nz/2022/${candidate.pnzRegion}/candidates/`
+  //   : baseURL;
 
-  if (state.selected[watchKey] === "") {
-    return (
-      <>
-        <Subtitle>{title}</Subtitle>
-        <Title>
-          Please select your location above to see your local candidates
-        </Title>
-      </>
-    );
-  }
-  if (!loaded) {
-    return (
-      <>
-        <Subtitle>{title}</Subtitle>
-        <Title>These candidates in your location haven't been scored</Title>
-      </>
-    );
-  }
+  // Filter categories: only show those where at least one candidate has a value (not null/undefined/empty string or '-')
+  const activeCategories = categories.filter((cat) =>
+    data.some(
+      (candidate) =>
+        candidate[cat] !== undefined &&
+        candidate[cat] !== null &&
+        candidate[cat] !== "" &&
+        candidate[cat] !== "-"
+    )
+  );
 
-  const filteredAndNormalisedSectionCandidates = sortBy(
-    state.who[type]
-      .filter((x) => !x.exclude)
-      .map((x) => ({
-        transport: x.publicTransport || x.transport,
-        ...x,
-      })),
+  const filteredData = sortBy(
+    data.filter((x) => !x.exclude),
     [
-      // I got lazy and installed lodash to do this for me. It makes things heaps easier.
-      // Keep in mind this sorts from least->most. So the smaller the value the 'lefter' it is.
-      // The first arrow function is executed on every candidate, the second is only used to break ties.
       (candidate) => {
-        if (candidate.overall === "?") {
+        if (candidate.Overall === "-") {
           return Infinity;
         }
-
-        // Hacky, but simple. In ASCII 'A' < 'B' < 'C'... so use this to assign increasing scores for worse grades
-        // Multiply by 10 so that we can +/- 1 to sort A+ -> A -> A-
-        const base = candidate.overall.charCodeAt(0) * 10;
-        if (candidate.overall.length === 1) {
+        const base = candidate.Overall.charCodeAt(0) * 10;
+        if (candidate.Overall.length === 1) {
           return base;
-        } else if (candidate.overall[1] === "+") {
+        } else if (candidate.Overall[1] === "+") {
           return base - 1;
         } else {
           return base + 1;
         }
       },
-      (candidate) => !!candidate.dna,
     ]
   );
 
@@ -99,21 +83,13 @@ function Render({ state, dbPath, watchKey, title, type, icon, pnz, dispatch }) {
         {title} {icon}
       </Subtitle>
       <ScorecardContainer className="horizontal">
-        {filteredAndNormalisedSectionCandidates.map((candidate, i) => {
-          let urlName =
-            candidate.pnzName ||
-            candidate.name?.toLowerCase().split(" ").join("-");
-          baseURL = candidate.pnzRegion
-            ? `https://policy.nz/2022/${candidate.pnzRegion}/candidates/`
-            : baseURL;
-          let url = baseURL && baseURL + urlName;
+        {filteredData.map((candidate, i) => {
           return (
             <Scorecard
               data={candidate}
               key={candidate.name}
-              categories={categories}
+              categories={activeCategories}
               type={type}
-              url={url}
             />
           );
         })}

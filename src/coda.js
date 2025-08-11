@@ -1,3 +1,6 @@
+// Node.js-only: Save Coda data to local file for production use
+// Usage: node src/coda.js
+
 // src/coda.js
 // Utility for fetching data from Coda.io API
 // You must set CODA_API_KEY, DOC_ID, and TABLE_IDS in your environment or config
@@ -9,8 +12,8 @@ import { Coda } from "coda-js";
 // const CODA_API_KEY = process.env.REACT_APP_CODA_API_KEY;
 // const DOC_ID = process.env.REACT_APP_CODA_DOC_ID;
 
-const CODA_API_KEY = "223c179a-f261-445d-b834-4d4988316ab0";
-const DOC_ID = "Ri0MBzNucp";
+export const CODA_API_KEY = "223c179a-f261-445d-b834-4d4988316ab0";
+export const DOC_ID = "Ri0MBzNucp";
 
 const coda = new Coda(CODA_API_KEY);
 
@@ -18,6 +21,7 @@ const coda = new Coda(CODA_API_KEY);
 export const TABLE_IDS = {
   region: "grid-rLUKjzmK_o",
   candidates: "grid-06lP-Bmo3f",
+  candidate_types: "grid-5PaDvUpsgX",
 };
 
 // const BASE_URL = `https://coda.io/apis/v1/docs/${DOC_ID}/tables`;
@@ -49,14 +53,34 @@ export const TABLE_IDS = {
 
 // console.log(fetchCodaRows("location"));
 
-// Fetch all table data as { tableId: [rows] }
+// Set to true to use local JSON, false to fetch from Coda and save
+
+export const USE_LOCAL_DATA = false;
+
 export async function fetchAllTables() {
-  const doc = await coda.getDoc(DOC_ID);
-  const result = {};
-  for (const [key, tableId] of Object.entries(TABLE_IDS)) {
-    const table = await coda.getTable(DOC_ID, tableId);
-    const rows = await table.listRows({ useColumnNames: true });
-    result[key] = rows.map((row) => ({ id: row.id, ...row.values }));
+  if (USE_LOCAL_DATA) {
+    // Load local JSON file from public folder using fetch (frontend)
+    const res = await fetch("/coda_data.json");
+    if (!res.ok) throw new Error("Could not load local Coda data");
+    return await res.json();
+  } else {
+    // Fetch from Coda (no file write in frontend)
+    const doc = await coda.getDoc(DOC_ID);
+    const result = {};
+    for (const [key, tableId] of Object.entries(TABLE_IDS)) {
+      const table = await coda.getTable(DOC_ID, tableId);
+      const rows = await table.listRows({ useColumnNames: true });
+      result[key] = rows.map((row) => ({ id: row.id, ...row.values }));
+    }
+    return result;
   }
-  return result;
+}
+
+async function listTables() {
+  const tables = await coda.listTables(DOC_ID);
+  return tables.map((table) => ({
+    id: table.id,
+    name: table.name,
+    type: table.type,
+  }));
 }

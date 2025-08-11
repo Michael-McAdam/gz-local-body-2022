@@ -10,6 +10,7 @@ import { db } from "../firebase";
 
 import MapMarker from "../components/MapMarker";
 import { GenericErrorBoundary } from "../components/GenericErrorBoundary";
+import { connect } from "unistore/react";
 
 const defaultLoc = {
   center: {

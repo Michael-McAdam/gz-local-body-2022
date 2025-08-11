@@ -1,11 +1,9 @@
 import "../App.css";
 import { Chip } from "@mui/material";
 import styled from "@emotion/styled";
-import Section from "../components/Section";
-import { levels } from "../util";
 import { recordRegionSelected } from "../analytics";
-import { set } from "lodash";
 import { connect } from "unistore/react";
+import { useEffect } from "react";
 
 var Scroll = require("react-scroll");
 var scroller = Scroll.scroller;
@@ -16,24 +14,32 @@ var scroller = Scroll.scroller;
 */
 
 const actions = {
-  setSelected: (state, level, id) => {
+  setSelected: (state, level, loc) => {
     let selected = state.selected.slice(0, level + 1);
-    selected[level] = id;
+    selected[level] = loc;
     return { ...state, selected };
   },
 };
 
-const render = ({ level, label, locations = [], selected, setSelected }) => {
-  if (locations.length === 1 && !selected) {
-    setSelected(level, locations[0].UUID);
-  }
+const RegionSection = ({
+  level,
+  label,
+  locations = [],
+  selected,
+  setSelected,
+}) => {
+  useEffect(() => {
+    if (locations.length === 1 && !selected) {
+      setSelected(level, locations[0]);
+    }
+  }, [locations, selected]);
 
   if (locations.length <= 1) {
     return null;
   }
 
   let locationDisplay = locations.map((loc, i) => {
-    let sel = selected === loc.UUID;
+    let sel = selected?.UUID === loc.UUID;
     return (
       <Chip
         key={loc.id}
@@ -43,7 +49,7 @@ const render = ({ level, label, locations = [], selected, setSelected }) => {
         sx={{
           transform: sel ? "scale(1.2)" : "",
         }}
-        onClick={() => setSelected(level, loc.UUID)}
+        onClick={() => setSelected(level, loc)}
       />
     );
   });
@@ -56,7 +62,7 @@ const render = ({ level, label, locations = [], selected, setSelected }) => {
   );
 };
 
-export default connect([], actions)(render);
+export default connect([], actions)(RegionSection);
 
 const Container = styled.div`
   margin-top: 20px;
