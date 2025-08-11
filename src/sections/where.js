@@ -3,7 +3,8 @@ import RoomIcon from "@mui/icons-material/Room";
 import styled from "@emotion/styled";
 import data from "../data";
 import { useState, useRef, useEffect } from "react";
-import GoogleMapReact from "google-map-react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 import Section from "../components/Section";
 import { getDocs, query, collection } from "firebase/firestore";
 import { db } from "../firebase";
@@ -13,42 +14,11 @@ import { GenericErrorBoundary } from "../components/GenericErrorBoundary";
 import { connect } from "unistore/react";
 
 const defaultLoc = {
-  center: {
-    lat: -39.312328190014426,
-    lng: 171.87617060410338,
-  },
+  center: [-39.312328190014426, 171.87617060410338],
   zoom: 5,
 };
 
-let _map;
-let _maps;
-
-const getMapBounds = (map, maps, locations) => {
-  const bounds = new maps.LatLngBounds();
-
-  locations.forEach((location) => {
-    bounds.extend(new maps.LatLng(location.lat, location.lng));
-  });
-  return bounds;
-};
-
-const bindResizeListener = (map, maps, bounds) => {
-  maps.event.addDomListenerOnce(map, "idle", () => {
-    maps.event.addDomListener(window, "resize", () => {
-      map.fitBounds(bounds);
-    });
-  });
-};
-
-const apiIsLoaded = (map, maps, locations) => {
-  if (map) {
-    _map = map;
-    _maps = maps;
-    const bounds = getMapBounds(map, maps, locations);
-    map.fitBounds(bounds);
-    bindResizeListener(map, maps, bounds);
-  }
-};
+// Leaflet handles bounds automatically, but you can use fitBounds if needed.
 
 const Body = ({ selected, where, special }) => {
   // let loaded = state.where.length > 0;
@@ -57,7 +27,7 @@ const Body = ({ selected, where, special }) => {
 
   // locations where loc.District matches any selected.Name
   const selectedNames = selected.map((s) => s.Name);
-  const locations = where.filter(
+  const locations = where?.filter(
     (loc) => loc.District && selectedNames.includes(loc.District)
   );
 
@@ -68,32 +38,24 @@ const Body = ({ selected, where, special }) => {
   var nameRegex = new RegExp("/place/(.*)/@");
 
   const info = locations
-    .map((x) => {
+    .map((x, idx) => {
       var loc = x.link.match(locRegex);
-      var lat = loc && loc[1];
-      var lng = loc && loc[2];
+      var lat = loc && parseFloat(loc[1]);
+      var lng = loc && parseFloat(loc[2]);
       var name_match = x.link.match(nameRegex);
       var name = name_match && name_match[1];
       name = name?.split("+").join(" ");
       name = decodeURIComponent(name);
-      let out = { lat, lng, name, ...x };
+      // Use a unique key: prefer x.id, else name+idx
+      let out = { lat, lng, name, ...x, _key: x.id || `${name}-${idx}` };
       return out;
     })
     .filter((a) => a.lat && a.lng)
     .sort((a, b) => (a.type === "special" ? 1 : -1));
 
-  // console.log(info);
-
-  // info = state.special
-  //   ? info
-  //   : info.filter((a) => a.type !== "special" || !a.type);
-
-  useEffect(() => {
-    apiIsLoaded(_map, _maps, info);
-    // console.log("Running...: ", info);
-  }, [special]);
-
-  console.log(info, locations);
+  // Center map on first marker or default
+  const mapCenter =
+    info.length > 0 ? [info[0].lat, info[0].lng] : defaultLoc.center;
 
   return (
     <>
@@ -101,32 +63,38 @@ const Body = ({ selected, where, special }) => {
         loaded ? (
           <>
             <MapSection>
-              <GoogleMapReact
-                bootstrapURLKeys={{
-                  key: "AIzaSyCf2A6eifV2BP62X3qwtdG4HJx8Dyw96pM",
-                  loading: "async",
-                }}
-                center={defaultLoc.center}
+              <MapContainer
+                center={mapCenter}
                 zoom={defaultLoc.zoom}
-                yesIWantToUseGoogleMapApiInternalsk
-                onGoogleApiLoaded={({ map, maps }) =>
-                  apiIsLoaded(map, maps, info)
-                }
-                key={selected.district}
+                style={{ width: "100%", height: "400px" }}
+                scrollWheelZoom={true}
               >
-                {info.map(({ lat, lng, name, link, type }) => {
-                  return (
-                    <MapMarker
-                      key={name}
-                      lat={lat}
-                      lng={lng}
-                      text={name}
-                      link={link}
-                      type={special ? type : undefined}
-                    />
-                  );
-                })}
-              </GoogleMapReact>
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                {info.map(({ lat, lng, name, link, type, _key }) => (
+                  <Marker key={_key} position={[lat, lng]}>
+                    <Popup>
+                      <div>
+                        <strong>{name}</strong>
+                        {link && (
+                          <div>
+                            <a
+                              href={link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              View on Google Maps
+                            </a>
+                          </div>
+                        )}
+                        {type && <div>Type: {type}</div>}
+                      </div>
+                    </Popup>
+                  </Marker>
+                ))}
+              </MapContainer>
             </MapSection>
             {special && (
               <KeyContainer>

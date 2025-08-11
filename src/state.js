@@ -16,7 +16,7 @@ const initialState = {
   //     mayor: [],
   //     board: [],
   // },
-  // where: [],
+  where: [],
   loaded: false,
   special: false,
   enrolled: true,
