@@ -22,6 +22,7 @@ export const TABLE_IDS = {
   region: "grid-rLUKjzmK_o",
   candidates: "grid-06lP-Bmo3f",
   candidate_types: "grid-5PaDvUpsgX",
+  where: "grid-OelporJi20",
 };
 
 // const BASE_URL = `https://coda.io/apis/v1/docs/${DOC_ID}/tables`;
@@ -74,13 +75,4 @@ export async function fetchAllTables() {
     }
     return result;
   }
-}
-
-async function listTables() {
-  const tables = await coda.listTables(DOC_ID);
-  return tables.map((table) => ({
-    id: table.id,
-    name: table.name,
-    type: table.type,
-  }));
 }

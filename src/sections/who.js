@@ -15,6 +15,7 @@ const Render = ({ selected, candidates, candidate_types }) => {
   let [open, setOpen] = useState(false);
   let [boardOpen, setBoardOpen] = useState(false);
 
+  // Get the list of candidates which is stored as a list of csv
   let selectedCandidates = selected
     .map((sel) => {
       let selectedList = sel.candidates.split(",");
@@ -26,6 +27,7 @@ const Render = ({ selected, candidates, candidate_types }) => {
     })
     .flat();
 
+  // Group candidates by their type
   let groupedCandidates = selectedCandidates.reduce((acc, candidate) => {
     if (!candidate || !candidate.key) return acc;
     if (!acc[candidate.key]) acc[candidate.key] = [];
@@ -33,6 +35,7 @@ const Render = ({ selected, candidates, candidate_types }) => {
     return acc;
   }, {});
 
+  // Remove candidate types that are not scored
   let keys =
     candidate_types?.filter((ct) => {
       return Object.keys(groupedCandidates)?.includes(ct.key);

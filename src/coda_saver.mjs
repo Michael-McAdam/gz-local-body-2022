@@ -4,6 +4,8 @@ import fs from "fs";
 import path from "path";
 import { CODA_API_KEY, DOC_ID, TABLE_IDS } from "./coda.js";
 
+import readline from "readline";
+
 const coda = new Coda(CODA_API_KEY);
 const LOCAL_DATA_PATH = path.resolve("./public/coda_data.json");
 
@@ -20,4 +22,54 @@ async function saveCodaDataToFile() {
   return result;
 }
 
-saveCodaDataToFile();
+async function listTables() {
+  const tables = await coda.listTables(DOC_ID);
+  return tables.map((table) => ({
+    id: table.id,
+    name: table.name,
+    type: table.type,
+  }));
+}
+
+const optionsTable = [
+  { key: "s", fn: saveCodaDataToFile, desc: "Save Coda data to file" },
+  { key: "l", fn: listTables, desc: "List tables" },
+  { key: "q", fn: null, desc: "Quit" },
+];
+
+function printOptions() {
+  console.log("\nCoda Saver Options:");
+  optionsTable.forEach((opt) => {
+    console.log(`[${opt.key}] ${opt.desc}`);
+  });
+}
+
+async function main() {
+  printOptions();
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+
+  rl.on("line", async (input) => {
+    const cmd = input.trim().toLowerCase();
+    const opt = optionsTable.find((o) => o.key === cmd);
+    if (opt) {
+      if (opt.key === "q") {
+        rl.close();
+        process.exit(0);
+      } else {
+        const result = await opt.fn();
+        if (opt.key === "l" && result) {
+          console.log("Tables:", result);
+        }
+        printOptions();
+      }
+    } else {
+      console.log("Unknown command.");
+      printOptions();
+    }
+  });
+}
+
+main();

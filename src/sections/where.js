@@ -20,7 +20,6 @@ const defaultLoc = {
   zoom: 5,
 };
 
-let info = [];
 let _map;
 let _maps;
 
@@ -51,15 +50,24 @@ const apiIsLoaded = (map, maps, locations) => {
   }
 };
 
-const Body = ({ state, dispatch }) => {
-  let loaded = state.where.length > 0;
-  let selected = state.selected.district;
+const Body = ({ selected, where, special }) => {
+  // let loaded = state.where.length > 0;
+  // let selected = selected.district;
+  console.log(selected);
+
+  // locations where loc.District matches any selected.Name
+  const selectedNames = selected.map((s) => s.Name);
+  const locations = where.filter(
+    (loc) => loc.District && selectedNames.includes(loc.District)
+  );
+
+  let loaded = true;
 
   // Cleverness to pull lat, lng and name from Maps URL
   var locRegex = new RegExp("@(.*),(.*),");
   var nameRegex = new RegExp("/place/(.*)/@");
 
-  info = state.where
+  const info = locations
     .map((x) => {
       var loc = x.link.match(locRegex);
       var lat = loc && loc[1];
@@ -83,7 +91,9 @@ const Body = ({ state, dispatch }) => {
   useEffect(() => {
     apiIsLoaded(_map, _maps, info);
     // console.log("Running...: ", info);
-  }, [state.special]);
+  }, [special]);
+
+  console.log(info, locations);
 
   return (
     <>
@@ -94,14 +104,15 @@ const Body = ({ state, dispatch }) => {
               <GoogleMapReact
                 bootstrapURLKeys={{
                   key: "AIzaSyCf2A6eifV2BP62X3qwtdG4HJx8Dyw96pM",
+                  loading: "async",
                 }}
                 center={defaultLoc.center}
                 zoom={defaultLoc.zoom}
-                yesIWantToUseGoogleMapApiInternals
+                yesIWantToUseGoogleMapApiInternalsk
                 onGoogleApiLoaded={({ map, maps }) =>
                   apiIsLoaded(map, maps, info)
                 }
-                key={state.selected.district}
+                key={selected.district}
               >
                 {info.map(({ lat, lng, name, link, type }) => {
                   return (
@@ -111,13 +122,13 @@ const Body = ({ state, dispatch }) => {
                       lng={lng}
                       text={name}
                       link={link}
-                      type={state.special ? type : undefined}
+                      type={special ? type : undefined}
                     />
                   );
                 })}
               </GoogleMapReact>
             </MapSection>
-            {state.special && (
+            {special && (
               <KeyContainer>
                 <MarkerContainer>
                   <RoomIcon style={{ color: "red" }} />
@@ -142,35 +153,35 @@ const Body = ({ state, dispatch }) => {
   );
 };
 
-function Render({ state, dispatch }) {
-  useEffect(() => {
-    const fetchData = async () => {
-      let q = query(
-        collection(
-          db,
-          "regions",
-          state.selected.region,
-          "districts",
-          state.selected.district,
-          "where"
-        )
-      );
-      let where = await getDocs(q);
-      dispatch({
-        type: "setWhere",
-        payload: where.docs.map((doc) => doc.data()),
-      });
-    };
+function Render({ where, selected, special }) {
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     let q = query(
+  //       collection(
+  //         db,
+  //         "regions",
+  //         state.selected.region,
+  //         "districts",
+  //         state.selected.district,
+  //         "where"
+  //       )
+  //     );
+  //     let where = await getDocs(q);
+  //     dispatch({
+  //       type: "setWhere",
+  //       payload: where.docs.map((doc) => doc.data()),
+  //     });
+  //   };
 
-    if (state.selected.region && state.selected.district) {
-      fetchData();
-    } else {
-      dispatch({
-        type: "setWhere",
-        payload: [],
-      });
-    }
-  }, [state.selected.district]);
+  //   if (state.selected.region && state.selected.district) {
+  //     fetchData();
+  //   } else {
+  //     dispatch({
+  //       type: "setWhere",
+  //       payload: [],
+  //     });
+  //   }
+  // }, [state.selected.district]);
 
   return (
     <div id="Where">
@@ -178,22 +189,22 @@ function Render({ state, dispatch }) {
         title="WHERE?"
         subtitle="All the locations in your area where you can drop off your voting pack"
       >
-        <GenericErrorBoundary
+        {/* <GenericErrorBoundary
           errorContent={() => (
             <>
               Oops! Looks like something went wrong while loading the map.
               Please try again later.
             </>
           )}
-        >
-          <Body state={state} dispatch={dispatch} />
-        </GenericErrorBoundary>
+        > */}
+        <Body selected={selected} where={where} special={special} />
+        {/* </GenericErrorBoundary> */}
       </Section>
     </div>
   );
 }
 
-export default Render;
+export default connect(["where", "selected", "special"], {})(Render);
 
 const MapSection = styled.div`
   width: 80%;
