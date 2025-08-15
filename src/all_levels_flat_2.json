@@ -1,0 +1,1815 @@
+[
+  {
+    "uuid": "294dfd71-2084-43aa-9ecd-e5d557de772f",
+    "level": "district",
+    "id": "zzzzzzzzzzzzzzzzzzzp",
+    "name": "Waitaki",
+    "parent": "361dcb51-b9d3-49db-b6c5-467c4559f088",
+    "children": [],
+    "include": true,
+    "pnzRegional": "environment-canterbury-south-canterbury-otuhituhi-constituency",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzp"
+  },
+  {
+    "uuid": "b75e8b1b-ab35-4fae-8fc2-bdf13fb9c65d",
+    "level": "district",
+    "id": "zzzzzzzzzzzzzzzzzzzq",
+    "name": "Waimate",
+    "parent": "361dcb51-b9d3-49db-b6c5-467c4559f088",
+    "children": [],
+    "include": true,
+    "pnzRegional": "environment-canterbury-south-canterbury-otuhituhi-constituency",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzq"
+  },
+  {
+    "uuid": "ebb9f057-7f84-4213-afbe-4e6e86a58241",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Rangiora-Ashley Ward",
+    "parent": "d8050d7f-896e-43d6-a74c-b69996f437f1",
+    "children": [],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzr/wards/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "9864dded-dc55-4207-9288-1efe19bce23a",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Kaiapoi-Woodend Ward",
+    "parent": "d8050d7f-896e-43d6-a74c-b69996f437f1",
+    "children": [],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzr/wards/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "d8050d7f-896e-43d6-a74c-b69996f437f1",
+    "level": "district",
+    "id": "zzzzzzzzzzzzzzzzzzzr",
+    "name": "Waimakariri",
+    "parent": "361dcb51-b9d3-49db-b6c5-467c4559f088",
+    "children": [
+      "260bdb25-f785-4e42-adbe-d93a4ae24da2",
+      "9bc53012-3665-4c94-bd78-0f04b3f2c136"
+    ],
+    "include": true,
+    "how": "FPP",
+    "wardMap": "https://waimakariri.maps.arcgis.com/apps/webappviewer/index.html?id=5dad72ee172042e38a7cf3d5c10463a7",
+    "pnzRegional": "environment-canterbury-north-canterbury-opukepuke-constituency",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzr"
+  },
+  {
+    "uuid": "b097745f-761e-4c50-ab9c-59bf215281f4",
+    "level": "district",
+    "id": "zzzzzzzzzzzzzzzzzzzs",
+    "name": "Timaru",
+    "parent": "361dcb51-b9d3-49db-b6c5-467c4559f088",
+    "children": [],
+    "include": true,
+    "pnzRegional": "environment-canterbury-south-canterbury-otuhituhi-constituency",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzs"
+  },
+  {
+    "uuid": "779e8c27-00c4-429e-bc6d-2bc6d3e6acda",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Rolleston Ward",
+    "parent": "f3543032-f2e6-4ea9-9d37-8c354724362a",
+    "children": [],
+    "include": true,
+    "pnz": "selwyn-district-council-rolleston-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzt/wards/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "f3543032-f2e6-4ea9-9d37-8c354724362a",
+    "level": "district",
+    "id": "zzzzzzzzzzzzzzzzzzzt",
+    "name": "Selwyn",
+    "parent": "361dcb51-b9d3-49db-b6c5-467c4559f088",
+    "children": [
+      "4214116d-2930-4728-8827-c1dcfdb94a30"
+    ],
+    "include": true,
+    "how": "FPP",
+    "wardMap": "https://www.selwyn.govt.nz/your-council/elections/selwyn-wards-maps-and-boundaries",
+    "pnzRegional": "environment-canterbury-mid-canterbury-opakihi-constituency",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzt"
+  },
+  {
+    "uuid": "8b2b1b9f-3687-4640-9622-7bf0a737218e",
+    "level": "district",
+    "id": "zzzzzzzzzzzzzzzzzzzu",
+    "name": "Mackenzie",
+    "parent": "361dcb51-b9d3-49db-b6c5-467c4559f088",
+    "children": [],
+    "include": true,
+    "pnzRegional": "environment-canterbury-south-canterbury-otuhituhi-constituency",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzu"
+  },
+  {
+    "uuid": "2cf301af-0f15-4d1e-ab1c-584833fc8877",
+    "level": "district",
+    "id": "zzzzzzzzzzzzzzzzzzzv",
+    "name": "Kaikoura",
+    "parent": "361dcb51-b9d3-49db-b6c5-467c4559f088",
+    "children": [],
+    "include": true,
+    "pnzRegional": "environment-canterbury-north-canterbury-opukepuke-constituency",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzv"
+  },
+  {
+    "uuid": "e5a485d2-d9bf-4231-a2db-79a68d1850e7",
+    "level": "district",
+    "id": "zzzzzzzzzzzzzzzzzzzw",
+    "name": "Hurunui",
+    "parent": "361dcb51-b9d3-49db-b6c5-467c4559f088",
+    "children": [],
+    "include": true,
+    "pnzRegional": "environment-canterbury-north-canterbury-opukepuke-constituency",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzw"
+  },
+  {
+    "uuid": "6463b124-a8a0-49b1-a398-898e852a3c91",
+    "level": "ward",
+    "id": "IxSxuB4yKBAIK06fieCk",
+    "name": "Banks Peninsula Ward",
+    "parent": "db413a4a-64ea-4e80-a425-e9238349604d",
+    "children": [],
+    "include": true,
+    "pnz": "christchurch-city-council-banks-peninsula-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzx/wards/IxSxuB4yKBAIK06fieCk"
+  },
+  {
+    "uuid": "b250393b-c5b9-4df3-b29d-f4e7fb5696a7",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzk",
+    "name": "Burwood Ward",
+    "parent": "db413a4a-64ea-4e80-a425-e9238349604d",
+    "children": [],
+    "include": true,
+    "pnz": "christchurch-city-council-burwood-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzx/wards/zzzzzzzzzzzzzzzzzzzk"
+  },
+  {
+    "uuid": "2862ee35-5c6e-4159-8f37-fc473721939b",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzl",
+    "name": "Waimairi Ward",
+    "parent": "db413a4a-64ea-4e80-a425-e9238349604d",
+    "children": [],
+    "include": true,
+    "pnz": "christchurch-city-council-waimairi-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzx/wards/zzzzzzzzzzzzzzzzzzzl"
+  },
+  {
+    "uuid": "b48b1524-cb85-4587-9d2d-b919e0c405e2",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzm",
+    "name": "Spreydon Ward",
+    "parent": "db413a4a-64ea-4e80-a425-e9238349604d",
+    "children": [],
+    "include": true,
+    "pnz": "christchurch-city-council-spreydon-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzx/wards/zzzzzzzzzzzzzzzzzzzm"
+  },
+  {
+    "uuid": "2d313d1e-da06-4404-be94-834f66dea3bb",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzn",
+    "name": "Riccarton Ward",
+    "parent": "db413a4a-64ea-4e80-a425-e9238349604d",
+    "children": [],
+    "include": true,
+    "pnz": "christchurch-city-council-riccarton-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzx/wards/zzzzzzzzzzzzzzzzzzzn"
+  },
+  {
+    "uuid": "5700cda4-26a3-4c17-8bed-704f8a48ecdd",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzo",
+    "name": "Papanui Ward",
+    "parent": "db413a4a-64ea-4e80-a425-e9238349604d",
+    "children": [],
+    "include": true,
+    "pnz": "christchurch-city-council-papanui-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzx/wards/zzzzzzzzzzzzzzzzzzzo"
+  },
+  {
+    "uuid": "942503e4-07a2-47bd-a7f4-bf2ac8f561ec",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzp",
+    "name": "Linwood Ward",
+    "parent": "db413a4a-64ea-4e80-a425-e9238349604d",
+    "children": [],
+    "include": true,
+    "pnz": "christchurch-city-council-linwood-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzx/wards/zzzzzzzzzzzzzzzzzzzp"
+  },
+  {
+    "uuid": "22c178d0-bc47-42f6-a8c5-b3d03de2d84c",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzq",
+    "name": "Innes Ward",
+    "parent": "db413a4a-64ea-4e80-a425-e9238349604d",
+    "children": [],
+    "include": true,
+    "pnz": "christchurch-city-council-innes-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzx/wards/zzzzzzzzzzzzzzzzzzzq"
+  },
+  {
+    "uuid": "37264641-8135-4b75-82bb-523d9fb7f9d0",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzr",
+    "name": "Hornby Ward",
+    "parent": "db413a4a-64ea-4e80-a425-e9238349604d",
+    "children": [],
+    "include": true,
+    "pnz": "christchurch-city-council-hornby-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzx/wards/zzzzzzzzzzzzzzzzzzzr"
+  },
+  {
+    "uuid": "b5dd8c1f-c069-4760-9e99-7b0fc49230bc",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzs",
+    "name": "Heathcote Ward",
+    "parent": "db413a4a-64ea-4e80-a425-e9238349604d",
+    "children": [],
+    "include": true,
+    "pnz": "christchurch-city-council-heathcote-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzx/wards/zzzzzzzzzzzzzzzzzzzs"
+  },
+  {
+    "uuid": "f0f37e8e-685d-4cac-b8cc-6e600587274c",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzt",
+    "name": "Harewood Ward",
+    "parent": "db413a4a-64ea-4e80-a425-e9238349604d",
+    "children": [],
+    "include": true,
+    "pnz": "christchurch-city-council-harewood-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzx/wards/zzzzzzzzzzzzzzzzzzzt"
+  },
+  {
+    "uuid": "0e3b6cd2-9d9a-4b0d-8f14-d845599e62c3",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzu",
+    "name": "Halswell Ward",
+    "parent": "db413a4a-64ea-4e80-a425-e9238349604d",
+    "children": [],
+    "include": true,
+    "pnz": "christchurch-city-council-halswell-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzx/wards/zzzzzzzzzzzzzzzzzzzu"
+  },
+  {
+    "uuid": "6728c0df-6f98-4985-9290-b255bbbbd7fa",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzv",
+    "name": "Fendalton Ward",
+    "parent": "db413a4a-64ea-4e80-a425-e9238349604d",
+    "children": [],
+    "include": true,
+    "pnz": "christchurch-city-council-fendalton-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzx/wards/zzzzzzzzzzzzzzzzzzzv"
+  },
+  {
+    "uuid": "0765545c-a64b-402e-8011-cb5cd24a1f1f",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzw",
+    "name": "Coastal Ward",
+    "parent": "db413a4a-64ea-4e80-a425-e9238349604d",
+    "children": [],
+    "include": true,
+    "pnz": "christchurch-city-council-coastal-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzx/wards/zzzzzzzzzzzzzzzzzzzw"
+  },
+  {
+    "uuid": "89fa8202-1c61-4d59-9858-6f73c30a324c",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Central Ward",
+    "parent": "db413a4a-64ea-4e80-a425-e9238349604d",
+    "children": [],
+    "include": true,
+    "pnz": "christchurch-city-council-central-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzx/wards/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "708e863b-d259-4d63-8788-96433b40b0cc",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Cashmere Ward",
+    "parent": "db413a4a-64ea-4e80-a425-e9238349604d",
+    "children": [],
+    "include": true,
+    "pnz": "christchurch-city-council-cashmere-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzx/wards/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "db413a4a-64ea-4e80-a425-e9238349604d",
+    "level": "district",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Christchurch",
+    "parent": "361dcb51-b9d3-49db-b6c5-467c4559f088",
+    "children": [
+      "823d9568-91b3-46ae-9c6d-0f01d8148514",
+      "16bf2df7-6295-4e1d-aa06-5f4ea1c9b9a4",
+      "4128934b-f272-4521-8803-087ba06449fa",
+      "76b37054-fd09-4988-a033-86dec7ed1cfe",
+      "19e6ff2e-7745-41ff-a5a3-ad88b098f635",
+      "ea4def94-3b7b-4246-9b97-5d0bed083cfc",
+      "17c96bb0-ee7d-4808-a892-b1a0ca87cf3a",
+      "e50f1537-fe51-4168-ab78-666723ac0fc2",
+      "8fb11296-e3fd-4ece-8c4a-5ef7f15f4903",
+      "f62fe415-ee07-4c10-a6d7-491f1d677265",
+      "ad14590e-1934-4f4a-b970-236d58b7d589",
+      "1dbd9ee8-084b-48ca-82aa-faf3dfe4f019",
+      "3345d6e9-b0b0-406d-ac60-96a0873c3422",
+      "82d3a13b-d8e9-48af-a805-a09fa888f9da",
+      "8eca128f-e53a-4d17-ac3c-f5ee8ebe3c73",
+      "b210bae7-ba45-4137-b7cd-c6244f9aef53"
+    ],
+    "include": true,
+    "how": "FPP",
+    "wardMap": "https://ccc.govt.nz/the-council/how-the-council-works/council-elections/voting-areas/",
+    "pnzMayor": "christchurch-city-council-mayoral",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "014551b6-fc6d-4d15-8122-f1260052a962",
+    "level": "district",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Ashburton",
+    "parent": "361dcb51-b9d3-49db-b6c5-467c4559f088",
+    "children": [],
+    "include": true,
+    "pnzRegional": "environment-canterbury-mid-canterbury-opakihi-constituency",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw/districts/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "361dcb51-b9d3-49db-b6c5-467c4559f088",
+    "level": "region",
+    "id": "zzzzzzzzzzzzzzzzzzzw",
+    "name": "Canterbury",
+    "parent": null,
+    "children": [
+      "db71d42e-6ee8-4055-9955-69ffae817fab",
+      "071e1180-3167-4ab4-bf01-0b1b9921a71e",
+      "25dd5bd7-d441-4707-b51a-8396e7e405c3",
+      "c4337a0b-3cfe-4100-a2d3-c95c2c46770f",
+      "b1d162e3-b9bf-4e23-b182-43f5e76c4017",
+      "6c2ab133-18c0-4b08-b50b-ba95eb882b97",
+      "ed7ff676-cfd3-45b2-a6f2-e05c495427f9",
+      "f9e9754f-a7c9-441a-8716-5f20b368a602",
+      "03314554-600d-45a6-aff3-8c5d58ef3018",
+      "fbb3a868-e108-416d-ad6e-8f9d1a9c2f73"
+    ],
+    "include": true,
+    "enrolBy": {
+      "_seconds": 1660296316,
+      "_nanoseconds": 0
+    },
+    "starting": {
+      "_seconds": 1663320324,
+      "_nanoseconds": 0
+    },
+    "ending": {
+      "_seconds": 1665217535,
+      "_nanoseconds": 0
+    },
+    "how": "FPP",
+    "contact": "christchurch@generationzero.org.nz",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzw"
+  },
+  {
+    "uuid": "78cc07dd-d0cc-482c-8ed2-db452f6b3b0d",
+    "level": "district",
+    "id": "zzzzzzzzzzzzzzzzzzzq",
+    "name": "Tararua",
+    "parent": "676d61c9-608b-4b3f-9056-5e1b260944c0",
+    "children": [],
+    "enrolBy": null,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzq"
+  },
+  {
+    "uuid": "7785e514-949e-4e0f-bb1b-a805be9d6a6a",
+    "level": "district",
+    "id": "zzzzzzzzzzzzzzzzzzzr",
+    "name": "South Wairarapa",
+    "parent": "676d61c9-608b-4b3f-9056-5e1b260944c0",
+    "children": [],
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzr"
+  },
+  {
+    "uuid": "72fd570f-9c74-47cb-bdc5-4c893ec97293",
+    "level": "district",
+    "id": "zzzzzzzzzzzzzzzzzzzs",
+    "name": "Masterton",
+    "parent": "676d61c9-608b-4b3f-9056-5e1b260944c0",
+    "children": [],
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzs"
+  },
+  {
+    "uuid": "62826be4-30f8-463b-a64e-7b5c2693f043",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzu",
+    "name": "Districtwide",
+    "parent": "b23f4bb8-cc5d-4fad-89dc-ec9e9954fb06",
+    "children": [],
+    "include": true,
+    "pnz": "kapiti-coast-district-council-kapiti-coast-at-large-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzt/wards/zzzzzzzzzzzzzzzzzzzu"
+  },
+  {
+    "uuid": "9f0c9a11-7a14-4e20-9e6b-65a76f5a79f1",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzv",
+    "name": "Paekākāriki–Raumati",
+    "parent": "b23f4bb8-cc5d-4fad-89dc-ec9e9954fb06",
+    "children": [],
+    "include": true,
+    "pnz": "kapiti-coast-district-council-paekakariki-raumati-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzt/wards/zzzzzzzzzzzzzzzzzzzv"
+  },
+  {
+    "uuid": "519bb3ed-e47a-4934-b239-319ea8551fcd",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzw",
+    "name": "Paraparaumu",
+    "parent": "b23f4bb8-cc5d-4fad-89dc-ec9e9954fb06",
+    "children": [],
+    "include": true,
+    "pnz": "kapiti-coast-district-council-paraparaumu-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzt/wards/zzzzzzzzzzzzzzzzzzzw"
+  },
+  {
+    "uuid": "10ce3cc0-9272-4bb0-ae58-c58a007c3961",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Waikanae",
+    "parent": "b23f4bb8-cc5d-4fad-89dc-ec9e9954fb06",
+    "children": [],
+    "include": true,
+    "pnz": "kapiti-coast-district-council-waikanae-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzt/wards/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "04db950b-85c0-447b-842b-673abac94f23",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Ōtaki",
+    "parent": "b23f4bb8-cc5d-4fad-89dc-ec9e9954fb06",
+    "children": [],
+    "include": true,
+    "pnz": "kapiti-coast-district-council-otaki-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzt/wards/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "b23f4bb8-cc5d-4fad-89dc-ec9e9954fb06",
+    "level": "district",
+    "id": "zzzzzzzzzzzzzzzzzzzt",
+    "name": "Kāpiti Coast",
+    "parent": "676d61c9-608b-4b3f-9056-5e1b260944c0",
+    "children": [
+      "5dee813e-2279-4798-a1e3-0f0c589bb7b9",
+      "f8eb19cc-8650-4a82-88b9-369bdeb5ef1e",
+      "b2580819-15b0-4f08-9a7f-736f0b56f722",
+      "6172b764-161f-4cfd-9b1a-388a7fbf4de2",
+      "57d23ec7-4fb6-4e26-a46b-51c026ca0f97"
+    ],
+    "include": true,
+    "wardMap": "https://www.kapiticoast.govt.nz/wards/",
+    "how": "STV",
+    "pnzMayor": "kapiti-coast-district-council-mayoral",
+    "pnzRegional": "greater-wellington-regional-council-kapiti-coast-constituency",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzt"
+  },
+  {
+    "uuid": "38b712df-840c-4678-b811-ad16b30854ce",
+    "level": "district",
+    "id": "zzzzzzzzzzzzzzzzzzzu",
+    "name": "Carterton",
+    "parent": "676d61c9-608b-4b3f-9056-5e1b260944c0",
+    "children": [],
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzu"
+  },
+  {
+    "uuid": "d70707bc-0bb6-45ed-a99d-b3575b20c0bc",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzs",
+    "name": "Motukairangi/Eastern General Ward",
+    "parent": "5446d1ae-594f-44c2-8c53-ce4b7c39f62a",
+    "children": [],
+    "include": true,
+    "pnz": "wellington-city-council-motukairangi-eastern-general-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzv/wards/zzzzzzzzzzzzzzzzzzzs"
+  },
+  {
+    "uuid": "70ce60ed-d5ce-4a2f-8ae3-eee95af22ef6",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzu",
+    "name": "Te Whanganui-a-Tara Māori Ward",
+    "parent": "5446d1ae-594f-44c2-8c53-ce4b7c39f62a",
+    "children": [],
+    "include": true,
+    "pnz": "wellington-city-council-te-whanganui-a-tara-maori-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzv/wards/zzzzzzzzzzzzzzzzzzzu"
+  },
+  {
+    "uuid": "eb82f530-c13d-48c9-ae8f-798738763fd8",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzv",
+    "name": "Paekawakawa/Southern General Ward",
+    "parent": "5446d1ae-594f-44c2-8c53-ce4b7c39f62a",
+    "children": [],
+    "include": true,
+    "pnz": "wellington-city-council-paekawakawa-southern-general-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzv/wards/zzzzzzzzzzzzzzzzzzzv"
+  },
+  {
+    "uuid": "b71c7905-44c3-49d9-8581-3f55feef3d13",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzw",
+    "name": "Wharangi/Onslow-Western General Ward",
+    "parent": "5446d1ae-594f-44c2-8c53-ce4b7c39f62a",
+    "children": [],
+    "include": true,
+    "pnz": "wellington-city-council-wharangi-onslow-western-general-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzv/wards/zzzzzzzzzzzzzzzzzzzw"
+  },
+  {
+    "uuid": "1bc9a5a7-2b55-42b8-bad3-6ed656e90628",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Takapū/Northern General Ward",
+    "parent": "5446d1ae-594f-44c2-8c53-ce4b7c39f62a",
+    "children": [],
+    "include": true,
+    "pnz": "wellington-city-council-takapu-northern-general-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzv/wards/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "d34e93f1-a31f-4e17-8c95-29b7bdd161a6",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Pukehīnau/Lambton General Ward",
+    "parent": "5446d1ae-594f-44c2-8c53-ce4b7c39f62a",
+    "children": [],
+    "include": true,
+    "pnz": "wellington-city-council-pukehinau-lambton-general-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzv/wards/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "5446d1ae-594f-44c2-8c53-ce4b7c39f62a",
+    "level": "district",
+    "id": "zzzzzzzzzzzzzzzzzzzv",
+    "name": "Wellington Central",
+    "parent": "676d61c9-608b-4b3f-9056-5e1b260944c0",
+    "children": [
+      "06d0fec1-9959-4bff-9209-d611811d9469",
+      "c723744d-efbd-4ec7-94b9-f376e7000374",
+      "64de15e5-1a0b-4317-9fea-77cb7de4918e",
+      "38cf9374-c5fb-4f94-8f7e-44ca6e163171",
+      "0ca42886-6591-44c2-9f20-8d54058c4672",
+      "041eefc2-3013-4f0c-882a-1e7b9bfe6630"
+    ],
+    "include": true,
+    "enrolBy": {
+      "_seconds": 1660343025,
+      "_nanoseconds": 0
+    },
+    "ending": {
+      "_seconds": 1665267893,
+      "_nanoseconds": 0
+    },
+    "starting": {
+      "_seconds": 1663367014,
+      "_nanoseconds": 0
+    },
+    "wardMap": "https://wellington.govt.nz/-/media/your-council/elections/2019/wards/all-wellington-wards.pdf",
+    "how": "STV",
+    "pnzMayor": "wellington-city-council-mayoral",
+    "pnzRegional": "greater-wellington-regional-council-poneke-wellington-constituency",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzv"
+  },
+  {
+    "uuid": "bfada4bc-bc7c-46ce-8b04-a5e4a09b6838",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Upper Hutt City Council",
+    "parent": "cee00f64-d6a9-4ed0-9a2e-4138942293d7",
+    "children": [],
+    "include": true,
+    "pnz": "upper-hutt-city-council",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzw/wards/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "cee00f64-d6a9-4ed0-9a2e-4138942293d7",
+    "level": "district",
+    "id": "zzzzzzzzzzzzzzzzzzzw",
+    "name": "Upper Hutt",
+    "parent": "676d61c9-608b-4b3f-9056-5e1b260944c0",
+    "children": [
+      "a668e0db-026c-45b1-9223-2e3f8782f96d"
+    ],
+    "include": true,
+    "how": "FPP",
+    "pnzMayor": "upper-hutt-city-council-mayoral",
+    "pnzRegional": "greater-wellington-regional-council-te-awa-kairangi-ki-uta-upper-hutt-constituency",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzw"
+  },
+  {
+    "uuid": "4f8e61b9-dc2f-4dfc-a022-2bef3aa8e4d1",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzw",
+    "name": "Parirua Māori Ward",
+    "parent": "6bb2554d-7a2f-4551-bfb7-68d0eae2f7bb",
+    "children": [],
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzx/wards/zzzzzzzzzzzzzzzzzzzw"
+  },
+  {
+    "uuid": "b5496d93-ac1a-4622-84d8-e22865fa7b57",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Pāuatahanui General Ward",
+    "parent": "6bb2554d-7a2f-4551-bfb7-68d0eae2f7bb",
+    "children": [],
+    "include": true,
+    "pnz": "porirua-city-council-onepoto-general-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzx/wards/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "0e86a5e2-24aa-44b1-b3b6-a6fa51064c92",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Onepoto General Ward",
+    "parent": "6bb2554d-7a2f-4551-bfb7-68d0eae2f7bb",
+    "children": [],
+    "include": true,
+    "pnz": "porirua-city-council-pauatahanui-general-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzx/wards/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "6bb2554d-7a2f-4551-bfb7-68d0eae2f7bb",
+    "level": "district",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Porirua",
+    "parent": "676d61c9-608b-4b3f-9056-5e1b260944c0",
+    "children": [
+      "b3bd6416-56d6-4a97-8f17-a14fc5b31bce",
+      "36c3d380-6d77-4c47-a4a1-13a1c97f782b",
+      "2aec7f07-8e72-4f4b-a763-6e64047697b0"
+    ],
+    "include": true,
+    "wardMap": "https://poriruacity.govt.nz/your-council/mayor-councillors/elections/2022-local-government-elections/wards-maps-and-boundaries/",
+    "how": "STV",
+    "pnzMayor": "porirua-city-council-mayoral",
+    "pnzRegional": "greater-wellington-regional-council-porirua-tawa-constituency",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "a22aa373-20b7-489a-b00e-fe1765bcbfda",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzs",
+    "name": "City Wide",
+    "parent": "9c35dabb-d4e9-4700-8a9f-2f8c63961e8b",
+    "children": [],
+    "include": true,
+    "pnz": "hutt-city-council-at-large",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzs"
+  },
+  {
+    "uuid": "ba335c82-3540-47f5-a401-b94cf4ee4721",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzt",
+    "name": "Central Ward",
+    "parent": "9c35dabb-d4e9-4700-8a9f-2f8c63961e8b",
+    "children": [],
+    "include": true,
+    "pnz": "hutt-city-council-central-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzt"
+  },
+  {
+    "uuid": "a1c92184-3cf0-40bc-8f1b-fee1beb48caa",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzu",
+    "name": "Eastern Ward",
+    "parent": "9c35dabb-d4e9-4700-8a9f-2f8c63961e8b",
+    "children": [],
+    "include": true,
+    "pnz": "hutt-city-council-eastern-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzu"
+  },
+  {
+    "uuid": "69b67823-e90f-4303-a483-7bf027808267",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzv",
+    "name": "Harbour Ward",
+    "parent": "9c35dabb-d4e9-4700-8a9f-2f8c63961e8b",
+    "children": [],
+    "include": true,
+    "pnz": "hutt-city-council-harbour-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzv"
+  },
+  {
+    "uuid": "feebb48e-8a28-4ad3-9b73-4475550def83",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzw",
+    "name": "Northern Ward",
+    "parent": "9c35dabb-d4e9-4700-8a9f-2f8c63961e8b",
+    "children": [],
+    "include": true,
+    "pnz": "hutt-city-council-northern-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzw"
+  },
+  {
+    "uuid": "f0126561-c745-4134-ba5b-2c9108ba8440",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Wainuiomata Ward",
+    "parent": "9c35dabb-d4e9-4700-8a9f-2f8c63961e8b",
+    "children": [],
+    "include": true,
+    "pnz": "hutt-city-council-wainuiomata-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "527ab2b0-dabc-4429-bc63-c4114c1b72f5",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Western Ward",
+    "parent": "9c35dabb-d4e9-4700-8a9f-2f8c63961e8b",
+    "children": [],
+    "include": true,
+    "pnz": "hutt-city-council-western-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "9c35dabb-d4e9-4700-8a9f-2f8c63961e8b",
+    "level": "district",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Hutt City",
+    "parent": "676d61c9-608b-4b3f-9056-5e1b260944c0",
+    "children": [
+      "4c40589e-cc4c-4215-a09e-8f83b41a49ce",
+      "f7132a0a-4545-4798-b0fd-8e8ebc201a6a",
+      "3d00498d-ce42-47c6-865f-5b5c3b685638",
+      "22f9ebdf-b808-4f1a-922a-7fdebf2ddce0",
+      "46e75b28-aaef-4631-b17a-557ccf379ec2",
+      "5592e024-34d1-47ad-aadd-dc6ec955c23f",
+      "f6f26f2f-e345-4c94-8247-441f5666ef84"
+    ],
+    "include": true,
+    "wardMap": "https://maps.huttcity.govt.nz/portal/apps/webappviewer/index.html?id=b57270f1aa9348e295ef775ad04537ff",
+    "how": "FPP",
+    "pnzMayor": "hutt-city-council-mayoral",
+    "pnzRegional": "greater-wellington-regional-council-te-awa-kairangi-ki-tai-lower-hutt-constituency",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx/districts/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "676d61c9-608b-4b3f-9056-5e1b260944c0",
+    "level": "region",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Wellington",
+    "parent": null,
+    "children": [
+      "abd4e0e5-936a-410f-8d4e-e0d86d0b8571",
+      "deca9eec-2ad6-49ec-bbcc-550876d0f694",
+      "dce5b0fb-942d-4ea2-a984-fd2bc007c427",
+      "0135ac15-1536-443f-9410-1a29e110fa1e",
+      "c1fc6aa2-ecbe-4324-93da-a09cbe8bbeaa",
+      "77e99f50-8ae1-43ff-9aeb-6a653c85a49f",
+      "76decab0-eae5-46dd-aa83-486a0311aa70",
+      "7f22976c-2e5d-4bdf-9509-d1a19eeefd94",
+      "c0e664b1-5b57-475e-b38d-7a35f84c291f"
+    ],
+    "include": true,
+    "enrolBy": {
+      "_seconds": 1657141987,
+      "_nanoseconds": 0
+    },
+    "starting": {
+      "_seconds": 1657186371,
+      "_nanoseconds": 0
+    },
+    "ending": {
+      "_seconds": 1657355598,
+      "_nanoseconds": 0
+    },
+    "how": "STV",
+    "wardMap": "https://wellington.govt.nz/-/media/your-council/elections/2019/wards/all-wellington-wards.pdf",
+    "contact": "wellington@generationzero.org.nz",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "455f4396-31f7-44f4-87bf-a9b093f1390b",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Whau",
+    "parent": "23b0b8b6-17fa-4cef-ba44-7758f9f256c5",
+    "children": [],
+    "include": true,
+    "pnz": "whau-local-board",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgI/boards/zzzzzzzzzzzzzzzzzzzy/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "23b0b8b6-17fa-4cef-ba44-7758f9f256c5",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Whau",
+    "parent": "9ddd9bb0-e1b9-406e-8420-f46acfbcbcda",
+    "children": [
+      "b19a0c35-f835-46f0-9f59-4ca836548408"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgI/boards/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "9ddd9bb0-e1b9-406e-8420-f46acfbcbcda",
+    "level": "ward",
+    "id": "5LcejaRWTJoYW3rI9mgI",
+    "name": "Whau",
+    "parent": "fc33792e-b6f8-4525-a115-9fed6adbe91c",
+    "children": [
+      "ddbb9abb-1521-444f-a87f-c5a312af9528"
+    ],
+    "include": true,
+    "pnz": "auckland-council-whau-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgI"
+  },
+  {
+    "uuid": "8d998a6b-df5d-4394-9031-171c204856a2",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Aotea Great Barrier",
+    "parent": "12ac9ece-23ec-460a-ad89-7b42def86fad",
+    "children": [],
+    "include": true,
+    "pnz": "aotea-great-barrier-local-board",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgJ/boards/zzzzzzzzzzzzzzzzzzzw/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "12ac9ece-23ec-460a-ad89-7b42def86fad",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzw",
+    "name": "Aotea Great Barrier",
+    "parent": "e4b2cea9-303b-4f89-9ae9-65f9c89a8a6a",
+    "children": [
+      "2391b311-3970-4c91-868a-64d7eb582572"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgJ/boards/zzzzzzzzzzzzzzzzzzzw"
+  },
+  {
+    "uuid": "94da6223-c4c8-4faa-89e1-cd3a80eb6a31",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Waiheke",
+    "parent": "eb9b096b-86cd-4a66-ae85-056c17ce7f28",
+    "children": [],
+    "include": true,
+    "pnz": "waiheke-local-board",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgJ/boards/zzzzzzzzzzzzzzzzzzzx/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "eb9b096b-86cd-4a66-ae85-056c17ce7f28",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Waiheke",
+    "parent": "e4b2cea9-303b-4f89-9ae9-65f9c89a8a6a",
+    "children": [
+      "e7121825-bf42-445f-995f-1b71e281bb35"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgJ/boards/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "0f9a19c4-3e2e-4d1b-9c82-7e4144ad174b",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Waitematā",
+    "parent": "ee896499-6090-4019-8e5b-abc84dd6d16d",
+    "children": [],
+    "include": true,
+    "pnz": "waitemata-local-board",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgJ/boards/zzzzzzzzzzzzzzzzzzzy/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "ee896499-6090-4019-8e5b-abc84dd6d16d",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Waitematā",
+    "parent": "e4b2cea9-303b-4f89-9ae9-65f9c89a8a6a",
+    "children": [
+      "7c663322-c03d-4bfd-be16-5a1853f29a74"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgJ/boards/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "e4b2cea9-303b-4f89-9ae9-65f9c89a8a6a",
+    "level": "ward",
+    "id": "5LcejaRWTJoYW3rI9mgJ",
+    "name": "Waitematā and Gulf",
+    "parent": "fc33792e-b6f8-4525-a115-9fed6adbe91c",
+    "children": [
+      "6c68c90d-f352-4bfc-9494-b81545d96ec6",
+      "7f2462ed-b77a-49cb-b0f7-447a9fb72555",
+      "7e7b977a-4c6f-4e1a-ab20-1bb9527edfcd"
+    ],
+    "include": true,
+    "pnz": "auckland-council-waitemata-and-gulf-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgJ"
+  },
+  {
+    "uuid": "37f07d32-0f2f-4b26-8ff7-533852223101",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Henderson-Massey",
+    "parent": "a50d5fe9-0767-4193-97ae-d8f7c6ee924c",
+    "children": [],
+    "include": true,
+    "pnz": "henderson-massey-local-board",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgK/boards/zzzzzzzzzzzzzzzzzzzx/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "a50d5fe9-0767-4193-97ae-d8f7c6ee924c",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Henderson-Massey",
+    "parent": "e14d8b33-185f-4626-bc4f-c75b194d3ef1",
+    "children": [
+      "0ff93f92-6935-481f-83fe-90b17b39ddd9"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgK/boards/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "16dc3794-321d-490d-a10f-2a08e870e09a",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Waitākere Ranges",
+    "parent": "b2903fba-b7bd-4b37-b377-742b1d3a9abe",
+    "children": [],
+    "include": true,
+    "pnz": "waitakere-ranges-local-board",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgK/boards/zzzzzzzzzzzzzzzzzzzy/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "b2903fba-b7bd-4b37-b377-742b1d3a9abe",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Waitākere Ranges",
+    "parent": "e14d8b33-185f-4626-bc4f-c75b194d3ef1",
+    "children": [
+      "a12e0ca1-629a-46bf-bdfc-524b2812d01a"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgK/boards/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "e14d8b33-185f-4626-bc4f-c75b194d3ef1",
+    "level": "ward",
+    "id": "5LcejaRWTJoYW3rI9mgK",
+    "name": "Waitākere",
+    "parent": "fc33792e-b6f8-4525-a115-9fed6adbe91c",
+    "children": [
+      "5c2ca9f4-4291-4136-b6fd-c3c0287cb11d",
+      "3e54e0b4-1ebe-4107-8387-31d9c045b875"
+    ],
+    "include": true,
+    "pnz": "auckland-council-waitakere-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgK"
+  },
+  {
+    "uuid": "e907d038-e0bd-4ba5-a190-161fdf553d76",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzv",
+    "name": "Wellsford",
+    "parent": "5618f4e3-f24c-45c2-9cf4-18c556711bbe",
+    "children": [],
+    "include": true,
+    "pnz": "rodney-local-board-wellsford-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgL/boards/zzzzzzzzzzzzzzzzzzzy/subdivisions/zzzzzzzzzzzzzzzzzzzv"
+  },
+  {
+    "uuid": "7909aef2-72cb-4cda-adcc-d37f11271a0e",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzw",
+    "name": "Warkworth",
+    "parent": "5618f4e3-f24c-45c2-9cf4-18c556711bbe",
+    "children": [],
+    "include": true,
+    "pnz": "rodney-local-board-warkworth-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgL/boards/zzzzzzzzzzzzzzzzzzzy/subdivisions/zzzzzzzzzzzzzzzzzzzw"
+  },
+  {
+    "uuid": "ab281214-7c08-4e45-baba-36fd83e5b6e5",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Kumeū",
+    "parent": "5618f4e3-f24c-45c2-9cf4-18c556711bbe",
+    "children": [],
+    "include": true,
+    "pnz": "rodney-local-board-kumeu-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgL/boards/zzzzzzzzzzzzzzzzzzzy/subdivisions/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "37724469-7319-4993-81d5-22321f384262",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Dairy Flat",
+    "parent": "5618f4e3-f24c-45c2-9cf4-18c556711bbe",
+    "children": [],
+    "include": true,
+    "pnz": "rodney-local-board-dairy-flat-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgL/boards/zzzzzzzzzzzzzzzzzzzy/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "5618f4e3-f24c-45c2-9cf4-18c556711bbe",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Rodney",
+    "parent": "83c627d3-0f28-4d01-bbe6-43bd77c447cd",
+    "children": [
+      "e69ecca4-20ca-4563-bfcd-7b961898ea35",
+      "665bb765-4842-4ea7-ad49-58230654d2e2",
+      "6aa5eae0-e9f1-489d-8d45-f3de1587aa17",
+      "55a7fd01-c368-4a99-8f8c-b87234713821"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgL/boards/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "83c627d3-0f28-4d01-bbe6-43bd77c447cd",
+    "level": "ward",
+    "id": "5LcejaRWTJoYW3rI9mgL",
+    "name": "Rodney",
+    "parent": "fc33792e-b6f8-4525-a115-9fed6adbe91c",
+    "children": [
+      "2009ffd9-3cb3-4b8d-afd2-a57538e115e6"
+    ],
+    "include": true,
+    "pnz": "auckland-council-rodney-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgL"
+  },
+  {
+    "uuid": "40f2d948-6bdf-4908-968b-31fd86586e26",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Ōwairaka",
+    "parent": "cb46cc8f-2561-4078-a016-0b3efebeba36",
+    "children": [],
+    "include": true,
+    "pnz": "albert-eden-local-board-owairaka-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgM/boards/zzzzzzzzzzzzzzzzzzzw/subdivisions/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "5d28aeed-ce0e-4154-889d-03792c6df506",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Maungawhau",
+    "parent": "cb46cc8f-2561-4078-a016-0b3efebeba36",
+    "children": [],
+    "include": true,
+    "pnz": "albert-eden-local-board-maungawhau-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgM/boards/zzzzzzzzzzzzzzzzzzzw/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "cb46cc8f-2561-4078-a016-0b3efebeba36",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzw",
+    "name": "Albert-Eden",
+    "parent": "73a8095b-db9a-4ca2-a135-2f41d9af9f07",
+    "children": [
+      "cbeca404-eb6c-4b48-a934-a185dab4abee",
+      "5d7391ff-744a-4a8a-9263-ccd5f2bad0f0"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgM/boards/zzzzzzzzzzzzzzzzzzzw"
+  },
+  {
+    "uuid": "3d90999b-5043-487c-839b-4b2248b9c425",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Ōrākei",
+    "parent": "95a2477f-b3b5-44ae-af9b-e567724bcb0e",
+    "children": [],
+    "include": true,
+    "pnz": "orakei-local-board",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgM/boards/zzzzzzzzzzzzzzzzzzzx/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "95a2477f-b3b5-44ae-af9b-e567724bcb0e",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Ōrākei",
+    "parent": "73a8095b-db9a-4ca2-a135-2f41d9af9f07",
+    "children": [
+      "2696ca53-b3de-4524-a098-d3f8986db6fe"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgM/boards/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "28b3e682-5cd5-4c2d-b29a-a9baef5c81cd",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Waitematā",
+    "parent": "75ce324f-aaea-47bc-b3d0-5a288f6b7a66",
+    "children": [],
+    "include": true,
+    "pnz": "waitemata-local-board",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgM/boards/zzzzzzzzzzzzzzzzzzzy/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "75ce324f-aaea-47bc-b3d0-5a288f6b7a66",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Waitematā",
+    "parent": "73a8095b-db9a-4ca2-a135-2f41d9af9f07",
+    "children": [
+      "b6dc5c6b-57b9-45af-801e-ba0942a7fe5e"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgM/boards/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "73a8095b-db9a-4ca2-a135-2f41d9af9f07",
+    "level": "ward",
+    "id": "5LcejaRWTJoYW3rI9mgM",
+    "name": "Ōrākei",
+    "parent": "fc33792e-b6f8-4525-a115-9fed6adbe91c",
+    "children": [
+      "38f6141a-d8fd-43a0-88fd-b31c85d292d0",
+      "798f7ebd-3ebc-48ab-bfbd-f0dfc30189ca",
+      "07cef41e-792e-458f-85ee-56817e424d19"
+    ],
+    "include": true,
+    "pnz": "auckland-council-orakei-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgM"
+  },
+  {
+    "uuid": "ca68859a-c66d-4a00-926c-758b8e97a326",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Kaipātiki",
+    "parent": "95be849f-03fc-4b1d-a0bf-72edc56b033b",
+    "children": [],
+    "include": true,
+    "pnz": "kaipatiki-local-board",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgN/boards/zzzzzzzzzzzzzzzzzzzx/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "95be849f-03fc-4b1d-a0bf-72edc56b033b",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Kaipātiki",
+    "parent": "a7c9f227-2601-4100-912b-46e21cd64a6e",
+    "children": [
+      "2f06289d-cfd2-4004-b2c4-cab86927ffa9"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgN/boards/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "95f7f831-d383-4ff6-8f06-097105003c5e",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Devonport-Takapuna",
+    "parent": "8f9e63ad-ead0-4ae8-aaa3-e58be2018245",
+    "children": [],
+    "include": true,
+    "pnz": "devonport-takapuna-local-board",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgN/boards/zzzzzzzzzzzzzzzzzzzy/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "8f9e63ad-ead0-4ae8-aaa3-e58be2018245",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Devonport-Takapuna",
+    "parent": "a7c9f227-2601-4100-912b-46e21cd64a6e",
+    "children": [
+      "c10f243d-4651-4eab-92de-92f7a25f4256"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgN/boards/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "a7c9f227-2601-4100-912b-46e21cd64a6e",
+    "level": "ward",
+    "id": "5LcejaRWTJoYW3rI9mgN",
+    "name": "North Shore",
+    "parent": "fc33792e-b6f8-4525-a115-9fed6adbe91c",
+    "children": [
+      "df7ee415-1bbd-45a8-90d6-e62e75f1560e",
+      "d2ba29f6-e603-41d0-991a-dcda96f0c9fe"
+    ],
+    "include": true,
+    "pnz": "auckland-council-north-shore-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/5LcejaRWTJoYW3rI9mgN"
+  },
+  {
+    "uuid": "0b6c3abd-1db7-43db-9c7a-61b8dbb1962e",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Papatoetoe",
+    "parent": "2a848f8f-4e0a-4e1e-a7b5-1991810391d8",
+    "children": [],
+    "include": true,
+    "pnz": "otara-papatoetoe-local-board-papatoetoe-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/AULpQphVk9eQc7uW9vQY/boards/zzzzzzzzzzzzzzzzzzzx/subdivisions/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "96a33126-3dbc-4a57-8d11-2e44b70ecc47",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Ōtara",
+    "parent": "2a848f8f-4e0a-4e1e-a7b5-1991810391d8",
+    "children": [],
+    "include": true,
+    "pnz": "otara-papatoetoe-local-board-otara-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/AULpQphVk9eQc7uW9vQY/boards/zzzzzzzzzzzzzzzzzzzx/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "2a848f8f-4e0a-4e1e-a7b5-1991810391d8",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Ōtara-Papatoetoe",
+    "parent": "61b77930-1dc0-4188-aba4-78329669eca1",
+    "children": [
+      "0c64a910-b8cf-4e69-90e0-de93041c0e0e",
+      "eb35a466-9016-43a6-9c56-07b24157e50c"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/AULpQphVk9eQc7uW9vQY/boards/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "01170f47-c136-41ad-8f84-3c22ef5bc945",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Māngere-Ōtāhuhu",
+    "parent": "e457579d-6c51-4abd-b197-be6a9aa43908",
+    "children": [],
+    "include": true,
+    "pnz": "mangere-otahuhu-local-board",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/AULpQphVk9eQc7uW9vQY/boards/zzzzzzzzzzzzzzzzzzzy/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "e457579d-6c51-4abd-b197-be6a9aa43908",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Māngere-Ōtāhuhu",
+    "parent": "61b77930-1dc0-4188-aba4-78329669eca1",
+    "children": [
+      "b87bc193-1d7c-45c4-9143-9f39d2377fe1"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/AULpQphVk9eQc7uW9vQY/boards/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "61b77930-1dc0-4188-aba4-78329669eca1",
+    "level": "ward",
+    "id": "AULpQphVk9eQc7uW9vQY",
+    "name": "Manukau",
+    "parent": "fc33792e-b6f8-4525-a115-9fed6adbe91c",
+    "children": [
+      "e3f0f0a7-396f-46fa-a95f-01f6864646b7",
+      "b64a9a0a-8d9e-4017-b542-cd0944dcf56e"
+    ],
+    "include": true,
+    "pnz": "auckland-council-manukau-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/AULpQphVk9eQc7uW9vQY"
+  },
+  {
+    "uuid": "6f146eb0-6864-4878-88cb-6d6f41e6612a",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Papakura",
+    "parent": "f719035d-ea3a-4535-9529-76232cba0bd7",
+    "children": [],
+    "include": true,
+    "pnz": "papakura-local-board",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/cHFa1VnpIhfeIld4ArBo/boards/zzzzzzzzzzzzzzzzzzzx/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "f719035d-ea3a-4535-9529-76232cba0bd7",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Papakura",
+    "parent": "7807d513-fe9d-4ebd-a793-3a381eae5c8d",
+    "children": [
+      "5d305006-85bf-4e9f-b58c-283ba24c42eb"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/cHFa1VnpIhfeIld4ArBo/boards/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "a00c9878-11c3-48c7-83df-18ede2119474",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Manurewa",
+    "parent": "7a768520-edb6-47d6-a914-722306cda3f9",
+    "children": [],
+    "include": true,
+    "pnz": "manurewa-local-board",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/cHFa1VnpIhfeIld4ArBo/boards/zzzzzzzzzzzzzzzzzzzy/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "7a768520-edb6-47d6-a914-722306cda3f9",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Manurewa",
+    "parent": "7807d513-fe9d-4ebd-a793-3a381eae5c8d",
+    "children": [
+      "d5fee73b-7e5a-4806-bfe9-37683533dbde"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/cHFa1VnpIhfeIld4ArBo/boards/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "7807d513-fe9d-4ebd-a793-3a381eae5c8d",
+    "level": "ward",
+    "id": "cHFa1VnpIhfeIld4ArBo",
+    "name": "Manurewa-Papakura",
+    "parent": "fc33792e-b6f8-4525-a115-9fed6adbe91c",
+    "children": [
+      "b3aceabf-2ade-409e-bb7d-8421938ef96b",
+      "93f81c86-dac0-436b-a505-32cb700482e0"
+    ],
+    "include": true,
+    "pnz": "auckland-council-manurewa-papakura-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/cHFa1VnpIhfeIld4ArBo"
+  },
+  {
+    "uuid": "a32bb581-1744-49c2-8850-145aeb3f6471",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Ōwairaka",
+    "parent": "2029a7ec-75f7-491e-ab93-ea9ac7ddb026",
+    "children": [],
+    "include": true,
+    "pnz": "albert-eden-local-board-owairaka-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/iYYyRiS14684v1Zl9QKO/boards/zzzzzzzzzzzzzzzzzzzw/subdivisions/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "08d52281-7af8-45c5-9072-7f3439649016",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Maungawhau",
+    "parent": "2029a7ec-75f7-491e-ab93-ea9ac7ddb026",
+    "children": [],
+    "include": true,
+    "pnz": "albert-eden-local-board-maungawhau-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/iYYyRiS14684v1Zl9QKO/boards/zzzzzzzzzzzzzzzzzzzw/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "2029a7ec-75f7-491e-ab93-ea9ac7ddb026",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzw",
+    "name": "Albert-Eden",
+    "parent": "1306b659-46d0-4706-937e-6808e9802023",
+    "children": [
+      "8713b921-54a6-41d6-a5fe-a9dec8ab609c",
+      "b19972a5-6fea-4c35-94dd-04693d14daa2"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/iYYyRiS14684v1Zl9QKO/boards/zzzzzzzzzzzzzzzzzzzw"
+  },
+  {
+    "uuid": "4aa71062-f82f-432a-894b-6b1fff8ce09b",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Ōrākei",
+    "parent": "c91da0dc-ce5f-4cc9-a3d4-66228d70bc16",
+    "children": [],
+    "include": true,
+    "pnz": "orakei-local-board",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/iYYyRiS14684v1Zl9QKO/boards/zzzzzzzzzzzzzzzzzzzx/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "c91da0dc-ce5f-4cc9-a3d4-66228d70bc16",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Ōrākei",
+    "parent": "1306b659-46d0-4706-937e-6808e9802023",
+    "children": [
+      "5d55ed3a-5655-4e1e-ac2b-e4472a216ba2"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/iYYyRiS14684v1Zl9QKO/boards/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "5c65e32c-5915-45a9-8e29-b77af7bf4b34",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Tāmaki",
+    "parent": "8d471658-2a3a-4d46-ab9c-1e9f028a49f4",
+    "children": [],
+    "include": true,
+    "pnz": "maungakiekie-tamaki-local-board-tamaki-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/iYYyRiS14684v1Zl9QKO/boards/zzzzzzzzzzzzzzzzzzzy/subdivisions/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "15621757-8459-4c4f-9c3d-78e606e38fb2",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Maungakiekie",
+    "parent": "8d471658-2a3a-4d46-ab9c-1e9f028a49f4",
+    "children": [],
+    "include": true,
+    "pnz": "maungakiekie-tamaki-local-board-maungakiekie-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/iYYyRiS14684v1Zl9QKO/boards/zzzzzzzzzzzzzzzzzzzy/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "8d471658-2a3a-4d46-ab9c-1e9f028a49f4",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Maungakiekie-Tāmaki",
+    "parent": "1306b659-46d0-4706-937e-6808e9802023",
+    "children": [
+      "d68c4863-3585-413c-9764-ce18f0a7a170",
+      "4555b09e-69aa-43c7-8bbb-76073b1b4019"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/iYYyRiS14684v1Zl9QKO/boards/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "1306b659-46d0-4706-937e-6808e9802023",
+    "level": "ward",
+    "id": "iYYyRiS14684v1Zl9QKO",
+    "name": "Maungakiekie-Tāmaki",
+    "parent": "fc33792e-b6f8-4525-a115-9fed6adbe91c",
+    "children": [
+      "d441db90-a7a0-423b-a06b-98281d61c29c",
+      "9fe951e3-e760-4e89-8542-24a228b1d08d",
+      "7cbb24c4-88ff-4f62-bd05-68f49ca1fdd6"
+    ],
+    "include": true,
+    "pnz": "auckland-council-maungakiekie-tamaki-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/iYYyRiS14684v1Zl9QKO"
+  },
+  {
+    "uuid": "47d49ce0-feb1-4945-9038-907bef540554",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzw",
+    "name": "Pakuranga",
+    "parent": "7f7e9cf3-f57f-4cae-a7bb-305255265f3c",
+    "children": [],
+    "include": true,
+    "pnz": "howick-local-board-pakuranga-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/sNe0C0FCLog9KuvwGPxF/boards/zzzzzzzzzzzzzzzzzzzw/subdivisions/zzzzzzzzzzzzzzzzzzzw"
+  },
+  {
+    "uuid": "740eff71-961c-4c09-a04a-956dc1845945",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Howick",
+    "parent": "7f7e9cf3-f57f-4cae-a7bb-305255265f3c",
+    "children": [],
+    "include": true,
+    "pnz": "howick-local-board-howick-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/sNe0C0FCLog9KuvwGPxF/boards/zzzzzzzzzzzzzzzzzzzw/subdivisions/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "25c77be4-6e0c-43ac-83a1-1aef5a2f0105",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Botany",
+    "parent": "7f7e9cf3-f57f-4cae-a7bb-305255265f3c",
+    "children": [],
+    "include": true,
+    "pnz": "howick-local-board-botany-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/sNe0C0FCLog9KuvwGPxF/boards/zzzzzzzzzzzzzzzzzzzw/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "7f7e9cf3-f57f-4cae-a7bb-305255265f3c",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzw",
+    "name": "Howick",
+    "parent": "51cb6ac0-474d-49a5-b13f-360c3bd3e114",
+    "children": [
+      "63c448ee-60c6-4ec9-a727-01ec20675096",
+      "00077381-d7e0-40f2-add5-b1fcb1995987",
+      "908aaa1c-e073-4e0b-b037-73e6fa024643"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/sNe0C0FCLog9KuvwGPxF/boards/zzzzzzzzzzzzzzzzzzzw"
+  },
+  {
+    "uuid": "51cb6ac0-474d-49a5-b13f-360c3bd3e114",
+    "level": "ward",
+    "id": "sNe0C0FCLog9KuvwGPxF",
+    "name": "Howick",
+    "parent": "fc33792e-b6f8-4525-a115-9fed6adbe91c",
+    "children": [
+      "60e442ea-650a-4a9e-aec7-840c3d306b22"
+    ],
+    "include": true,
+    "pnz": "auckland-council-howick-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/sNe0C0FCLog9KuvwGPxF"
+  },
+  {
+    "uuid": "5e0f855c-37be-4987-965f-10c7619996b4",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzw",
+    "name": "Waiuku",
+    "parent": "67a250f5-c3d3-484b-8193-08fdce9dac01",
+    "children": [],
+    "include": true,
+    "pnz": "franklin-local-board-waiuku-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzw/boards/zzzzzzzzzzzzzzzzzzzy/subdivisions/zzzzzzzzzzzzzzzzzzzw"
+  },
+  {
+    "uuid": "adbec8eb-f58b-4535-82b8-4b4b23b7c06d",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Wairoa",
+    "parent": "67a250f5-c3d3-484b-8193-08fdce9dac01",
+    "children": [],
+    "include": true,
+    "pnz": "franklin-local-board-wairoa-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzw/boards/zzzzzzzzzzzzzzzzzzzy/subdivisions/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "7df9f4e0-42bb-431d-b18f-dde39f750b32",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Pukekohe",
+    "parent": "67a250f5-c3d3-484b-8193-08fdce9dac01",
+    "children": [],
+    "include": true,
+    "pnz": "franklin-local-board-pukekohe-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzw/boards/zzzzzzzzzzzzzzzzzzzy/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "67a250f5-c3d3-484b-8193-08fdce9dac01",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Franklin",
+    "parent": "d85bbea7-2726-4958-a1d6-f8bdd9394974",
+    "children": [
+      "bf4b565b-8b74-4a22-89ce-1f3ada189c72",
+      "d9ea5c2a-3fd9-4344-a9cf-d7fd62838a4c",
+      "27b8a0e8-b9bb-49b8-aefb-462cb552948a"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzw/boards/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "d85bbea7-2726-4958-a1d6-f8bdd9394974",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzw",
+    "name": "Franklin",
+    "parent": "fc33792e-b6f8-4525-a115-9fed6adbe91c",
+    "children": [
+      "61af67a9-c306-47e2-8eb5-37d733a28cb0"
+    ],
+    "include": true,
+    "pnz": "auckland-council-franklin-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzw"
+  },
+  {
+    "uuid": "a4437dfa-de56-446e-b0e9-6713c1e96817",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Ōwairaka",
+    "parent": "7b45065d-f2d6-4eeb-9023-b0942dec432d",
+    "children": [],
+    "include": true,
+    "pnz": "albert-eden-local-board-owairaka-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzx/boards/zzzzzzzzzzzzzzzzzzzv/subdivisions/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "a8d936eb-9f52-4f45-967b-1b869456855f",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Maungawhau",
+    "parent": "7b45065d-f2d6-4eeb-9023-b0942dec432d",
+    "children": [],
+    "include": true,
+    "pnz": "albert-eden-local-board-maungawhau-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzx/boards/zzzzzzzzzzzzzzzzzzzv/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "7b45065d-f2d6-4eeb-9023-b0942dec432d",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzv",
+    "name": "Albert-Eden",
+    "parent": "bd5e3e8f-1ad5-4246-8cf0-1e6203df5cb6",
+    "children": [
+      "2fdea52a-5f39-4593-9e53-f7c3bf08d026",
+      "dd175830-28ed-445c-9053-c8eda248654b"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzx/boards/zzzzzzzzzzzzzzzzzzzv"
+  },
+  {
+    "uuid": "c94f6311-f0c3-4123-b4b1-f7932f98c45b",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Tāmaki",
+    "parent": "21783484-2610-4797-86af-3520a735a327",
+    "children": [],
+    "include": true,
+    "pnz": "maungakiekie-tamaki-local-board-tamaki-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzx/boards/zzzzzzzzzzzzzzzzzzzw/subdivisions/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "347f7606-0e8e-441f-ada1-4ac162d77583",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Maungakiekie",
+    "parent": "21783484-2610-4797-86af-3520a735a327",
+    "children": [],
+    "include": true,
+    "pnz": "maungakiekie-tamaki-local-board-maungakiekie-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzx/boards/zzzzzzzzzzzzzzzzzzzw/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "21783484-2610-4797-86af-3520a735a327",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzw",
+    "name": "Maungakiekie-Tāmaki",
+    "parent": "bd5e3e8f-1ad5-4246-8cf0-1e6203df5cb6",
+    "children": [
+      "96d48ba6-b668-41ad-917a-1095b86f2d01",
+      "7e1ad23b-6621-4667-8177-2444f1143b97"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzx/boards/zzzzzzzzzzzzzzzzzzzw"
+  },
+  {
+    "uuid": "4aafde85-730c-456a-9e9d-a7ba16e1ed5e",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Puketāpapa",
+    "parent": "c2e13ba6-c984-43f3-9235-84c1b880b8ca",
+    "children": [],
+    "include": true,
+    "pnz": "puketapapa-local-board",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzx/boards/zzzzzzzzzzzzzzzzzzzx/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "c2e13ba6-c984-43f3-9235-84c1b880b8ca",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Puketāpapa",
+    "parent": "bd5e3e8f-1ad5-4246-8cf0-1e6203df5cb6",
+    "children": [
+      "a9175d7c-b53c-4869-9cd9-df732fdd9d73"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzx/boards/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "87a4f45e-306d-4545-8287-62a65c815e06",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Waitematā",
+    "parent": "8895f028-1f40-41e1-8d4f-9769626abcdd",
+    "children": [],
+    "include": true,
+    "pnz": "waitemata-local-board",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzx/boards/zzzzzzzzzzzzzzzzzzzy/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "8895f028-1f40-41e1-8d4f-9769626abcdd",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Waitematā",
+    "parent": "bd5e3e8f-1ad5-4246-8cf0-1e6203df5cb6",
+    "children": [
+      "a6024d38-607b-40a3-8756-3a422c2120d1"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzx/boards/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "bd5e3e8f-1ad5-4246-8cf0-1e6203df5cb6",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Albert-Eden-Puketāpapa",
+    "parent": "fc33792e-b6f8-4525-a115-9fed6adbe91c",
+    "children": [
+      "dc4c33ab-28b1-4e46-975d-951a885c4057",
+      "3ea800cc-bab9-43ef-9951-4ae909bfb592",
+      "c47ee038-bd63-45b8-ba66-ec70d2d13fca",
+      "70afa51e-2bfd-42eb-af05-a243ea0d9123"
+    ],
+    "include": true,
+    "pnz": "auckland-council-albert-eden-puketapapa-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "e012e6e1-e6b3-4f41-9353-e1e467ae1eca",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "East Coast Bays",
+    "parent": "f4e50d3b-e4f3-4a06-a487-65ead3311bfd",
+    "children": [],
+    "include": true,
+    "pnz": "hibiscus-and-bays-local-board-east-coast-bays-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzy/boards/zzzzzzzzzzzzzzzzzzzx/subdivisions/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "77cc3b3e-c34f-47f6-8f2c-31b2e3eee7c8",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Hibiscus Coast",
+    "parent": "f4e50d3b-e4f3-4a06-a487-65ead3311bfd",
+    "children": [],
+    "include": true,
+    "pnz": "hibiscus-and-bays-local-board-hibiscus-coast-subdivision",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzy/boards/zzzzzzzzzzzzzzzzzzzx/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "f4e50d3b-e4f3-4a06-a487-65ead3311bfd",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzx",
+    "name": "Hibiscus and Bays",
+    "parent": "502df8f7-b78d-449a-9a2f-c8a35e1ab7ad",
+    "children": [
+      "5920d2fa-75a1-4c14-ab48-5fc7b924db78",
+      "5dd126f6-ca18-4618-b85e-ac77b8eb6dfb"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzy/boards/zzzzzzzzzzzzzzzzzzzx"
+  },
+  {
+    "uuid": "f8d29551-f5c4-4c2c-9ff4-fa09867a1221",
+    "level": "subdivision",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Upper Harbour",
+    "parent": "51b4114e-6373-4c8e-aac4-32982ff289d9",
+    "children": [],
+    "include": true,
+    "pnz": "upper-harbour-local-board",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzy/boards/zzzzzzzzzzzzzzzzzzzy/subdivisions/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "51b4114e-6373-4c8e-aac4-32982ff289d9",
+    "level": "board",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Upper Harbour",
+    "parent": "502df8f7-b78d-449a-9a2f-c8a35e1ab7ad",
+    "children": [
+      "ad85fa5f-9ecf-4c1c-88e8-01fdc0bf9818"
+    ],
+    "include": true,
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzy/boards/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "502df8f7-b78d-449a-9a2f-c8a35e1ab7ad",
+    "level": "ward",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Albany",
+    "parent": "fc33792e-b6f8-4525-a115-9fed6adbe91c",
+    "children": [
+      "1be23e54-efde-470d-b448-fe6fc76401b3",
+      "8148f1e2-c782-4b95-a3fb-6d0661e30781"
+    ],
+    "include": true,
+    "pnz": "auckland-council-albany-ward",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy/wards/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "fc33792e-b6f8-4525-a115-9fed6adbe91c",
+    "level": "district",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Auckland",
+    "parent": "5f31b823-b0fc-4bea-9a1d-8c02c5cb03ab",
+    "children": [
+      "a990e9a8-4eac-4df1-9f8a-90d96118dd62",
+      "0521f32c-1209-4853-83ff-ee20a934425e",
+      "905f7eea-4e3f-408f-ae86-ea999d6cb482",
+      "ea00f5f2-c489-4e1f-aba6-a8ed63c45035",
+      "8e7ad32a-3824-4548-9653-4e60258f12d6",
+      "9d9ae765-2dcd-4c88-82fa-302117129c0d",
+      "ae589487-a182-4e1b-b244-e8435c6097b7",
+      "8266533c-5318-4789-93e2-d2113d72683f",
+      "41b9981e-3fc8-4876-a8f0-2efe7c1abf7b",
+      "1d31cfcb-45af-4e08-a20b-f131d0a9c573",
+      "0dc91383-c143-480d-8eef-bd8acc3564b1",
+      "bb3e7a8b-ae3e-426a-859b-8cb8db349230",
+      "06258c33-628c-49bf-8f65-45cd0372ef68"
+    ],
+    "include": true,
+    "wardMap": "https://www.aucklandcouncil.govt.nz/about-auckland-council/how-auckland-council-works/governing-body-wards-committees/wards/Pages/find-your-ward.aspx",
+    "how": "FPP",
+    "pnzMayor": "auckland-council-mayoral",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy/districts/zzzzzzzzzzzzzzzzzzzy"
+  },
+  {
+    "uuid": "5f31b823-b0fc-4bea-9a1d-8c02c5cb03ab",
+    "level": "region",
+    "id": "zzzzzzzzzzzzzzzzzzzy",
+    "name": "Auckland",
+    "parent": null,
+    "children": [
+      "b6b5dc82-7351-498e-b748-a040bff9deaf"
+    ],
+    "include": true,
+    "how": "FPP",
+    "contact": "auckland@generationzero.org.nz",
+    "path": "regions/zzzzzzzzzzzzzzzzzzzy"
+  }
+]

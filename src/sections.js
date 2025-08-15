@@ -29,8 +29,8 @@ function Sections() {
       <WhoSection />
       <HowSection />
       <WhereSection />
-      {/* <WhySection />
-      <WhenSection /> */}
+      {/* <WhySection /> */}
+      <WhenSection />
       {/* <Contact /> */}
     </>
   );

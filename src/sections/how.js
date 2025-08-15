@@ -11,24 +11,8 @@ import CreateIcon from "@mui/icons-material/Create";
 import HomeWorkIcon from "@mui/icons-material/HomeWork";
 import MarkunreadMailboxIcon from "@mui/icons-material/MarkunreadMailbox";
 import { Link } from "react-scroll";
-import { connect } from "unistore/react";
-import { set } from "lodash";
-
-const actions = {
-  setEnrolled: (state, enrolled) => {
-    return {
-      enrolled,
-      special: !(enrolled && state.current),
-    };
-  },
-
-  setCurrent: (state, current) => {
-    return {
-      current,
-      special: !(state.enrolled && current),
-    };
-  },
-};
+import { useStore } from "../state";
+import { useEffect } from "react";
 
 const dates = {
   enrolment_date: "1st of August",
@@ -38,7 +22,22 @@ const dates = {
   mail_end_date: "7th of October",
 };
 
-function render({ setEnrolled, setCurrent, enrolled, current, special }) {
+function HowSection() {
+  const enrolled = useStore((state) => state.enrolled);
+  const current = useStore((state) => state.current);
+  const special = useStore((state) => state.special);
+  const setEnrolled = useStore((state) => state.setEnrolled);
+  const setCurrent = useStore((state) => state.setCurrent);
+
+  // Update special when enrolled/current change
+  useEffect(() => {
+    // Special vote if not both enrolled and current
+    const newSpecial = !(enrolled && current);
+    if (special !== newSpecial) {
+      useStore.getState().setSpecial(newSpecial);
+    }
+  }, [enrolled, current, special]);
+
   return (
     <Section title="HOW?">
       <Container>
@@ -140,7 +139,15 @@ function render({ setEnrolled, setCurrent, enrolled, current, special }) {
                 Drop your voting pack off at a drop off center before the
                 <b> {dates.drop_off_end}</b>. See{" "}
                 <Link to="Where" smooth={true}>
-                  <a href="#">Where</a>
+                  <span
+                    style={{
+                      color: "#1976d2",
+                      textDecoration: "underline",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Where
+                  </span>
                 </Link>
               </p>
             </ListItem>
@@ -169,7 +176,7 @@ function render({ setEnrolled, setCurrent, enrolled, current, special }) {
   );
 }
 
-export default connect(["enrolled", "current", "special"], actions)(render);
+export default HowSection;
 
 const Container = styled.div`
   display: flex;

@@ -1,7 +1,10 @@
 import "../App.css";
 import { connect } from "unistore/react";
+import { useStore } from "../state";
 
-const render = ({ selected }) => {
+const Render = () => {
+  const selected = useStore((state) => state.selected);
+
   let wardMaps = selected
     .filter(({ wardMap }) => Boolean(wardMap))
     .map(({ wardMap }) => wardMap);
@@ -23,4 +26,4 @@ const render = ({ selected }) => {
   );
 };
 
-export default connect(["selected"])(render);
+export default Render;

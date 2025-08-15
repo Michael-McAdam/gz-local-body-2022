@@ -1,52 +1,85 @@
 import "../App.css";
 import RoomIcon from "@mui/icons-material/Room";
 import styled from "@emotion/styled";
-import data from "../data";
 import { useState, useRef, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
 import Section from "../components/Section";
-import { getDocs, query, collection } from "firebase/firestore";
-import { db } from "../firebase";
 
 import MapMarker from "../components/MapMarker";
-import { GenericErrorBoundary } from "../components/GenericErrorBoundary";
-import { connect } from "unistore/react";
+import { useStore } from "../state";
 
 const defaultLoc = {
   center: [-39.312328190014426, 171.87617060410338],
-  zoom: 5,
+  zoom: 8,
 };
 
 // Leaflet handles bounds automatically, but you can use fitBounds if needed.
 
-const Body = ({ selected, where, special }) => {
-  // let loaded = state.where.length > 0;
-  // let selected = selected.district;
+const Body = () => {
+  const where = useStore((state) => state.where);
+  const selected = useStore((state) => state.selected);
+  const special = useStore((state) => state.special);
+  let loaded = true;
+  let test;
+
+  // Fix Leaflet marker icon issue
+  useEffect(() => {
+    L.Icon.Default.mergeOptions({
+      iconRetinaUrl: markerIcon2x,
+      iconUrl: markerIcon,
+      shadowUrl: markerShadow,
+    });
+  }, []);
+  // ...existing code...
   console.log(selected);
 
-  // locations where loc.District matches any selected.Name
+  if (selected.length === 0) {
+    return (
+      <ErrorContainer>Please select a location to view map</ErrorContainer>
+    );
+  }
+
+  if (!loaded) {
+    return null;
+  }
+
+  if (test) {
+    return (
+      <ErrorContainer>
+        We haven't filled out the map data for your area
+      </ErrorContainer>
+    );
+  }
+
   const selectedNames = selected.map((s) => s.Name);
   const locations = where?.filter(
     (loc) => loc.District && selectedNames.includes(loc.District)
   );
 
-  let loaded = true;
-
-  // Cleverness to pull lat, lng and name from Maps URL
+  // Cleverness to extract lat/lng from link
   var locRegex = new RegExp("@(.*),(.*),");
   var nameRegex = new RegExp("/place/(.*)/@");
 
   const info = locations
     .map((x, idx) => {
-      var loc = x.link.match(locRegex);
-      var lat = loc && parseFloat(loc[1]);
-      var lng = loc && parseFloat(loc[2]);
+      if (x.latlng === "") {
+        var loc = x.link.match(locRegex);
+        var lat = loc && loc[1];
+        var lng = loc && loc[2];
+      } else {
+        var loc = x.latlng.split(",");
+        var lat = loc && loc[0];
+        var lng = loc && loc[1];
+      }
       var name_match = x.link.match(nameRegex);
       var name = name_match && name_match[1];
       name = name?.split("+").join(" ");
       name = decodeURIComponent(name);
-      // Use a unique key: prefer x.id, else name+idx
       let out = { lat, lng, name, ...x, _key: x.id || `${name}-${idx}` };
       return out;
     })
@@ -57,128 +90,82 @@ const Body = ({ selected, where, special }) => {
   const mapCenter =
     info.length > 0 ? [info[0].lat, info[0].lng] : defaultLoc.center;
 
+  // Component to fit bounds to markers
+  const MapBounds = ({ markers }) => {
+    const { useMap } = require("react-leaflet");
+    const map = useMap();
+    useEffect(() => {
+      if (markers.length > 0) {
+        const bounds = markers.map((m) => [m.lat, m.lng]);
+        map.fitBounds(bounds, { padding: [40, 40] });
+      }
+    }, [markers, map]);
+    return null;
+  };
+
   return (
     <>
-      {selected ? (
-        loaded ? (
-          <>
-            <MapSection>
-              <MapContainer
-                center={mapCenter}
-                zoom={defaultLoc.zoom}
-                style={{ width: "100%", height: "400px" }}
-                scrollWheelZoom={true}
-              >
-                <TileLayer
-                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                {info.map(({ lat, lng, name, link, type, _key }) => (
-                  <Marker key={_key} position={[lat, lng]}>
-                    <Popup>
-                      <div>
-                        <strong>{name}</strong>
-                        {link && (
-                          <div>
-                            <a
-                              href={link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              View on Google Maps
-                            </a>
-                          </div>
-                        )}
-                        {type && <div>Type: {type}</div>}
-                      </div>
-                    </Popup>
-                  </Marker>
-                ))}
-              </MapContainer>
-            </MapSection>
-            {special && (
-              <KeyContainer>
-                <MarkerContainer>
-                  <RoomIcon style={{ color: "red" }} />
-                  <span>Drop Off Location</span>
-                </MarkerContainer>
-                <MarkerContainer>
-                  <RoomIcon style={{ color: "#556a41" }} />
-                  <span>Special Vote Pickup</span>
-                </MarkerContainer>
-              </KeyContainer>
-            )}
-          </>
-        ) : (
-          <ErrorContainer>
-            We haven't filled out the map data for your area
-          </ErrorContainer>
-        )
-      ) : (
-        <ErrorContainer>Please select a location to view map</ErrorContainer>
+      <MapContainer
+        // center={mapCenter}
+        zoom={defaultLoc.zoom}
+        style={{ width: "100%", height: "80vh" }}
+        scrollWheelZoom={false}
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <MapBounds markers={info} />
+        {info.map(({ lat, lng, name, link, type, _key }) => (
+          <Marker key={_key} position={[lat, lng]}>
+            <Popup>
+              <div>
+                <strong>{name}</strong>
+                {link && (
+                  <div>
+                    <a href={link} target="_blank" rel="noopener noreferrer">
+                      View on Google Maps
+                    </a>
+                  </div>
+                )}
+                {type && <div>Type: {type}</div>}
+              </div>
+            </Popup>
+          </Marker>
+        ))}
+      </MapContainer>
+
+      {/* Only show the key if there are special locations */}
+      {special && (
+        <KeyContainer>
+          <MarkerContainer>
+            <RoomIcon style={{ color: "red" }} />
+            <span>Drop Off Location</span>
+          </MarkerContainer>
+          <MarkerContainer>
+            <RoomIcon style={{ color: "#556a41" }} />
+            <span>Special Vote Pickup</span>
+          </MarkerContainer>
+        </KeyContainer>
       )}
     </>
   );
 };
 
-function Render({ where, selected, special }) {
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     let q = query(
-  //       collection(
-  //         db,
-  //         "regions",
-  //         state.selected.region,
-  //         "districts",
-  //         state.selected.district,
-  //         "where"
-  //       )
-  //     );
-  //     let where = await getDocs(q);
-  //     dispatch({
-  //       type: "setWhere",
-  //       payload: where.docs.map((doc) => doc.data()),
-  //     });
-  //   };
-
-  //   if (state.selected.region && state.selected.district) {
-  //     fetchData();
-  //   } else {
-  //     dispatch({
-  //       type: "setWhere",
-  //       payload: [],
-  //     });
-  //   }
-  // }, [state.selected.district]);
-
+const Render = () => {
   return (
     <div id="Where">
       <Section
         title="WHERE?"
         subtitle="All the locations in your area where you can drop off your voting pack"
       >
-        {/* <GenericErrorBoundary
-          errorContent={() => (
-            <>
-              Oops! Looks like something went wrong while loading the map.
-              Please try again later.
-            </>
-          )}
-        > */}
-        <Body selected={selected} where={where} special={special} />
-        {/* </GenericErrorBoundary> */}
+        <Body />
       </Section>
     </div>
   );
-}
+};
 
-export default connect(["where", "selected", "special"], {})(Render);
-
-const MapSection = styled.div`
-  width: 80%;
-  height: 60%;
-  margin-top: 40px;
-`;
+export default Render;
 
 const KeyContainer = styled.div`
   display: flex;

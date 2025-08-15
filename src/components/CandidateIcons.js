@@ -23,21 +23,25 @@ const IconContainer = styled.div`
   column-gap: 5px;
   width: 100%;
   margin-top: 15px;
+  height: 15px;
 `;
 
 export default function CandidateIcons({ data }) {
+  const icons = data.Icons.split(",").map((icon) => icon.trim()) || [];
+  console.log(icons);
+
   const iconDefs = [
-    { key: "renter", label: "Renter", Icon: RentIcon },
-    { key: "rainbow", label: "Rainbow/Takatāpui Community", Icon: RainbowIcon },
-    { key: "young", label: "Under 35", Icon: AgeIcon },
-    { key: "disabled", label: "Disabled", Icon: DisabledIcon },
-    { key: "maori", label: "Māori", Icon: MaoriIcon },
+    { key: "Renter", label: "Renter", Icon: RentIcon },
+    { key: "Rainbow", label: "Rainbow/Takatāpui Community", Icon: RainbowIcon },
+    { key: "Young", label: "Under 35", Icon: AgeIcon },
+    { key: "Disabled", label: "Disabled", Icon: DisabledIcon },
+    { key: "Maori", label: "Māori", Icon: MaoriIcon },
   ];
 
   return (
     <IconContainer>
       {iconDefs.map(({ key, label, Icon }) =>
-        data[key] ? (
+        icons.includes(key) ? (
           <Tooltip key={key} enterTouchDelay={0} title={label}>
             <span>
               <Box sx={visuallyHidden}>{label}</Box>

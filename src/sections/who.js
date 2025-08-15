@@ -11,9 +11,16 @@ import { connect } from "unistore/react";
 import CandidateIconKey from "../components/CandidateIconKey";
 import ElectionLinks from "../components/ElectionLinks";
 
-const Render = ({ selected, candidates, candidate_types }) => {
+import { useStore } from "../state";
+import { use } from "react";
+
+const Render = () => {
   let [open, setOpen] = useState(false);
   let [boardOpen, setBoardOpen] = useState(false);
+
+  const selected = useStore((state) => state.selected);
+  const candidates = useStore((state) => state.candidates);
+  const candidate_types = useStore((state) => state.candidate_types);
 
   // Get the list of candidates which is stored as a list of csv
   let selectedCandidates = selected
@@ -58,7 +65,6 @@ const Render = ({ selected, candidates, candidate_types }) => {
         // icon={<InfoIcon onClick={() => setOpen(true)} fontSize="large" />}
         subtitle={subtitle}
         dense={true}
-        height={"1600px"}
       >
         <WhoInfo open={open} onClose={() => setOpen(false)} />
         <BoardInfo open={boardOpen} onClose={() => setBoardOpen(false)} />
@@ -68,6 +74,7 @@ const Render = ({ selected, candidates, candidate_types }) => {
               title={key.display || "Error"}
               data={groupedCandidates[key.key] || []}
               type={key.key}
+              key={key.id}
               // pnz={pnzMayor}
             />
           );
@@ -82,7 +89,7 @@ const Render = ({ selected, candidates, candidate_types }) => {
   );
 };
 
-export default connect(["selected", "candidates", "candidate_types"])(Render);
+export default Render;
 
 const ExtrasContainer = styled.div`
   margin-top: 30px;

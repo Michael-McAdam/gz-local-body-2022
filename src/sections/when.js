@@ -8,12 +8,12 @@ import Countdown from "react-countdown";
 import { Stepper, Step, StepLabel } from "@mui/material";
 
 const labels = {
-  enrolBy: { label: "Enrolment Closes", time: new Date("2022-08-12") },
+  enrolBy: { label: "Enrolment Closes", time: new Date("2025-08-01") },
   starting: {
     label: "Voting Opens",
-    time: new Date("2022-09-16"),
+    time: new Date("2025-09-16"),
   },
-  ending: { label: "Voting Closes", time: new Date("2022-10-08") },
+  ending: { label: "Voting Closes", time: new Date("2025-10-11") },
 };
 
 const CountdownChooser = () => {

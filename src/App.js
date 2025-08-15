@@ -9,10 +9,7 @@ import Section from "./components/Section";
 import { ShareButton } from "./components/ShareButton";
 import DataConnect from "./data_connect";
 import Sections from "./sections";
-
-store.subscribe((state, actions) => {
-  console.log("State updated:", state);
-});
+import { useStore } from "./state";
 
 function App() {
   // let loaded = Object.keys(state.data.region).length > 0;
@@ -20,37 +17,36 @@ function App() {
   //   (a) => a.id === state.selected.region
   // )?.contact;
 
-  const loaded = true;
+  const loaded = useStore((state) => state.loaded);
 
   return (
-    <Provider store={store}>
-      <div>
-        <DataConnect />
-        <Background>
-          <AppContainer className="App">
-            {loaded ? (
-              <Sections />
-            ) : (
-              <Section>
-                <CircularProgress />
-              </Section>
-            )}
+    <div>
+      <DataConnect />
+      <Background>
+        <AppContainer className="App">
+          {loaded ? (
+            <Sections />
+          ) : (
+            <Section>
+              <CircularProgress />
+              <p>Loading data...</p>
+            </Section>
+          )}
 
-            <ShareButton
-              href={document.location.href}
-              style={{ position: "fixed", bottom: 10, left: 10 }}
-            />
-          </AppContainer>
-        </Background>
-      </div>
-    </Provider>
+          <ShareButton
+            href={document.location.href}
+            style={{ position: "fixed", bottom: 10, left: 10 }}
+          />
+        </AppContainer>
+      </Background>
+    </div>
   );
 }
 
 export default App;
 
 const Background = styled.div`
-  height: 100%;
+  height: 150%;
   width: 100%;
   background-color: #a4d1dd;
 `;

@@ -4,14 +4,14 @@ import styled from "@emotion/styled";
 import CandidateIcons from "./CandidateIcons";
 
 const render = ({ data, categories, type, url }) => {
-  
+  let maxNameWidth = data.Name.length * 8;
 
   return (
-    <Container className="Card" variant="outlined" title={data.comment}>
-      <a href={url} target="_blank" rel="noopener noreferrer">
-        <Content>
-          <Score>{data.Overall}</Score>
-          <Name>{data.Name}</Name>
+    <a href={url} target="_blank" rel="noopener noreferrer">
+      <Content>
+        <Score>{data.Overall}</Score>
+        <Name style={{ minWidth: `${maxNameWidth}px` }}>{data.Name}</Name>
+        <div>
           {type !== "board" && (
             <Table>
               <tbody>
@@ -27,41 +27,50 @@ const render = ({ data, categories, type, url }) => {
             </Table>
           )}
           <CandidateIcons data={data} />
-          {data.dna && (
-            <Tooltip
-              enterTouchDelay={0}
-              title="Candidate did not fill out our survey"
-            >
-              <ExtraInfo>*</ExtraInfo>
-            </Tooltip>
-          )}
-        </Content>
-      </a>
-    </Container>
+        </div>
+        {data.dna && (
+          <Tooltip
+            enterTouchDelay={0}
+            title="Candidate did not fill out our survey"
+          >
+            <ExtraInfo>*</ExtraInfo>
+          </Tooltip>
+        )}
+      </Content>
+    </a>
   );
 };
 
 export default render;
 
-const Container = styled.div`
-  min-height: 300;
-  width: fit-content;
+// const Container = styled.div`
+//   width: fit-content;
+//   /* min-height: fit-content; */
+//   /* height: 100%; */
+//   display: flex;
+//   flex-direction: column;
 
-  & > a {
-    color: inherit; /* blue colors for links too */
-    text-decoration: inherit; /* no underline */
-  }
-`;
+//   & > a {
+//     color: inherit; /* blue colors for links too */
+//     text-decoration: inherit; /* no underline */
+//   }
+// `;
 
 const Content = styled.div`
   width: fit-content;
-  display: inline-block;
+  min-width: 180px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
   padding: 10px 20px;
+  padding-top: 20px;
   position: relative;
   border: 1px solid black;
   border-radius: 20px;
-  height: 100%;
-  min-width: 150px;
 
   background-color: #ebdcb7;
 `;
@@ -71,23 +80,24 @@ const Score = styled.p`
   font-size: 2em;
   margin: 0;
   text-align: center;
-  margin-left: 5px;
-  width: 60%;
-  min-width: 90px;
+  width: 90px;
+  height: 90px;
+  aspect-ratio: 1 / 1;
   background-color: #e24f33;
-  border-radius: 50px;
-  margin: auto;
+  border-radius: 50%;
   color: #372f0b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Name = styled.p`
   font-weight: 900;
   font-size: 20px;
-  /* font-size: 0.7em; */
-  white-space: nowrap;
   margin: 0;
   text-align: center;
-  margin-bottom: 10px;
+  word-break: break-word;
+  white-space: normal;
 `;
 
 const Table = styled.table`

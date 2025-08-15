@@ -1,6 +1,5 @@
 import "../App.css";
 import styled from "@emotion/styled";
-import { Icon, Modal, Button, Chip } from "@mui/material";
 
 const Section = (props) => {
   return (
@@ -22,7 +21,7 @@ export default Section;
 const Container = styled.div`
   width: 100%;
   /* height: 100vh; */
-  height: ${(props) => (props.height ? props.height : "100vh")};
+  min-height: ${(props) => (props.height ? props.height : "100vh")};
   display: flex;
   flex-direction: column;
   align-items: center;

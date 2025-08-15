@@ -2,8 +2,8 @@ import "../App.css";
 import { Chip } from "@mui/material";
 import styled from "@emotion/styled";
 import { recordRegionSelected } from "../analytics";
-import { connect } from "unistore/react";
 import { useEffect } from "react";
+import { useStore } from "../state";
 
 var Scroll = require("react-scroll");
 var scroller = Scroll.scroller;
@@ -13,21 +13,11 @@ var scroller = Scroll.scroller;
  If there is only one result it "automatically" selects it (which required a little bit of bodging)
 */
 
-const actions = {
-  setSelected: (state, level, loc) => {
-    let selected = state.selected.slice(0, level + 1);
-    selected[level] = loc;
-    return { ...state, selected };
-  },
-};
+const RegionSection = ({ level, label, locations = [], selected }) => {
+  selected = selected || null;
 
-const RegionSection = ({
-  level,
-  label,
-  locations = [],
-  selected,
-  setSelected,
-}) => {
+  const setSelected = useStore((state) => state.setSelected);
+
   useEffect(() => {
     if (locations.length === 1 && !selected) {
       setSelected(level, locations[0]);
@@ -62,7 +52,7 @@ const RegionSection = ({
   );
 };
 
-export default connect([], actions)(RegionSection);
+export default RegionSection;
 
 const Container = styled.div`
   margin-top: 20px;

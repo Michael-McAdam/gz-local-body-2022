@@ -1,6 +1,6 @@
 import RoomIcon from "@mui/icons-material/Room";
 import styled from "@emotion/styled";
-import { hover } from "@testing-library/user-event/dist/hover";
+// import { hover } from "@testing-library/user-event/dist/hover";
 
 let colorLUT = {
   special: "#556a41",

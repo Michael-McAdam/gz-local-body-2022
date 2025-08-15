@@ -3,9 +3,6 @@ import styled from "@emotion/styled";
 import Scorecard from "./Scorecard";
 import { useEffect, useState } from "react";
 
-import { collection, getDocs, query, where } from "firebase/firestore";
-
-import { db } from "../firebase";
 import { sortBy } from "lodash/collection";
 
 let categories = [
@@ -107,29 +104,10 @@ const ScorecardContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: stretch;
   overflow-x: auto;
-  /* padding-bottom: 5px; */
-
-  & > .Card {
-    margin: 0 5px;
-    background-color: rgba(245, 245, 220, 0);
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-    /* border-color: white; */
-    /* color: white; */
-    border-color: #221f1f;
-    color: #221f1f;
-    border-radius: 5%;
-  }
-
-  & > .Card::-webkit-scrollbar {
-    display: none;
-  }
-`;
-
-const Title = styled.p`
-  font-size: 15px;
-  min-height: 150px;
+  height: fit-content;
+  gap: 10px;
 `;
 
 const Subtitle = styled.h2``;

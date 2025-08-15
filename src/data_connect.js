@@ -1,29 +1,26 @@
 import { useEffect } from "react";
 import { fetchAllTables } from "./coda";
-import store from "./state";
-import { connect } from "unistore/react";
+import { useStore } from "./state";
+import { set } from "lodash";
 
-const actions = {
-  addCodaData: (state, data) => {
-    // Merge Coda data into store.data
-    return {
-      ...state.data,
-      ...data,
-    };
-  },
-};
+function DataConnect() {
+  const setCodaData = useStore((state) => state.setCodaData);
+  const setLoaded = useStore((state) => state.setLoaded);
+  // Add other setters as needed for other tables
 
-function DataConnect({ addCodaData }) {
   useEffect(() => {
     fetchAllTables()
       .then((data) => {
-        addCodaData(data);
+        // Example: if data.region and data.where are returned
+        setCodaData(data);
+        setLoaded(true);
+        // Add more as needed
       })
       .catch((error) => {
         console.error("Error fetching Coda data:", error);
       });
-  }, []);
+  }, [setCodaData]);
   return null;
 }
 
-export default connect([], actions)(DataConnect);
+export default DataConnect;
