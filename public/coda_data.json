@@ -1125,7 +1125,7 @@
       "ending": "[object Object]",
       "parent": "676d61c9-608b-4b3f-9056-5e1b260944c0",
       "children": "d70707bc-0bb6-45ed-a99d-b3575b20c0bc,70ce60ed-d5ce-4a2f-8ae3-eee95af22ef6,eb82f530-c13d-48c9-ae8f-798738763fd8,b71c7905-44c3-49d9-8581-3f55feef3d13,1bc9a5a7-2b55-42b8-bad3-6ed656e90628,d34e93f1-a31f-4e17-8c95-29b7bdd161a6",
-      "candidates": "2,4,6",
+      "candidates": "2,4,6,18,17",
       "region": "Wellington"
     },
     {
@@ -3483,6 +3483,38 @@
   ],
   "candidates": [
     {
+      "id": "i-CW9ZnbjebK",
+      "Name": "Malcolm Whatever Long Name Even Longer Than Before",
+      "Type": "Mayor",
+      "Location": "Wellington Central",
+      "Overall": "C+",
+      "Transport": "A",
+      "Housing": "",
+      "Environmental": "",
+      "Equity": "",
+      "Te Tiriti": "",
+      "key": "mayor",
+      "exclude": false,
+      "rowID": 18,
+      "Icons": ""
+    },
+    {
+      "id": "i-h-iO_TaneE",
+      "Name": "Realy Test",
+      "Type": "Mayor",
+      "Location": "Wellington Central",
+      "Overall": "A",
+      "Transport": "A+",
+      "Housing": "A-",
+      "Environmental": "B",
+      "Equity": "B+",
+      "Te Tiriti": "B-",
+      "key": "mayor",
+      "exclude": false,
+      "rowID": 17,
+      "Icons": ""
+    },
+    {
       "id": "i-ZZu_a2ucxh",
       "Name": "Hello",
       "Type": "Local Councillor",
@@ -3496,7 +3528,7 @@
       "key": "local",
       "exclude": false,
       "rowID": 9,
-      "Select list": ""
+      "Icons": ""
     },
     {
       "id": "i-WpGvt3bY-D",
@@ -3512,14 +3544,14 @@
       "key": "mayor",
       "exclude": false,
       "rowID": 7,
-      "Select list": "Renter,Disabled"
+      "Icons": "Renter,Disabled"
     },
     {
       "id": "i-kRrmDq9KvU",
-      "Name": "Malcolm Whatever",
+      "Name": "Malcolm Whatever Long Name",
       "Type": "Mayor",
       "Location": "Wellington Central",
-      "Overall": "A",
+      "Overall": "C+",
       "Transport": "A",
       "Housing": "",
       "Environmental": "",
@@ -3528,30 +3560,14 @@
       "key": "mayor",
       "exclude": false,
       "rowID": 6,
-      "Select list": ""
-    },
-    {
-      "id": "i-clmAUNK9Ow",
-      "Name": "",
-      "Type": "Mayor",
-      "Location": "",
-      "Overall": "",
-      "Transport": "",
-      "Housing": "",
-      "Environmental": "",
-      "Equity": "",
-      "Te Tiriti": "",
-      "key": "mayor",
-      "exclude": false,
-      "rowID": 5,
-      "Select list": ""
+      "Icons": ""
     },
     {
       "id": "i-2yzFP0f02a",
       "Name": "Tested",
       "Type": "Mayor",
       "Location": "Wellington Central",
-      "Overall": "A",
+      "Overall": "A-",
       "Transport": "",
       "Housing": "A",
       "Environmental": "A",
@@ -3560,7 +3576,7 @@
       "key": "mayor",
       "exclude": false,
       "rowID": 4,
-      "Select list": ""
+      "Icons": ""
     },
     {
       "id": "i-eW0h77XCGP",
@@ -3576,14 +3592,14 @@
       "key": "regional",
       "exclude": false,
       "rowID": 1,
-      "Select list": ""
+      "Icons": ""
     },
     {
       "id": "i-3crGFPoHjs",
       "Name": "Test2",
       "Type": "Mayor",
       "Location": "Wellington Central",
-      "Overall": "A",
+      "Overall": "A+",
       "Transport": "A",
       "Housing": "A",
       "Environmental": "A",
@@ -3592,7 +3608,7 @@
       "key": "mayor",
       "exclude": false,
       "rowID": 2,
-      "Select list": ""
+      "Icons": "Renter,Rainbow"
     },
     {
       "id": "i-PRDWNhifHx",
@@ -3608,7 +3624,7 @@
       "key": "local",
       "exclude": false,
       "rowID": 3,
-      "Select list": ""
+      "Icons": ""
     }
   ],
   "candidate_types": [
@@ -3635,6 +3651,40 @@
       "Type": "Local Councillor",
       "key": "local",
       "display": "Local"
+    }
+  ],
+  "where": [
+    {
+      "id": "i-11lIUrd6Sd",
+      "District": "Auckland",
+      "link": "https://www.google.com/maps/place/Sky+Tower/@-36.8484501,174.7620545,21z",
+      "Name": "",
+      "type": "",
+      "latlng": "-36.84840330719872, 174.76218342067165"
+    },
+    {
+      "id": "i-0efSBFcxG1",
+      "District": "Wellington Central",
+      "link": "https://www.google.com/maps/place/Wellington+Central+Library+%7C+Te+Matapihi+Ki+Te+Ao+Nui/@-41.2822467,174.7620044,15z",
+      "Name": "Central Library",
+      "type": "",
+      "latlng": ""
+    },
+    {
+      "id": "i-h7vIiuosSL",
+      "District": "Wellington Central",
+      "link": "https://www.google.com/maps/place/The+Old+Bailey/@-41.2839701,174.7697122,16.15z",
+      "Name": "Old Bailey",
+      "type": "",
+      "latlng": ""
+    },
+    {
+      "id": "i-wQJbynh8i9",
+      "District": "Wellington Central",
+      "link": "https://www.google.com/maps/place/Te+Awe+Library/@-41.2833734,174.7737479,17z/data=!3m1!4b1!4m6!3m5!1s0x6d38af4dbba61b3d:0x739582476aee5a81!8m2!3d-41.2833734!4d174.7763228!16s%2Fg%2F11jvgn1_jt?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D",
+      "Name": "",
+      "type": "special",
+      "latlng": ""
     }
   ]
 }
