@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "local-body-2022"
-  }
+    "default": "local-body-2022",
+    "staging": "local-body-2022"
+  },
+  "targets": {},
+  "etags": {}
 }
