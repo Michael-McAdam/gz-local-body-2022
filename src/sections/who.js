@@ -22,6 +22,7 @@ const Render = () => {
     const candidates = useStore((state) => state.candidates);
     const candidate_types = useStore((state) => state.candidate_types);
 
+    console.log({ candidates, selected, candidate_types });
     // Get the list of candidates which is stored as a list of csv
     let selectedCandidates = selected
         .map((sel) => {
@@ -33,6 +34,8 @@ const Render = () => {
             });
         })
         .flat();
+
+    console.log({ selectedCandidates });
 
     // Group candidates by their type
     let groupedCandidates = selectedCandidates.reduce((acc, candidate) => {
@@ -83,6 +86,7 @@ const Render = () => {
                 <CandidateIconKey />
                 <ElectionLinks />
                 <p>* = didn't fill out our survey.</p>
+                <p>† = candidate submitted after deadline.</p>
             </ExtrasContainer>
         </Section>
     );

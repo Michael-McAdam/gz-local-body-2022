@@ -14,74 +14,74 @@ var scroller = Scroll.scroller;
 */
 
 const RegionSection = ({ level, label, locations = [], selected }) => {
-  selected = selected || null;
+    selected = selected || null;
 
-  const setSelected = useStore((state) => state.setSelected);
+    const setSelected = useStore((state) => state.setSelected);
 
-  useEffect(() => {
-    if (locations.length === 1 && !selected) {
-      setSelected(level, locations[0]);
+    useEffect(() => {
+        if (locations.length === 1 && !selected) {
+            setSelected(level, locations[0]);
+        }
+    }, [locations, selected]);
+
+    if (locations.length <= 1) {
+        return null;
     }
-  }, [locations, selected]);
 
-  if (locations.length <= 1) {
-    return null;
-  }
+    let locationDisplay = locations.map((loc, i) => {
+        let sel = selected?.coda_id === loc.coda_id;
+        return (
+            <Chip
+                key={loc.id}
+                label={loc.Name}
+                className="Chip"
+                color={sel ? "primary" : "secondary"}
+                sx={{
+                    transform: sel ? "scale(1.2)" : "",
+                }}
+                onClick={() => setSelected(level, loc)}
+            />
+        );
+    });
 
-  let locationDisplay = locations.map((loc, i) => {
-    let sel = selected?.UUID === loc.UUID;
     return (
-      <Chip
-        key={loc.id}
-        label={loc.Name}
-        className="Chip"
-        color={sel ? "primary" : "secondary"}
-        sx={{
-          transform: sel ? "scale(1.2)" : "",
-        }}
-        onClick={() => setSelected(level, loc)}
-      />
+        <Container key={label}>
+            <p>{label}</p>
+            <LocationsSection>{locationDisplay}</LocationsSection>
+        </Container>
     );
-  });
-
-  return (
-    <Container key={label}>
-      <p>{label}</p>
-      <LocationsSection>{locationDisplay}</LocationsSection>
-    </Container>
-  );
 };
 
 export default RegionSection;
 
 const Container = styled.div`
-  margin-top: 20px;
-  width: 100%;
-  text-align: center;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
 
-  & > p {
-    margin: 0;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: capitalize;
-    font-style: italic;
-  }
+    & > p {
+        margin: 0;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: capitalize;
+        font-style: italic;
+    }
 `;
 
 const LocationsSection = styled.div`
-  width: 90%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: space-between;
-  flex-wrap: wrap;
-  margin-top: 10px;
-  margin-left: auto;
-  margin-right: auto;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
 
-  & > .Chip {
-    /* color: white; */
-    /* color: #221f1f; */
-    margin: 2px 10px;
-  }
+    & > .Chip {
+        /* color: white; */
+        /* color: #221f1f; */
+        margin: 2px 10px;
+    }
 `;

@@ -16,10 +16,10 @@ const Region = () => {
     let disp = [];
     for (let i = 0; i < levels.length; i++) {
         // Always select the id of the previous level (or empty for first)
-        let parentId = i === 0 ? "" : selected[i - 1]?.UUID || "";
+        let parentId = i === 0 ? "" : selected[i - 1]?.coda_id || "";
 
         let locations = region.filter((a) => {
-            return a.parent == parentId;
+            return a.parent_id == parentId;
         });
 
         disp.push(

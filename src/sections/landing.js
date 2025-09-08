@@ -138,6 +138,6 @@ const ContinueButton = styled(Button)`
 const ButtonContainer = styled.div`
     /* margin-top: 150px; */
     position: absolute;
-    bottom: 10px;
+    bottom: 100px;
     font-size: 0.8em;
 `;

@@ -9,8 +9,9 @@ let categories = [
     "Overall",
     "Transport",
     "Housing",
-    "Environment",
     "Equity",
+    "Economic Justice",
+    "Environment",
     "Te Tiriti",
 ];
 
@@ -59,7 +60,7 @@ function Render({ title, data, type, icon }) {
         data.filter((x) => !x.exclude),
         [
             (candidate) => {
-                if (candidate.Overall === "-") {
+                if (candidate.Overall === "") {
                     return Infinity;
                 }
                 const base = candidate.Overall.charCodeAt(0) * 10;

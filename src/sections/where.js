@@ -45,7 +45,6 @@ const Body = () => {
     const selected = useStore((state) => state.selected);
     const special = useStore((state) => state.special);
     let loaded = true;
-    let test;
     const [tilesLoading, setTilesLoading] = useState(true);
 
     // Fix Leaflet marker icon issue
@@ -71,22 +70,18 @@ const Body = () => {
         return null;
     }
 
-    if (test) {
+    const selectedNames = selected.map((s) => s.Name);
+    const locations = where
+        ?.filter((loc) => special || loc.type !== "special")
+        .filter((loc) => loc.District && selectedNames.includes(loc.District));
+
+    if (locations.length === 0) {
         return (
             <ErrorContainer>
                 We haven't filled out the map data for your area
             </ErrorContainer>
         );
     }
-
-    const selectedNames = selected.map((s) => s.Name);
-    console.log(where);
-    console.log(special);
-    const locations = where
-        ?.filter((loc) => special || loc.type !== "special")
-        .filter((loc) => loc.District && selectedNames.includes(loc.District));
-
-    console.log("Locations:", locations);
 
     // Cleverness to extract lat/lng from link
     var locRegex = new RegExp("@(.*),(.*),");
@@ -207,7 +202,7 @@ const Render = () => {
         <Section
             title="WHERE?"
             id="where"
-            subtitle="All the locations in your area where you can drop off your voting pack"
+            subtitle="All the locations in your area where you pick up a special voting pack"
         >
             <Body />
         </Section>

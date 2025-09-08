@@ -12,49 +12,67 @@ import Sections from "./sections";
 import { useStore } from "./state";
 
 function App() {
-  // let loaded = Object.keys(state.data.region).length > 0;
-  // let contact = state.data.region.find(
-  //   (a) => a.id === state.selected.region
-  // )?.contact;
+    // let loaded = Object.keys(state.data.region).length > 0;
+    // let contact = state.data.region.find(
+    //   (a) => a.id === state.selected.region
+    // )?.contact;
 
-  const loaded = useStore((state) => state.loaded);
+    const loaded = useStore((state) => state.loaded);
 
-  return (
-    <div>
-      <DataConnect />
-      <Background>
-        <AppContainer className="App">
-          {loaded ? (
-            <Sections />
-          ) : (
-            <Section>
-              <CircularProgress />
-              <p>Loading data...</p>
-            </Section>
-          )}
+    const under_construction = false;
 
-          <ShareButton
-            href={document.location.href}
-            style={{ position: "fixed", bottom: 10, left: 10 }}
-          />
-        </AppContainer>
-      </Background>
-    </div>
-  );
+    if (under_construction) {
+        return (
+            <Background>
+                <AppContainer className="App">
+                    <Section>
+                        <h2>Under Construction</h2>
+                        <p>
+                            This site is currently being updated for the 2025
+                            election. Please check back soon!
+                        </p>
+                    </Section>
+                </AppContainer>
+            </Background>
+        );
+    }
+
+    return (
+        <div>
+            <DataConnect />
+            <Background>
+                <AppContainer className="App">
+                    {loaded ? (
+                        <Sections />
+                    ) : (
+                        <Section>
+                            <CircularProgress />
+                            <p>Loading data...</p>
+                        </Section>
+                    )}
+
+                    <ShareButton
+                        href={document.location.href}
+                        style={{ position: "fixed", bottom: 10, left: 10 }}
+                    />
+                </AppContainer>
+            </Background>
+        </div>
+    );
 }
 
 export default App;
 
 const Background = styled.div`
-  height: 150%;
-  width: 100%;
-  background-color: #a4d1dd;
+    height: 150%;
+    width: 100%;
+    background-color: #a4d1dd;
 `;
 
 const AppContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  height: 100%;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    width: 100%;
 `;

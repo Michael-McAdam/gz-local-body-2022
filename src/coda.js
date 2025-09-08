@@ -70,7 +70,10 @@ export async function fetchAllTables() {
         const result = {};
         for (const [key, tableId] of Object.entries(TABLE_IDS)) {
             const table = await coda.getTable(DOC_ID, tableId);
-            const rows = await table.listRows({ useColumnNames: true });
+            const rows = await table.listRows({
+                useColumnNames: true,
+                limit: 1000,
+            });
             result[key] = rows.map((row) => ({ id: row.id, ...row.values }));
         }
         return result;

@@ -8,11 +8,24 @@ const render = ({ data, categories, type, url }) => {
 
     maxNameWidth = Math.max(maxNameWidth, 150);
 
+    console.log(data);
     return (
-        <a href={url} target="_blank" rel="noopener noreferrer">
+        <div>
             <Content>
-                <Score>{data.Overall}</Score>
-                <Name style={{ width: `${maxNameWidth}px` }}>{data.Name}</Name>
+                {data.pnz && (
+                    <LinkOverlay
+                        href={data.pnz}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    />
+                )}
+                <Score>{data.Overall || "?"}</Score>
+                <div>
+                    <Name style={{ width: `${maxNameWidth}px` }}>
+                        {data.Name}
+                    </Name>
+                    {data.Iwi && <Iwi>{data.Iwi}</Iwi>}
+                </div>
                 <div>
                     {type !== "board" && (
                         <Table>
@@ -32,7 +45,7 @@ const render = ({ data, categories, type, url }) => {
                     )}
                     <CandidateIcons data={data} />
                 </div>
-                {data.dna && (
+                {!data.Overall && (
                     <Tooltip
                         enterTouchDelay={0}
                         title="Candidate did not fill out our survey"
@@ -40,8 +53,16 @@ const render = ({ data, categories, type, url }) => {
                         <ExtraInfo>*</ExtraInfo>
                     </Tooltip>
                 )}
+                {data.Overall && data.late && (
+                    <Tooltip
+                        enterTouchDelay={0}
+                        title="Candidate submitted their survey after the deadline"
+                    >
+                        <ExtraInfo>†</ExtraInfo>
+                    </Tooltip>
+                )}
             </Content>
-        </a>
+        </div>
     );
 };
 
@@ -70,13 +91,24 @@ const Content = styled.div`
     gap: 10px;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
-    padding-top: 20px;
+    padding: 20px 30px;
+    // padding-top: 20px;
     position: relative;
     border: 1px solid black;
     border-radius: 20px;
 
     background-color: #ebdcb7;
+`;
+
+const LinkOverlay = styled.a`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    text-decoration: none;
+    color: transparent;
 `;
 
 const Score = styled.p`
@@ -104,8 +136,18 @@ const Name = styled.p`
     white-space: normal;
 `;
 
+const Iwi = styled.p`
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #372f0b;
+    font-style: italic;
+`;
+
 const Table = styled.table`
-    width: 150px;
+    width: 200px;
     margin: 0 auto;
     border-collapse: collapse;
 `;
