@@ -28,7 +28,6 @@ const IconContainer = styled.div`
 
 export default function CandidateIcons({ data }) {
     const icons = data.Icons?.split(",").map((icon) => icon.trim()) || [];
-    console.log(icons);
 
     const iconDefs = [
         { key: "Renter", label: "Renter", Icon: RentIcon },

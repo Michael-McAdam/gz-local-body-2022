@@ -8,7 +8,6 @@ const render = ({ data, categories, type, url }) => {
 
     maxNameWidth = Math.max(maxNameWidth, 150);
 
-    console.log(data);
     return (
         <div>
             <Content>

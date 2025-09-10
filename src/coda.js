@@ -6,6 +6,7 @@
 // You must set CODA_API_KEY, DOC_ID, and TABLE_IDS in your environment or config
 
 import { Coda } from "coda-js";
+import { sortBy } from "lodash";
 
 // const { Coda } = require("coda-js");
 
@@ -73,6 +74,7 @@ export async function fetchAllTables() {
             const rows = await table.listRows({
                 useColumnNames: true,
                 limit: 1000,
+                sortBy: "natural", // <-- Ensures table order
             });
             result[key] = rows.map((row) => ({ id: row.id, ...row.values }));
         }

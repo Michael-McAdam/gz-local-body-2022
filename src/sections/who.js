@@ -19,14 +19,14 @@ const Render = () => {
     let [boardOpen, setBoardOpen] = useState(false);
 
     const selected = useStore((state) => state.selected);
-    const candidates = useStore((state) => state.candidates);
+    let candidates = useStore((state) => state.candidates);
     const candidate_types = useStore((state) => state.candidate_types);
 
     // Filter out regional-maori if no maori wards selected and vice versa
     if (selected.map((s) => s.Type).includes("māori-ward")) {
-        candidates.filter((c) => c.key !== "regional");
+        candidates = candidates.filter((c) => c.key !== "regional");
     } else {
-        candidates.filter((c) => c.key === "regional-maori");
+        candidates = candidates.filter((c) => c.key !== "regional-maori");
     }
     // Get the list of candidates which is stored as a list of csv
     let selectedCandidates = selected
@@ -55,6 +55,8 @@ const Render = () => {
         candidate_types?.filter((ct) => {
             return Object.keys(groupedCandidates)?.includes(ct.key);
         }) || [];
+
+    console.log({ candidate_types, keys, groupedCandidates });
 
     const subtitle = (
         <>
