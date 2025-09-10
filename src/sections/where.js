@@ -72,7 +72,7 @@ const Body = () => {
 
     const selectedNames = selected.map((s) => s.Name);
     const locations = where
-        ?.filter((loc) => special || loc.type !== "special")
+        // ?.filter((loc) => special || loc.type !== "special")
         .filter((loc) => loc.District && selectedNames.includes(loc.District));
 
     if (locations.length === 0) {
@@ -137,7 +137,7 @@ const Body = () => {
                 <MapContainer
                     zoom={defaultLoc.zoom}
                     style={{ width: "100%", height: "70vh" }}
-                    scrollWheelZoom={false}
+                    scrollWheelZoom="center"
                 >
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -175,7 +175,7 @@ const Body = () => {
                 </MapContainer>
             </MapWrapper>
 
-            {special && (
+            {/* {special && (
                 <KeyContainer>
                     <MarkerContainer>
                         <LegendIcon
@@ -192,7 +192,7 @@ const Body = () => {
                         <span>Special Vote Pickup</span>
                     </MarkerContainer>
                 </KeyContainer>
-            )}
+            )} */}
         </>
     );
 };
