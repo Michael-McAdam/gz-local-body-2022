@@ -22,11 +22,16 @@ const Render = () => {
     const candidates = useStore((state) => state.candidates);
     const candidate_types = useStore((state) => state.candidate_types);
 
-    console.log({ candidates, selected, candidate_types });
+    // Filter out regional-maori if no maori wards selected and vice versa
+    if (selected.map((s) => s.Type).includes("māori-ward")) {
+        candidates.filter((c) => c.key !== "regional");
+    } else {
+        candidates.filter((c) => c.key === "regional-maori");
+    }
     // Get the list of candidates which is stored as a list of csv
     let selectedCandidates = selected
         .map((sel) => {
-            let selectedList = sel.candidates.split(",");
+            let selectedList = sel.candidates?.split(",") || [];
             return selectedList.map((c) => {
                 return candidates.find(
                     (candidate) => String(candidate.rowID) === String(c)

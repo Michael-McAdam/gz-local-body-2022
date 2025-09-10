@@ -1,1 +1,9 @@
-export const levels = ["region", "district", "ward", "board", "subdivision"];
+export const levels = [
+    "roll",
+    "region",
+    "maori-ward",
+    "district",
+    "ward",
+    "board",
+    "subdivision",
+];

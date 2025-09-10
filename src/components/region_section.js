@@ -28,8 +28,11 @@ const RegionSection = ({ level, label, locations = [], selected }) => {
         return null;
     }
 
+    label = locations[0]?.Type || label || "Select";
+    label = label.replace("-", " ");
+
     let locationDisplay = locations.map((loc, i) => {
-        let sel = selected?.coda_id === loc.coda_id;
+        let sel = selected?.id === loc.id;
         return (
             <Chip
                 key={loc.id}
