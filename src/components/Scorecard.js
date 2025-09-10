@@ -44,20 +44,12 @@ const render = ({ data, categories, type, url }) => {
                     )}
                     <CandidateIcons data={data} />
                 </div>
-                {!data.Overall && (
-                    <Tooltip
-                        enterTouchDelay={0}
-                        title="Candidate did not fill out our survey"
-                    >
-                        <ExtraInfo>*</ExtraInfo>
-                    </Tooltip>
-                )}
                 {data.Overall && data.late && (
                     <Tooltip
                         enterTouchDelay={0}
                         title="Candidate submitted their survey after the deadline"
                     >
-                        <ExtraInfo>†</ExtraInfo>
+                        <ExtraInfo>*</ExtraInfo>
                     </Tooltip>
                 )}
             </Content>

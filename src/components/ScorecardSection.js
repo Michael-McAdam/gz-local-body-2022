@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { sortBy } from "lodash/collection";
 
 let categories = [
-    "Overall",
+    // "Overall",
     "Transport",
     "Housing",
     "Equity",
@@ -51,8 +51,8 @@ function Render({ title, data, type, icon }) {
             (candidate) =>
                 candidate[cat] !== undefined &&
                 candidate[cat] !== null &&
-                candidate[cat] !== "" &&
-                candidate[cat] !== "-"
+                candidate[cat] !== ""
+            // && candidate[cat] !== "-"
         )
     );
 

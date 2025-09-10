@@ -5,6 +5,9 @@ import DisabledIcon from "@mui/icons-material/AccessibleForward";
 import MaoriIcon from "@mui/icons-material/Foundation";
 import styled from "@emotion/styled";
 
+import { iconDefs } from "./CandidateIcons";
+import { icon } from "leaflet";
+
 const iconStyle = {
     borderRadius: "50%",
     padding: "4px",
@@ -43,22 +46,12 @@ const IconKeyItem = styled.div`
 export default function CandidateIconKey() {
     return (
         <IconKey>
-            <IconKeyItem>
-                <RentIcon sx={{ ...iconStyle }} />
-                <span>- Renter </span>
-            </IconKeyItem>
-            <IconKeyItem>
-                <RainbowIcon sx={{ ...iconStyle }} />
-                <span>- Rainbow/Takatāpui </span>
-            </IconKeyItem>
-            <IconKeyItem>
-                <AgeIcon sx={{ ...iconStyle }} />
-                <span>- Under 40 </span>
-            </IconKeyItem>
-            <IconKeyItem>
-                <DisabledIcon sx={{ ...iconStyle }} />
-                <span>- Disabled </span>
-            </IconKeyItem>
+            {iconDefs.map(({ key, label, Icon }) => (
+                <IconKeyItem key={key}>
+                    <Icon sx={{ ...iconStyle }} />
+                    <span>- {label} </span>
+                </IconKeyItem>
+            ))}
         </IconKey>
     );
 }

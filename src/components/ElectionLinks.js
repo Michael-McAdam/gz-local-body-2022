@@ -20,7 +20,8 @@ export default function ElectionLinks() {
     return (
         <>
             <span>
-                Don't just take our word for it! More info on local elections:{" "}
+                Don't just take our word for it! More info on local elections
+                candidates:{" "}
             </span>
             {visibleLinks.map((link, i) => (
                 <React.Fragment key={link.label}>
