@@ -63,6 +63,9 @@ function Render({ title, data, type, icon }) {
                 if (candidate.Overall === "") {
                     return Infinity;
                 }
+                if (candidate.Overall === "-") {
+                    return 100000;
+                }
                 const base = candidate.Overall.charCodeAt(0) * 10;
                 if (candidate.Overall.length === 1) {
                     return base;

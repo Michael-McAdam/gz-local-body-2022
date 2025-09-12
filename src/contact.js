@@ -42,16 +42,17 @@ const Footer = styled.div`
 `;
 
 // Connect to Unistore and map state to props
-const mapStateToProps = (state) => {
-    // Example: get contact from region data
-    let contact = null;
-    if (state.data && state.selected && state.data.region) {
-        const selectedRegion = state.data.region.find(
-            (a) => a.id === state.selected.region
-        );
-        if (selectedRegion) contact = selectedRegion.contact;
-    }
-    return { contact };
-};
+// const mapStateToProps = (state) => {
+//     // Example: get contact from region data
+//     let contact = null;
+//     if (state.data && state.selected && state.data.region) {
+//         const selectedRegion = state.data.region.find(
+//             (a) => a.id === state.selected.region
+//         );
+//         if (selectedRegion) contact = selectedRegion.contact;
+//     }
+//     return { contact };
+// };
 
-export default connect(mapStateToProps)(Contact);
+// export default connect(mapStateToProps)(Contact);
+export default Contact;

@@ -44,6 +44,11 @@ export const iconDefs = [
         label: "Affiliated with a political party",
         Icon: PartyAffiliated,
     },
+    // {
+    //     key: "Palestine",
+    //     label: "Affiliated with a political party",
+    //     Icon: PartyAffiliated,
+    // },
 ];
 
 export default function CandidateIcons({ data }) {

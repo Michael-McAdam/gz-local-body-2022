@@ -92,8 +92,9 @@ const Render = () => {
             <ExtrasContainer>
                 <CandidateIconKey />
                 <ElectionLinks />
-                <p>* = didn't fill out our survey.</p>
-                <p>† = candidate submitted after deadline.</p>
+                <p>* = candidate submitted after deadline.</p>
+                <p>** = candidate declined to fill our survey.</p>
+                <p>† = candidate is running unopposed.</p>
             </ExtrasContainer>
         </Section>
     );

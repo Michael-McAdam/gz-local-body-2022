@@ -44,12 +44,28 @@ const render = ({ data, categories, type, url }) => {
                     )}
                     <CandidateIcons data={data} />
                 </div>
-                {data.Overall && data.late && (
+                {data.late && (
                     <Tooltip
                         enterTouchDelay={0}
                         title="Candidate submitted their survey after the deadline"
                     >
                         <ExtraInfo>*</ExtraInfo>
+                    </Tooltip>
+                )}
+                {data.unopposed && (
+                    <Tooltip
+                        enterTouchDelay={0}
+                        title="Candidate is running unopposed"
+                    >
+                        <ExtraInfo>†</ExtraInfo>
+                    </Tooltip>
+                )}
+                {data.refused && (
+                    <Tooltip
+                        enterTouchDelay={0}
+                        title="Candidate declined to fill our survey"
+                    >
+                        <ExtraInfo>**</ExtraInfo>
                     </Tooltip>
                 )}
             </Content>
@@ -158,6 +174,7 @@ const ScoreCell = styled.td`
 
 const ExtraInfo = styled.div`
     position: absolute;
-    top: 5px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
 `;

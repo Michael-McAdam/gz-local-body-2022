@@ -137,7 +137,7 @@ const Body = () => {
                 <MapContainer
                     zoom={defaultLoc.zoom}
                     style={{ width: "100%", height: "70vh" }}
-                    scrollWheelZoom="center"
+                    scrollWheelZoom={false}
                 >
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
