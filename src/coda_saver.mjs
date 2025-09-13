@@ -18,8 +18,23 @@ async function saveCodaDataToFile() {
     const result = {};
     for (const [key, tableId] of Object.entries(TABLE_IDS)) {
         const table = await coda.getTable(DOC_ID, tableId);
-        const rows = await table.listRows({ useColumnNames: true });
-        result[key] = rows.map((row) => ({ id: row.id, ...row.values }));
+        let allRows = [];
+        let nextPageToken = null;
+        let response = null;
+
+        do {
+            response = await table.listRowsPaginatedByToken({
+                useColumnNames: true,
+                limit: 500, // Max allowed per request
+                sortBy: "natural",
+                pageToken: nextPageToken,
+            });
+
+            allRows = allRows.concat(response.items || []);
+            nextPageToken = response.token;
+        } while (response?.token !== undefined);
+
+        result[key] = allRows.map((row) => ({ id: row.id, ...row.values }));
     }
     fs.writeFileSync(LOCAL_DATA_PATH, JSON.stringify(result, null, 2), "utf-8");
     console.log(`Coda data saved to ${LOCAL_DATA_PATH}`);

@@ -5,6 +5,7 @@ import DisabledIcon from "@mui/icons-material/AccessibleForward";
 import MaoriIcon from "@mui/icons-material/Foundation";
 import Independent from "@mui/icons-material/Person";
 import PartyAffiliated from "@mui/icons-material/Groups";
+import { QueryStats } from "@mui/icons-material";
 import Box from "@mui/material/Box";
 import Tooltip from "@mui/material/Tooltip";
 import { visuallyHidden } from "@mui/utils";
@@ -44,11 +45,11 @@ export const iconDefs = [
         label: "Affiliated with a political party",
         Icon: PartyAffiliated,
     },
-    // {
-    //     key: "Palestine",
-    //     label: "Affiliated with a political party",
-    //     Icon: PartyAffiliated,
-    // },
+    {
+        key: "BDS",
+        label: "Supports divestment and/or sanctions on Israel",
+        Icon: QueryStats,
+    },
 ];
 
 export default function CandidateIcons({ data }) {

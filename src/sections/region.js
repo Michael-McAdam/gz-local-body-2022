@@ -84,7 +84,6 @@ const Region = () => {
             !last?.hasChildren &&
             last?.Type !== maori_ward_type
         ) {
-            console.log("Scrolling to who section");
             scroller.scrollTo("who", {
                 duration: 500,
                 smooth: true,

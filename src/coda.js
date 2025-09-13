@@ -6,7 +6,6 @@
 // You must set CODA_API_KEY, DOC_ID, and TABLE_IDS in your environment or config
 
 import { Coda } from "coda-js";
-import { sortBy } from "lodash";
 
 // const { Coda } = require("coda-js");
 
@@ -57,7 +56,7 @@ export const TABLE_IDS = {
 
 // Set to true to use local JSON, false to fetch from Coda and save
 
-export const USE_LOCAL_DATA = false;
+export const USE_LOCAL_DATA = true;
 
 export async function fetchAllTables() {
     if (USE_LOCAL_DATA) {

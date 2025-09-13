@@ -56,7 +56,6 @@ const Body = () => {
         });
     }, []);
     // ...existing code...
-    console.log(selected);
 
     if (selected.filter((sel) => sel.Type === "district").length === 0) {
         return (

@@ -5,6 +5,8 @@ import CandidateIcons from "./CandidateIcons";
 
 const render = ({ data, categories, type, url }) => {
     let maxNameWidth = data.Name.length * 8;
+    let maxIwiWidth = data.Iwi ? data.Iwi.length * 5 : 0;
+    maxNameWidth = Math.max(maxNameWidth, maxIwiWidth);
 
     maxNameWidth = Math.max(maxNameWidth, 150);
 
@@ -19,12 +21,10 @@ const render = ({ data, categories, type, url }) => {
                     />
                 )}
                 <Score>{data.Overall || "?"}</Score>
-                <div>
-                    <Name style={{ width: `${maxNameWidth}px` }}>
-                        {data.Name}
-                    </Name>
+                <NameContainer style={{ width: `${maxNameWidth}px` }}>
+                    <Name>{data.Name}</Name>
                     {data.Iwi && <Iwi>{data.Iwi}</Iwi>}
-                </div>
+                </NameContainer>
                 <div>
                     {type !== "board" && (
                         <Table>
@@ -105,6 +105,12 @@ const Content = styled.div`
     border-radius: 20px;
 
     background-color: #ebdcb7;
+`;
+
+const NameContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;
 
 const LinkOverlay = styled.a`

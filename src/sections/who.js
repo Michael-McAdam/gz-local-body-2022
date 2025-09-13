@@ -40,7 +40,7 @@ const Render = () => {
         })
         .flat();
 
-    console.log({ selectedCandidates });
+    // console.log({ selectedCandidates });
 
     // Group candidates by their type
     let groupedCandidates = selectedCandidates.reduce((acc, candidate) => {
@@ -56,7 +56,7 @@ const Render = () => {
             return Object.keys(groupedCandidates)?.includes(ct.key);
         }) || [];
 
-    console.log({ candidate_types, keys, groupedCandidates });
+    // console.log({ candidate_types, keys, groupedCandidates });
 
     const subtitle = (
         <>
