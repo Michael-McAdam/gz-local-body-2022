@@ -1,7 +1,7 @@
 export { default as EnrolSection } from "./enrol";
 export { default as Region } from "./region";
 export { default as HowSection } from "./how";
-export { default as WhatSection } from "./what";
+// export { default as WhatSection } from "./what";
 export { default as WhenSection } from "./when";
 export { default as WhereSection } from "./where";
 export { default as WhoSection } from "./who";
