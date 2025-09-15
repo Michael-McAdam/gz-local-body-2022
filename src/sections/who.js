@@ -92,7 +92,7 @@ const Render = () => {
             <ExtrasContainer>
                 <CandidateIconKey />
                 <ElectionLinks />
-                <p>* = candidate submitted after deadline.</p>
+                <p>* = candidate submitted survey after scorecard launch.</p>
                 <p>** = candidate declined to fill our survey.</p>
                 <p>† = candidate is running unopposed.</p>
             </ExtrasContainer>

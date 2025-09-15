@@ -45,14 +45,31 @@ function Render({ open, onClose }) {
                 </p>
 
                 <p>
-                    Final scores are based on candidates’ survey responses. The
-                    survey was composed of different types of multiple choice
-                    questions, and asked candidates to prioritise certain
+                    Scores are based <b>solely</b> on candidates’ survey
+                    responses. Scores were only given to candidates that filled
+                    out the survey (question mark symbols on scorecards indicate
+                    that candidates did not fill out the survey) and were given
+                    manually by GZ volunteers.
+                </p>
+
+                <p>
+                    The survey was composed of different types of multiple
+                    choice questions, and asked candidates to prioritise certain
                     projects in their areas and to demonstrate their values.
                     Candidates were also invited to elaborate on their answers.
                     The answers to all questions, including additional
                     elaboration, were considered when grading candidates’
-                    responses.
+                    responses. Surveys had regional specificity on certain
+                    questions. This is an example of a survey we sent to
+                    candidates:{" "}
+                    <a
+                        href="/assets/Generation-Zero-Survey-Template.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        survey template
+                    </a>
+                    .
                 </p>
 
                 <p>
@@ -64,21 +81,12 @@ function Render({ open, onClose }) {
                         Transport, Housing, Equity and Decision-making, Economic
                         Justice, Environment,
                     </b>{" "}
-                    and <b>Te Tiriti.</b> Their responses to these categories –
-                    alongside their commitment to supporting the Boycott,
-                    Divestment and Sanctions movement in solidarity with
-                    Palestine – were weighted to create a final grade.
-                </p>
-
-                <p>
-                    You can read the questions yourself{" "}
-                    <a
-                        href="/assets/Generation-Zero-Survey-Template.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        here
-                    </a>
+                    and <b>Te Tiriti.</b> Their responses to these categories
+                    were weighted equally to create a final grade. Our
+                    scorecards also highlight candidates’ commitments to
+                    supporting the Boycott, Divestment and Sanctions movement in
+                    solidarity with Palestine, but did not contribute to the
+                    overall scorecard grade.
                 </p>
 
                 <p>
