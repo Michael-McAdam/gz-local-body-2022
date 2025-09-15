@@ -71,6 +71,17 @@ function Render({ open, onClose }) {
                 </p>
 
                 <p>
+                    You can read the questions yourself{" "}
+                    <a
+                        href="/assets/Generation-Zero-Survey-Template.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        here
+                    </a>
+                </p>
+
+                <p>
                     We would like to express our deepest gratitude to those who
                     supported us through creating these scorecards. Alongside
                     our members and supporters, we have been supported by:
