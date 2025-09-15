@@ -42,7 +42,7 @@ export const iconDefs = [
     { key: "Independent", label: "Independent", Icon: Independent },
     {
         key: "Party-Affiliated",
-        label: "Affiliated with a political party",
+        label: "Listed a party / group affiliation",
         Icon: PartyAffiliated,
     },
     {
