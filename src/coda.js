@@ -23,6 +23,7 @@ export const TABLE_IDS = {
     candidates: "grid-06lP-Bmo3f",
     candidate_types: "grid-5PaDvUpsgX",
     where: "grid-OelporJi20",
+    faq: "grid-c1c1Gsc8fM",
 };
 
 // const BASE_URL = `https://coda.io/apis/v1/docs/${DOC_ID}/tables`;

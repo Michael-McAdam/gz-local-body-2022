@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import Section from "../components/Section";
 import { Link } from "react-scroll";
 import { AutoScaler } from "../components/AutoScaler";
+import { Link as RouterLink } from "react-router-dom";
 
 function LandingSection() {
     return (
@@ -140,4 +141,7 @@ const ButtonContainer = styled.div`
     position: absolute;
     bottom: 100px;
     font-size: 0.8em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;

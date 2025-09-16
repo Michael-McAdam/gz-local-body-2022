@@ -13,6 +13,7 @@ import ElectionLinks from "../components/ElectionLinks";
 
 import { useStore } from "../state";
 import { use } from "react";
+import { Link as RouterLink } from "react-router-dom";
 
 const Render = () => {
     let [open, setOpen] = useState(false);
@@ -60,11 +61,16 @@ const Render = () => {
 
     const subtitle = (
         <>
-            We researched the candidates so that you don't have to. Our scoring
-            process can be found{" "}
-            <a href="#" onClick={() => setOpen(true)}>
-                here
-            </a>
+            <SubtitleLine>
+                We researched the candidates so that you don't have to. Our
+                scoring process can be found{" "}
+                <a href="#" onClick={() => setOpen(true)}>
+                    here
+                </a>
+            </SubtitleLine>
+            <SubtitleLine>
+                Have questions? See our <RouterLink to="/faq">FAQ</RouterLink>.
+            </SubtitleLine>
         </>
     );
 
@@ -111,34 +117,8 @@ const ExtrasContainer = styled.div`
     }
 `;
 
-const IconKey = styled.div`
-    font-size: 14px;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    & > span {
-        font-style: italic;
-        margin-right: 10px;
-        margin-left: 5px;
-    }
-`;
-
-const IconKeyItem = styled.div`
+const SubtitleLine = styled.p`
+    all: unset;
+    display: block;
     margin-bottom: 5px;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    & > span {
-        font-style: italic;
-        margin-right: 10px;
-        margin-left: 5px;
-    }
 `;
