@@ -10,6 +10,8 @@ import { ShareButton } from "./components/ShareButton";
 import DataConnect from "./data_connect";
 import Sections from "./sections";
 import { useStore } from "./state";
+import FAQ from "./sections/FAQ";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
     // let loaded = Object.keys(state.data.region).length > 0;
@@ -38,26 +40,33 @@ function App() {
     }
 
     return (
-        <div>
+        <BrowserRouter>
             <DataConnect />
             <Background>
                 <AppContainer className="App">
-                    {loaded ? (
-                        <Sections />
-                    ) : (
-                        <Section>
-                            <CircularProgress />
-                            <p>Loading data...</p>
-                        </Section>
-                    )}
-
+                    <Routes>
+                        <Route path="/faq" element={<FAQ />} />
+                        <Route
+                            path="*"
+                            element={
+                                loaded ? (
+                                    <Sections />
+                                ) : (
+                                    <Section>
+                                        <CircularProgress />
+                                        <p>Loading data...</p>
+                                    </Section>
+                                )
+                            }
+                        />
+                    </Routes>
                     <ShareButton
                         href={document.location.href}
                         style={{ position: "fixed", bottom: 10, left: 10 }}
                     />
                 </AppContainer>
             </Background>
-        </div>
+        </BrowserRouter>
     );
 }
 
@@ -67,6 +76,7 @@ const Background = styled.div`
     height: 150%;
     width: 100%;
     background-color: #a4d1dd;
+    min-height: 100vh;
 `;
 
 const AppContainer = styled.div`

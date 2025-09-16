@@ -9,3 +9,5 @@ export { default as WhySection } from "./why";
 export { default as LandingSection } from "./landing";
 export { default as LandingEndedSection } from "./landing_ended";
 export { default as RegionSection } from "./region";
+
+export { default as FAQ } from "./FAQ";

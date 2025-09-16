@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import Section from "../components/Section";
 import { Link } from "react-scroll";
 import { AutoScaler } from "../components/AutoScaler";
+import { Link as RouterLink } from "react-router-dom";
 
 function LandingSection() {
     return (
@@ -40,6 +41,15 @@ function LandingSection() {
                             Get Started
                         </ContinueButton>
                     </Link>
+                    <FAQButton
+                        to="/faq"
+                        component={RouterLink}
+                        variant="outlined"
+                        size="large"
+                        style={{ marginTop: 24 }}
+                    >
+                        FAQ
+                    </FAQButton>
                     <Subtitle>
                         {" "}
                         <i>
@@ -140,4 +150,19 @@ const ButtonContainer = styled.div`
     position: absolute;
     bottom: 100px;
     font-size: 0.8em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+
+const FAQButton = styled(Button)`
+    font-weight: 600;
+    font-family: "Barlow Condensed", "Helvetica", "Arial", sans-serif;
+    color: #221f1f;
+    border-color: #e24f33;
+    margin-top: 16px;
+    &:hover {
+        background: #f8e8d8;
+        border-color: #e24f33;
+    }
 `;

@@ -23,6 +23,7 @@ export const TABLE_IDS = {
     candidates: "grid-06lP-Bmo3f",
     candidate_types: "grid-5PaDvUpsgX",
     where: "grid-OelporJi20",
+    faq: "grid-c1c1Gsc8fM",
 };
 
 // const BASE_URL = `https://coda.io/apis/v1/docs/${DOC_ID}/tables`;
@@ -56,7 +57,7 @@ export const TABLE_IDS = {
 
 // Set to true to use local JSON, false to fetch from Coda and save
 
-export const USE_LOCAL_DATA = true;
+export const USE_LOCAL_DATA = false;
 
 export async function fetchAllTables() {
     if (USE_LOCAL_DATA) {
