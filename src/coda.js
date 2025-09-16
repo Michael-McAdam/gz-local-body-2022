@@ -57,7 +57,7 @@ export const TABLE_IDS = {
 
 // Set to true to use local JSON, false to fetch from Coda and save
 
-export const USE_LOCAL_DATA = false;
+export const USE_LOCAL_DATA = true;
 
 export async function fetchAllTables() {
     if (USE_LOCAL_DATA) {

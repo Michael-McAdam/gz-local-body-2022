@@ -13,7 +13,6 @@ import {
     LandingSection,
 } from "./sections/index";
 
-import { db } from "./firebase";
 import { ShareButton } from "./components/ShareButton";
 import Contact from "./contact";
 
