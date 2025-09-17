@@ -1,12 +1,17 @@
 // Usage: node src/coda_saver.mjs
+
 import { Coda } from "coda-js";
 import fs from "fs";
 import path from "path";
-// Attempt named import first; fallback to default export if Node treats coda.js as CommonJS
-import * as codaModule from "./coda.js";
-const { CODA_API_KEY, DOC_ID, TABLE_IDS } = codaModule.CODA_API_KEY
-    ? codaModule
-    : codaModule.default;
+
+// Load config from coda_config.json
+const codaConfig = JSON.parse(
+    fs.readFileSync(path.resolve("./src/coda_config.json"), "utf-8")
+);
+const CODA_API_KEY = codaConfig.CODA_API_KEY;
+const DOC_ID = codaConfig.DOC_ID;
+const TABLE_IDS = codaConfig.TABLE_IDS;
+const USE_LOCAL_DATA = codaConfig.USE_LOCAL_DATA;
 
 import readline from "readline";
 
