@@ -99,7 +99,7 @@ const Render = () => {
                 <CandidateIconKey />
                 <ElectionLinks />
                 <p>* = candidate submitted survey after scorecard launch.</p>
-                <p>** = candidate declined to fill our survey.</p>
+                <p>** = candidate declined to fill out survey.</p>
                 <p>† = candidate is running unopposed.</p>
             </ExtrasContainer>
         </Section>
