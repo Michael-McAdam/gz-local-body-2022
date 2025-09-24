@@ -69,6 +69,14 @@ function Render({ open, onClose }) {
                     >
                         survey template
                     </a>
+                    . You can find the scoring rubric {" "}
+                    <a
+                        href="https://www.generationzero.org/scorecards_rubric"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        here
+                    </a>
                     .
                 </p>
 
