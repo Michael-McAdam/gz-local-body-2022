@@ -52,6 +52,14 @@ function LandingSection() {
                             >
                                 Vote NZ
                             </a>
+                            <br/>Questions about our process? See our{" "}
+                            <a
+                                href="https://localelections.nz/faq"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                FAQ
+                            </a>
                         </i>
                     </Subtitle>
                 </ButtonContainer>
